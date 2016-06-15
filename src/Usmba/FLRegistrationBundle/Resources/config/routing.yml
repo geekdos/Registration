@@ -1,0 +1,3 @@
+usmba_fl_registration_homepage:
+    path:     /
+    defaults: { _controller: UsmbaFLRegistrationBundle:Default:index }

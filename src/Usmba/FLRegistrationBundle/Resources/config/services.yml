@@ -1,0 +1,4 @@
+services:
+#    usmba_fl_registration.example:
+#        class: Usmba\FLRegistrationBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
