@@ -1,13 +1,124 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# META SECTION #}
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        {# END META SECTION #}
+
+        <title>{{ "now"|date("Y") }}-Inscription{% block title %}{% endblock %}</title>
+
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {# CSS INCLUDE #}
+        <link rel="stylesheet" type="text/css" id="theme" href="{{ asset("bundles/css/theme-default.css") }}"/>
+        <link rel="stylesheet" type="text/css" id="theme1" href="{{ asset("bundles/css/geekdos/css/app.css") }}"/>
+        {#  EOF CSS INCLUDE #}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <!-- START PAGE CONTAINER -->
+    <div class="page-container page-navigation-top page-navigation-top-custom">
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+        {% block navigation %}
+            <!-- START X-NAVIGATION VERTICAL -->
+            <ul class="x-navigation x-navigation-horizontal">
+                <li class="xn-navigation-control">
+                    <a href="#" class="x-navigation-control"></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="{{ path('usmba_fl_registration_homepage') }}"><span class="fa fa-home"></span> <span
+                                class="xn-text">Home</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="{{ path('usmba_fl_registration_bac_plus_deux') }}"><span class="fa fa-graduation-cap"></span> <span
+                                class="xn-text">Bac + 2</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="{{ path('usmba_fl_registration_license') }}"><span class="fa fa-graduation-cap"></span> <span class="xn-text">License</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="{{ path('usmba_fl_registration_master') }}"><span class="fa fa-graduation-cap"></span> <span
+                                class="xn-text">Master</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="{{ path('usmba_fl_registration_doctorat') }}"><span class="fa fa-graduation-cap"></span> <span
+                                class="xn-text">Doctorat</span></a>
+                </li>
+            </ul>
+            <!-- END X-NAVIGATION VERTICAL -->
+        {% endblock navigation %}
+            <!-- PAGE CONTENT WRAPPER -->
+            <div class="page-content-wrap">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        {% block body %}{% endblock body %}
+                                    </div>
+                                    <div class="col-md-3">
+                                        {% include 'include/rightSideBar.html.twig' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE CONTENT WRAPPER -->
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+    <div class="footer-section">
+        <hr>
+        <p class="lead text-center">
+            Copyright 2016 - {{ "now" | date("Y") }} - <span class="text-warning">ENSAF</span> - inscription en ligne des candidats dans la faculté des litre sais - Fes - <span class="text-primary"> KHACHIAI OUSSAMA et LAHKIM AYOUB </span>
+        </p>
+    </div>
+
+    <!-- END PAGE CONTAINER -->
+        {% block message_box %}
+            <!-- MESSAGE BOX-->
+            <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+                <div class="mb-container">
+                    <div class="mb-middle">
+                        <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                        <div class="mb-content">
+                            <p>Are you sure you want to log out?</p>
+                            <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                        </div>
+                        <div class="mb-footer">
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-success btn-lg">OUI</a>
+                                <button class="btn btn-default btn-lg mb-control-close">NON</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MESSAGE BOX-->
+        {% endblock %}
+        {% block javascripts %}
+            <!-- START PRELOADS -->
+            <audio id="audio-alert" src="{{ asset("bundles/audio/alert.mp3") }}" preload="auto"></audio>
+            <audio id="audio-fail" src="{{ asset("bundles/audio/fail.mp3") }}" preload="auto"></audio>
+            <!-- END PRELOADS -->
+
+            <!-- START PLUGINS -->
+            <script type="text/javascript" src="{{ asset("bundles/js/plugins/jquery/jquery.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("bundles/js/plugins/jquery/jquery-1.9.1.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("bundles/js/plugins/jquery/jquery-ui.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("bundles/js/plugins/bootstrap/bootstrap.min.js") }}"></script>
+            <!-- END PLUGINS -->
+
+            <script type="text/javascript" src="{{ asset("bundles/js/plugins.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("bundles/js/actions.js") }}"></script>
+        {% endblock javascripts %}
+        {% block jsPages %}{% endblock jsPages %}
     </body>
 </html>

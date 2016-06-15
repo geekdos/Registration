@@ -1,0 +1,19 @@
+usmba_fl_registration_homepage:
+    path:     /
+    defaults: { _controller: UsmbaFLRegistrationBundle:Default:index }
+
+usmba_fl_registration_bac_plus_deux:
+    path:     /bacPlusDeux
+    defaults: { _controller: UsmbaFLRegistrationBundle:BacPlusDeux:bacPlusDeux }
+
+usmba_fl_registration_license:
+    path:     /license
+    defaults: { _controller: UsmbaFLRegistrationBundle:License:license }
+
+usmba_fl_registration_master:
+    path:     /master
+    defaults: { _controller: UsmbaFLRegistrationBundle:Master:master }
+
+usmba_fl_registration_doctorat:
+    path:     /doctorat
+    defaults: { _controller: UsmbaFLRegistrationBundle:Doctorat:doctorat }
