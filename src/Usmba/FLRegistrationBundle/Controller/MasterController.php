@@ -8,7 +8,7 @@ class MasterController extends Controller
 {
     public function masterAction()
     {
-        return $this->render('InscriptionBundle:Master:master.html.twig', array(
+        return $this->render('Master/master.html.twig', array(
             // ...
         ));
     }

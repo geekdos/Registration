@@ -8,7 +8,7 @@ class DoctoratController extends Controller
 {
     public function doctoratAction()
     {
-        return $this->render('InscriptionBundle:Doctorat:doctorat.html.twig', array(
+        return $this->render('Doctorat/doctorat.html.twig', array(
             // ...
         ));
     }

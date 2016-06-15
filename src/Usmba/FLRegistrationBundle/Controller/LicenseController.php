@@ -8,7 +8,7 @@ class LicenseController extends Controller
 {
     public function licenseAction()
     {
-        return $this->render('InscriptionBundle:License:license.html.twig', array(
+        return $this->render('License/license.html.twig', array(
             // ...
         ));
     }

@@ -8,7 +8,7 @@ class BacPlusDeuxController extends Controller
 {
     public function bacPlusDeuxAction()
     {
-        return $this->render('InscriptionBundle:BacPlusDeux:bac_plus_deux.html.twig', array(
+        return $this->render('BacPlusDeux/bac_plus_deux.html.twig', array(
             // ...
         ));
     }

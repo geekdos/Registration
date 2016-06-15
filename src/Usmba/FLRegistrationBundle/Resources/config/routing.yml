@@ -2,7 +2,7 @@ usmba_fl_registration_homepage:
     path:     /
     defaults: { _controller: UsmbaFLRegistrationBundle:Default:index }
 
-usmba_fl_registrationbac_plus_deux:
+usmba_fl_registration_bac_plus_deux:
     path:     /bacPlusDeux
     defaults: { _controller: UsmbaFLRegistrationBundle:BacPlusDeux:bacPlusDeux }
 
