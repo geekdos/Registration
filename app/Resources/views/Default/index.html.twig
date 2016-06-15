@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>
+        Faculté des lettres et sciences humaines Sais-Fes
+    </h3>
+    <p>Inscription dans les filières Bac+2, Licenses, Masters et Doctorats</p>
+    <!-- NEWS WIDGET -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body panel-body-image">
+                <a href="{{ path('bac_plus_deux') }}" style="text-decoration: none;">
+                    <img src="{{ asset('bundles/img/parcours/bac+2.jpg') }}" alt="Bac + 2"/>
+                </a>
+                <a href="{{ path('bac_plus_deux') }}" class="panel-body-inform">
+                    <span class="fa fa-graduation-cap"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <a href="{{ path('bac_plus_deux') }}" style="text-decoration: none;">
+                    <h3 class="text-center">Bac + 2</h3>
+                </a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!-- END NEWS WIDGET -->
+    <!-- NEWS WIDGET -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body panel-body-image">
+                <a href="{{ path('license') }}" style="text-decoration: none;">
+                <img src="{{ asset('bundles/img/parcours/license.jpg') }}" alt="License"/>
+                    </a>
+                <a href="#" class="panel-body-inform">
+                    <span class="fa fa-graduation-cap"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <h3 class="text-center">
+                    <a href="{{ path('license') }}" style="text-decoration: none;">
+                        License
+                    </a>
+                </h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!-- END NEWS WIDGET -->
+    <!-- NEWS WIDGET -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body panel-body-image">
+                <a href="{{ path('master') }}" style="text-decoration: none;">
+                    <img src="{{ asset('bundles/img/parcours/master.jpg') }}" alt="Master"/>
+                    </a>
+                <a href="#" class="panel-body-inform">
+                    <span class="fa fa-graduation-cap"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <a href="{{ path('master') }}" style="text-decoration: none;">
+                    <h3 class="text-center">Master</h3>
+                </a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!-- END NEWS WIDGET -->
+    <!-- NEWS WIDGET -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body panel-body-image">
+                <a href="{{ path('doctorat') }}" style="text-decoration: none;">
+                    <img src="{{ asset('bundles/img/parcours/doctorat.jpg') }}" alt="Doctorat"/>
+                </a>
+                <a href="#" class="panel-body-inform">
+                    <span class="fa fa-graduation-cap"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <a href="{{ path('doctorat') }}" style="text-decoration: none;">
+                    <h3 class="text-center">Doctorat</h3>
+                </a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!-- END NEWS WIDGET -->
+{% endblock body %}
