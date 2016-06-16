@@ -28,16 +28,17 @@ class EtudiantType extends AbstractType
             ->add('nomAr', TextType::class)
             ->add('prenomAr', TextType::class)
             ->add('sexe', ChoiceType::class, array(
-                'choices' => array(
+                'choices'  => array(
                     'Masculin' => 'Masculin',
                     'Féminin' => 'Féminin'
                 ),
-                'invalid_message' => 'Le sexe que vous avez choisi sa march pas %num%',
-                'invalid_message_parameters' => array('%num%' => 6),
-                'required'    => false,
-                'empty_data'  => null
             ))
-            ->add('handicap', TextType::class)
+            ->add('handicap', ChoiceType::class, array(
+                'choices'  => array(
+                    'Oui' => true,
+                    'Non' => false,
+                ),
+            ))
             ->add('dateNaiss', BirthdayType::class)
             ->add('lieuNaissFr', TextType::class)
             ->add('lieuNaissAr', TextType::class)

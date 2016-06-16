@@ -27,17 +27,6 @@ class EtablissementBac
      * @ORM\Column(name="nomEtaBac", type="string", length=255)
      */
     private $nomEtaBac;
-
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Usmba\FLRegistrationBundle\Entity\SerieDuBac", inversedBy="serieBacListe")
-     * @ORM\JoinTable(name="serie_bac_liste")
-     */
-    private $serieBacListe;
-
-    public function __construct() {
-        $this->serieBacListe = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
     /**
      * Get id
@@ -71,40 +60,6 @@ class EtablissementBac
     public function getNomEtaBac()
     {
         return $this->nomEtaBac;
-    }
-
-    /**
-     * Add serieBacListe
-     *
-     * @param \Usmba\FLRegistrationBundle\Entity\SerieDuBac $serieBacListe
-     *
-     * @return EtablissementBac
-     */
-    public function addSerieBacListe(\Usmba\FLRegistrationBundle\Entity\SerieDuBac $serieBacListe)
-    {
-        $this->serieBacListe[] = $serieBacListe;
-
-        return $this;
-    }
-
-    /**
-     * Remove serieBacListe
-     *
-     * @param \Usmba\FLRegistrationBundle\Entity\SerieDuBac $serieBacListe
-     */
-    public function removeSerieBacListe(\Usmba\FLRegistrationBundle\Entity\SerieDuBac $serieBacListe)
-    {
-        $this->serieBacListe->removeElement($serieBacListe);
-    }
-
-    /**
-     * Get serieBacListe
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSerieBacListe()
-    {
-        return $this->serieBacListe;
     }
 
     public function __toString()

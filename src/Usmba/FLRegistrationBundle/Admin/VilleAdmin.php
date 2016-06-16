@@ -17,7 +17,6 @@ class VilleAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('nomVilleFr')
-            ->add('nomVilleAr')
         ;
     }
 
@@ -29,7 +28,6 @@ class VilleAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('nomVilleFr')
-            ->add('nomVilleAr')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -47,7 +45,6 @@ class VilleAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nomVilleFr')
-            ->add('nomVilleAr')
             ->add('pays', 'sonata_type_model', array(
                 'class' => 'Usmba\FLRegistrationBundle\Entity\Pays',
                 'property' => 'nomPays',
@@ -62,7 +59,6 @@ class VilleAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('nomVilleFr')
-            ->add('nomVilleAr')
         ;
     }
 }

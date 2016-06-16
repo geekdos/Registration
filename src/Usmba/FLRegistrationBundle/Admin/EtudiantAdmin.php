@@ -50,23 +50,13 @@ class EtudiantAdmin extends AbstractAdmin
             ->addIdentifier('cne')
             ->add('nomfr')
             ->add('prenomfr')
-            ->add('nomAr')
-            ->add('prenomAr')
             ->add('sexe')
             ->add('handicap')
             ->add('dateNaiss')
             ->add('lieuNaissFr')
-            ->add('lieuNaissAr')
             ->add('cin')
             ->add('adresseEtd')
             ->add('gsm')
-            ->add('email')
-            ->add('nomPrenomPereFr')
-            ->add('nomPrenomPereAr')
-            ->add('fonctioPere')
-            ->add('nomPrenomMereFr')
-            ->add('nomPrenomMereAr')
-            ->add('fontionMere')
             ->add('dateObtBac')
             ->add('_action', null, array(
                 'actions' => array(
@@ -104,7 +94,35 @@ class EtudiantAdmin extends AbstractAdmin
             ->add('nomPrenomMereFr')
             ->add('nomPrenomMereAr')
             ->add('fontionMere')
+            ->add('typeBac', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\TypeBac',
+                'property' => 'nom',
+            ))
+            ->add('academie', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\Academie',
+                'property' => 'nom',
+            ))
+            ->add('serieDuBac', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\SerieDuBac',
+                'property' => 'nomSerieDuBac',
+            ))
+            ->add('mentionBac', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\Mention',
+                'property' => 'nomMention',
+            ))
             ->add('dateObtBac')
+            ->add('etablissementBac', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\EtablissementBac',
+                'property' => 'nomEtaBac',
+            ))
+            ->add('situationFamille', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\SituationFamille',
+                'property' => 'nomSituation',
+            ))
+            ->add('categorieSocioProfessionnelle', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\CategorieSocioProfessionnelle',
+                'property' => 'cspetud',
+            ))
         ;
     }
 

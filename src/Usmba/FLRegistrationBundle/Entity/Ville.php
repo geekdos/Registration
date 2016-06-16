@@ -29,13 +29,6 @@ class Ville
     private $nomVilleFr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nomVilleAr", type="string", length=255)
-     */
-    private $nomVilleAr;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Usmba\FLRegistrationBundle\Entity\Pays")
      * @ORM\JoinColumn(name="pays_id", referencedColumnName="id")
      */
@@ -74,30 +67,6 @@ class Ville
     public function getNomVilleFr()
     {
         return $this->nomVilleFr;
-    }
-
-    /**
-     * Set nomVilleAr
-     *
-     * @param string $nomVilleAr
-     *
-     * @return Ville
-     */
-    public function setNomVilleAr($nomVilleAr)
-    {
-        $this->nomVilleAr = $nomVilleAr;
-
-        return $this;
-    }
-
-    /**
-     * Get nomVilleAr
-     *
-     * @return string
-     */
-    public function getNomVilleAr()
-    {
-        return $this->nomVilleAr;
     }
 
     /**

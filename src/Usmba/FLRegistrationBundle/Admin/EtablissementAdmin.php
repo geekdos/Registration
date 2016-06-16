@@ -45,6 +45,10 @@ class EtablissementAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nomEtablissement')
+            ->add('universite', 'sonata_type_model', array(
+                'class' => 'Usmba\FLRegistrationBundle\Entity\Universite',
+                'property' => 'nomUniversite',
+            ))
         ;
     }
 
