@@ -3,15 +3,19 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@UsmbaFLRegistrationBundle/Resources/config/services.yml" }
+    - { resource: "sonata_project/sonata_doctrine_orm_admin.yml" }
+    - { resource: "sonata_project/sonata_block.yml" }
+    - { resource: "fos/fos_user.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
+    translator:      ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"

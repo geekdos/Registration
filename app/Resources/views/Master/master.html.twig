@@ -3,10 +3,11 @@
 {% block title %}Master{% endblock %}
 
 {% block body %}
-    {% include '@Inscription/include/form.html.twig' %}
+    {% include 'include/form.html.twig' %}
 
 {% endblock body %}
-{% block jsPages %}
+{% block javascripts %}
+    {{ parent() }}
     <!-- THIS PAGE PLUGINS -->
     <script type='text/javascript' src='{{ asset('bundles/js/plugins/icheck/icheck.min.js') }}'></script>
     <script type="text/javascript" src="{{ asset('bundles/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js') }}"></script>
@@ -14,4 +15,4 @@
     <script type="text/javascript" src="{{ asset('bundles/js/plugins/smartwizard/jquery.smartWizard-2.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/js/plugins/validationengine/jquery.validationEngine.js') }}"></script>
     <!-- END PAGE PLUGINS -->
-{% endblock jsPages %}
+{% endblock javascripts %}
