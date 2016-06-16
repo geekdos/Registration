@@ -10,8 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantBacPlusDeux" = "EtudiantBacPlusDeux", "etudiantLicence" = "EtudiantLicence", "etudiantMaster"  = "EtudiantMaster", "etudiantDotorat" = "EtudiantDoctorat"})
- * 
+ * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantBacPlusDeux" = "EtudiantBacPlusDeux"})
+ * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantLicence" = "EtudiantLicence"})
+ * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantMaster" = "EtudiantMaster"})
+ * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantDotorat" = "EtudiantDoctorat"})
+ *
+ * @ORM\Table(name="etudiant")
+ * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\EtudiantRepository")
  */
 class Etudiant
 {
