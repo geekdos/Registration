@@ -62,4 +62,8 @@ class Mention
     {
         return $this->nomMention;
     }
+    public function __toString()
+    {
+        return $this->nomMention;
+    }
 }

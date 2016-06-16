@@ -28,14 +28,6 @@ class SerieDuBac
      */
     private $nomSerieDuBac;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Usmba\FLRegistrationBundle\Entity\EtablissementBac", mappedBy="serieBacListe")
-     */
-    private $etablissements;
-
-    public function __construct() {
-        $this->etablissements = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -71,37 +63,8 @@ class SerieDuBac
         return $this->nomSerieDuBac;
     }
 
-    /**
-     * Add etablissement
-     *
-     * @param \Usmba\FLRegistrationBundle\Entity\EtablissementBac $etablissement
-     *
-     * @return SerieDuBac
-     */
-    public function addEtablissement(\Usmba\FLRegistrationBundle\Entity\EtablissementBac $etablissement)
+    public function __toString()
     {
-        $this->etablissements[] = $etablissement;
-
-        return $this;
-    }
-
-    /**
-     * Remove etablissement
-     *
-     * @param \Usmba\FLRegistrationBundle\Entity\EtablissementBac $etablissement
-     */
-    public function removeEtablissement(\Usmba\FLRegistrationBundle\Entity\EtablissementBac $etablissement)
-    {
-        $this->etablissements->removeElement($etablissement);
-    }
-
-    /**
-     * Get etablissements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
+        return $this->nomSerieDuBac;
     }
 }

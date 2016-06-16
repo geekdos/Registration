@@ -62,4 +62,9 @@ class SituationFamille
     {
         return $this->nomSituation;
     }
+
+    public function __toString()
+    {
+        return $this->nomSituation;
+    }
 }

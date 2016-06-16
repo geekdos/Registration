@@ -91,4 +91,8 @@ class Filiere
     {
         return $this->parcours;
     }
+    public function __toString()
+    {
+        return $this->nomFiliere;
+    }
 }

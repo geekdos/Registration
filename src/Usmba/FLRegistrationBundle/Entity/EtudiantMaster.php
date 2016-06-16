@@ -217,4 +217,9 @@ class EtudiantMaster extends Etudiant
     {
         return $this->mentionDiplome;
     }
+
+    public function __toString()
+    {
+        return $this->getPrenomfr();
+    }
 }

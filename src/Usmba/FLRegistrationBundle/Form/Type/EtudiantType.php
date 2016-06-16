@@ -6,11 +6,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Usmba\FLRegistrationBundle\Entity\TypeBac;
 
 class EtudiantType extends AbstractType
 {
@@ -26,7 +27,16 @@ class EtudiantType extends AbstractType
             ->add('prenomfr', TextType::class)
             ->add('nomAr', TextType::class)
             ->add('prenomAr', TextType::class)
-            ->add('sexe', TextType::class)
+            ->add('sexe', ChoiceType::class, array(
+                'choices' => array(
+                    'Masculin' => 'Masculin',
+                    'Féminin' => 'Féminin'
+                ),
+                'invalid_message' => 'Le sexe que vous avez choisi sa march pas %num%',
+                'invalid_message_parameters' => array('%num%' => 6),
+                'required'    => false,
+                'empty_data'  => null
+            ))
             ->add('handicap', TextType::class)
             ->add('dateNaiss', BirthdayType::class)
             ->add('lieuNaissFr', TextType::class)
@@ -50,6 +60,9 @@ class EtudiantType extends AbstractType
             ->add('etablissementBac', EtablissementBacType::class)
             ->add('situationFamille', SituationFamilleType::class)
             ->add('categorieSocioProfessionnelle', CategorieSocioProfessionnelleType::class)
+            ->add('Enregistrer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-success'),
+            ))
         ;
     }
     

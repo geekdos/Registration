@@ -929,4 +929,9 @@ class Etudiant
     {
         return $this->categorieSocioProfessionnelle;
     }
+
+    public function __toString()
+    {
+        return $this->prenomfr;
+    }
 }

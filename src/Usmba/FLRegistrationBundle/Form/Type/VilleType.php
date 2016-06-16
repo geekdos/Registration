@@ -16,7 +16,6 @@ class VilleType extends AbstractType
     {
         $builder
             ->add('nomVilleFr')
-            ->add('nomVilleAr')
             ->add('pays')
         ;
     }

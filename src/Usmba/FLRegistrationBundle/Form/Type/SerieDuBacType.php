@@ -16,7 +16,6 @@ class SerieDuBacType extends AbstractType
     {
         $builder
             ->add('nomSerieDuBac')
-            ->add('etablissements')
         ;
     }
     

@@ -61,4 +61,9 @@ class Parcours
     {
         return $this->nomParcours;
     }
+
+    public function __toString()
+    {
+        return $this->nomParcours;
+    }
 }

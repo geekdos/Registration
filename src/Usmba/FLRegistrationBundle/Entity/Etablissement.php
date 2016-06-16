@@ -91,4 +91,8 @@ class Etablissement
     {
         return $this->universite;
     }
+    public function __toString()
+    {
+        return $this->nomEtablissement;
+    }
 }

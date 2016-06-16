@@ -123,4 +123,9 @@ class Ville
     {
         return $this->pays;
     }
+    
+    public function __toString()
+    {
+        return $this->nomVilleFr;
+    }
 }

@@ -93,4 +93,9 @@ class CategorieSocioProfessionnelle
     {
         return $this->cspetud;
     }
+
+    public function __toString()
+    {
+        return $this->nomCategorieP;
+    }
 }

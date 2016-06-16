@@ -35,4 +35,8 @@ class EtudiantBacPlusDeux extends Etudiant
     {
         return $this->id;
     }
+    public function __toString()
+    {
+        return $this->getPrenomfr();
+    }
 }

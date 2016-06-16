@@ -106,4 +106,9 @@ class EtablissementBac
     {
         return $this->serieBacListe;
     }
+
+    public function __toString()
+    {
+        return $this->nomEtaBac;
+    }
 }

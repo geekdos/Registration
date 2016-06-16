@@ -91,4 +91,8 @@ class Universite
     {
         return $this->academie;
     }
+    public function __toString()
+    {
+        return $this->nomUniversite;
+    }
 }
