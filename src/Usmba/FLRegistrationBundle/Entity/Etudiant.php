@@ -8,10 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Etudiant
  *
  * @ORM\Entity
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"etudiant" = "Etudiant", "etudiantBacPlusDeux" = "EtudiantBacPlusDeux", "etudiantLicence" = "EtudiantLicence", "etudiantMaster"  = "EtudiantMaster", "etudiantDotorat" = "EtudiantDoctorat"})
- * 
+
+ * @ORM\Table(name="etudiant")
+ * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\EtudiantRepository")
  */
 class Etudiant
 {
@@ -219,10 +218,6 @@ class Etudiant
      * @ORM\JoinColumn(name="categorieSocioProfessionnelle_id", referencedColumnName="id")
      */
     private $categorieSocioProfessionnelle;
-    
-    public function __construct()
-    {
-    }
 
     /**
      * Get id

@@ -21,11 +21,6 @@ class EtudiantLicence extends Etudiant
      */
     private $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * Get id
      *

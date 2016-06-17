@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="etudiant_master")
  * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\EtudiantMasterRepository")
  */
-class EtudiantMaster extends Etudiant
+class EtudiantMaster
 {
     /**
      * @var int
@@ -20,11 +20,6 @@ class EtudiantMaster extends Etudiant
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Get id

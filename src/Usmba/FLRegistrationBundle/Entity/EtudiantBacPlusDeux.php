@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="etudiant_bac_plus_deux")
  * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\EtudiantBacPlusDeuxRepository")
  */
-class EtudiantBacPlusDeux extends Etudiant
+class EtudiantBacPlusDeux
 {
     /**
      * @var int
@@ -34,9 +34,5 @@ class EtudiantBacPlusDeux extends Etudiant
     public function getId()
     {
         return $this->id;
-    }
-    public function __toString()
-    {
-        return $this->getPrenomfr();
     }
 }
