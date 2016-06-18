@@ -108,8 +108,7 @@ class Etudiant
     private $adresseEtd;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Usmba\FLRegistrationBundle\Entity\Ville")
-     * @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitants")
      */
     private $ville;
 

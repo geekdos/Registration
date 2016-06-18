@@ -25,3 +25,8 @@ reregistration_registration_doctorat:
 reregistration_re_registration:
     path:     /re-inscription
     defaults: { _controller: ReregistrationBundle:ReInscription:index }
+
+
+reregistration_re_registration_checking:
+    path:     /re-inscription/checking
+    defaults: { _controller: ReregistrationBundle:ReInscription:checking }
