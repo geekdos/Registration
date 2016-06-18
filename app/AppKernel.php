@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             
             //UserManagement Bundles
             new FOS\UserBundle\FOSUserBundle(),
+            new ReregistrationBundle\ReregistrationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,3 +1,7 @@
+reregistration:
+    resource: "@ReregistrationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 usmba_fl_registration:
     resource: "@UsmbaFLRegistrationBundle/Resources/config/routing.yml"
     prefix:   /
