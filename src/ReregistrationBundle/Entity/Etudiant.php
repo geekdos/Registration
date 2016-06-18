@@ -134,6 +134,11 @@ class Etudiant
      * @ORM\Column(name="adresseEtd", type="string", length=255)
      */
     private $adresseEtd;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitants")
+     */
+    private $ville;
     
     /**
      * @var string
@@ -156,10 +161,9 @@ class Etudiant
      */
     private $nomPrenomPereFr;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fonctioPere", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursPere")
      */
     private $fonctioPere;
 
@@ -171,10 +175,8 @@ class Etudiant
     private $nomPrenomMereFr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fontionMere", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursMere")
      */
-    private $fontionMere;
+    private $fonctioMere;
 
 }
