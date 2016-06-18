@@ -1,0 +1,103 @@
+{% extends '::layout.html.twig' %}
+{% block body %}
+    <div class="sortable">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bac + 2 || تسجيل</h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here.
+                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_registration_deug') }}" class="btn btn-danger btn-addon m-b-sm pull-right">تسجيل</a>
+                            <a href="{{ path('reregistration_registration_deug') }}" class="btn btn-danger btn-addon m-b-sm pull-left">Inscription</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Master || الماستر</h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here. Nulla vitae elit libero, a pharetra augue.
+                            Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                            Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_registration_master') }}" class="btn btn-info btn-addon m-b-sm pull-right">تسجيل</a>
+                            <a href="{{ path('reregistration_registration_master') }}" class="btn btn-info btn-addon m-b-sm pull-left">Inscription</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-purple">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Licence || الإجازة</h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here.
+                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_registration_licence') }}" class="btn btn-primary btn-addon m-b-sm pull-right">تسجيل</a>
+                            <a href="{{ path('reregistration_registration_licence') }}" class="btn btn-primary btn-addon m-b-sm pull-left">Inscription</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Doctrorat || الدكتورة</h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here.
+                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_registration_doctorat') }}" class="btn btn-success btn-addon m-b-sm pull-right">تسجيل</a>
+                            <a href="{{ path('reregistration_registration_doctorat') }}" class="btn btn-success btn-addon m-b-sm pull-left">Inscription</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row -->
+    </div><!-- Sortable -->
+{% endblock %}

@@ -1,0 +1,27 @@
+reregistration_homepage:
+    path:     /
+    defaults: { _controller: ReregistrationBundle:Default:index }
+
+reregistration_registration:
+    path:     /inscription
+    defaults: { _controller: ReregistrationBundle:Inscription:index }
+
+reregistration_registration_deug:
+    path:     /inscription/deug
+    defaults: { _controller: ReregistrationBundle:Inscription:deug }
+
+reregistration_registration_licence:
+    path:     /inscription/licence
+    defaults: { _controller: ReregistrationBundle:Inscription:licence }
+
+reregistration_registration_master:
+    path:     /inscription/master
+    defaults: { _controller: ReregistrationBundle:Inscription:master }
+
+reregistration_registration_doctorat:
+    path:     /inscription/doctorat
+    defaults: { _controller: ReregistrationBundle:Inscription:doctorat }
+
+reregistration_re_registration:
+    path:     /re-inscription
+    defaults: { _controller: ReregistrationBundle:ReInscription:index }

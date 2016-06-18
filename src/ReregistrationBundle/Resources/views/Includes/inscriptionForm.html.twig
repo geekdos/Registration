@@ -1,0 +1,253 @@
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div id="rootwizard">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Diplôle DEUG | المعلومات دبلوم الدراسات الجامعية</a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
+                </ul>
+                <div class="progress progress-sm m-t-sm">
+                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    </div>
+                </div>
+                <form id="wizardForm">
+                    <div class="tab-content">
+                        <div class="tab-pane active fade in" id="tab1">
+                            <div class="row m-b-lg">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label>Nationalité (*) | الجنسية</label>
+                                            <select class="form-control" name="ntionalite">
+                                                <option value="marocaine">Marocaine | مغربية</option>
+                                                <option value="etranger" selected>Étranger | أجنبية</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="cne">CNE (*) | الرقم الوطني للطالب</label>
+                                            <input type="text" class="form-control" name="nomfr" id="nomfr" placeholder="CNE">
+                                            <div class="help-block">
+                                                <span>En 10 chiffres</span>
+                                                <span class="pull-right">10 أرقام</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nomfr">Nom (*) | نسبك بالفرنسية</label>
+                                            <input type="text" class="form-control" name="nomfr" id="nomfr" placeholder="Votre nom en français">
+                                        </div>
+                                        <div class="form-group  col-md-6">
+                                            <label for="prenomfr">Prénom (*)</label>
+                                            <input type="text" class="form-control col-md-6" name="prenomfr" id="prenomfr" placeholder="Votre prénom en français" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 text-right">
+                                            <label for="prenomar">الإسم (*)</label>
+                                            <input type="text" class="form-control text-right" name="prenomar" id="prenomar" placeholder="اسمك بالعربية">
+                                        </div>
+                                        <div class="form-group  col-md-6 text-right">
+                                            <label for="nomar">النسب (*)</label>
+                                            <input type="text" class="form-control col-md-6 text-right" name="nomar" id="nomar" placeholder="نسبك بالعربية" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="sexe">Sexe (*) | الجنس</label>
+                                            <select class="form-control" name="sexe">
+                                                <option value="masculin" selected>Masculin | ذكر</option>
+                                                <option value="fiminin">Féminin | أنثى</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="etatCivil">État civil (*) | الحالة المدنية</label>
+                                            <select class="form-control" name="etatCivil">
+                                                <option value="celebataire" selected>Célibataire |   (عازب (ة</option>
+                                                <option value="marier">Marier |(متزوج (ة</option>
+                                                <option value="divorcer">Divorcer | مطلق ة</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group  col-md-4">
+                                            <label for="statutActuel">Statut actuel (*) | الوضع الحالي</label>
+                                            <select class="form-control" name="statutActuel">
+                                                <option value="eleveEtudiant" selected>Éléve / Étudiant | تلميذ / طالب</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label>Avez vous un handicape(*) | هل لديك إعاقة</label>
+                                            <select class="form-control" name="handicape">
+                                                <option value="oui">Oui | نعم</option>
+                                                <option value="non" selected>Non | لا</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Boursier(*) | هل لديك المنحة</label>
+                                            <select class="form-control" name="boursier">
+                                                <option value="oui" selected>Oui | نعم</option>
+                                                <option value="non">Non | لا</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="lieudenaissancefr">Lieu de naissance (Fr) (*) | مكان الإزدياد</label>
+                                            <input type="text" class="form-control col-md-6" name="lieudenaissancefr" id="lieudenaissancefr" placeholder="Lieu de naissance" >
+                                        </div>
+                                        <div class="form-group  col-md-6 text-right">
+                                            <label for="lieudenaissancear">مكان الإزدياد (*)</label>
+                                            <input type="text" class="form-control col-md-6 text-right" name="lieudenaissancear" id="lieudenaissancear" placeholder="مكان الإزدياد" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="datedenaissancefr">Date de naissance (*) | تاريخ الإزدياد</label>
+                                            <input type="date" class="form-control col-md-6" name="datedenaissancefr" id="datedenaissancefr" placeholder="02-04-1991">
+                                            <span class="help-block">تاريخ الإزدياد 14-12-1991</span>
+                                        </div>
+                                        <div class="form-group  col-md-6 text-right">
+                                            <label for="cin">CIN (*) | رقم البطاقة الوطنية</label>
+                                            <input type="text" class="form-control col-md-6" name="cin" id="cin" placeholder="CIN" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Personal Info</h3>
+                                    <p>
+                                        1 - Vous devez remplir soigneusement et attentivement votre formulaire de candidature en ligne.
+                                        <br>
+                                        2 - Toute information erronée entraîne l'annulation de votre candidature.
+                                        <br>
+                                        N.B : Pour compléter la procédure de préinscription en ligne le candidat doit:
+                                        <br>
+                                        1) Scanner sur un même fichier (format PDF; taille max 5Mo) les documents suivants: Relevés des notes de toutes les années universitaires;
+                                        diplômes (ou attestations) universitaires et du baccalauréat ; copie de la CIN.
+                                        <br>
+                                        2)Envoyer obligatoirement, à l’adresse e-mail de la filière, le fichier des documents scannés.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab2">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{ asset('bundles/reregistration/assets/images/saiss.jpg') }}" title="Faculté des Lettres et des Sciences Humaines Saïs-Fés" width="250" alt="Faculté des Lettres et des Sciences Humaines Saïs-Fés">
+                                    <div class="m-t-md">
+                                        <address>
+                                            <strong>
+                                                FLSHSF
+                                            </strong><br>
+                                            BP 59 Route Immouzer CP 30000 Fès Maroc.
+                                            <abbr title="Téléphone">Tél :</abbr> +212 5 35 61 82 26
+                                            <br>
+                                            <abbr title="Fax">Fax : </abbr> +212 5 35 61 82 53
+                                        </address>
+                                        <address>
+                                            <strong>Faculté des Lettres et des Sciences Humaines Saïs-Fés</strong><br>
+                                            <a href="mailto:#">flshsf@gmail.com</a>
+                                        </address>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <row>
+                                        <div class="form-group col-md-6">
+                                            <label for="adresse">Adresse (*) | العنوان</label>
+                                            <input type="text" class="form-control" name="adresse" id="adresse" placeholder="Adresse | العنوان" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="ville">Ville (*) | المدينة</label>
+                                            <input type="text" class="form-control" name="ville" id="ville" placeholder="Ville | المدينة">
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div class="form-group col-md-6">
+                                            <label for="gsm">GSM (*) </label>
+                                            <input type="text" class="form-control" name="gsm" id="gsm" placeholder="GSM" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="email">Email (*)</label>
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div class="form-group col-md-6">
+                                            <label for="nomPere">Nom et prénom du pére (*) | الاسم الكامل للوالد</label>
+                                            <input type="text" class="form-control" name="exampleInputProductName" id="exampleInputProductName" placeholder="Product Name" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="fonctionPere">Fonction du pére (*) | وظيفة الوالد</label>
+                                            <input type="text" class="form-control" name="fonctionPere" id="fonctionPere" placeholder="Fonction du pére (*) | وظيفة الوالد">
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div class="form-group col-md-6">
+                                            <label for="nomMere">Nom et prénom de la mére (*) | الاسم الكامل الأم</label>
+                                            <input type="text" class="form-control" name="nomMere" id="nomMere" placeholder="Nom et prénom de la mére (*) | الاسم الكامل الأم" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="fonctionMere">Fonction de la mére (*) | وظيفة الأم</label>
+                                            <input type="text" class="form-control" name="fonctionMere" id="fonctionMere" placeholder="Fonction de la mére (*) | وظيفة الأم">
+                                        </div>
+                                    </row>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group col-md-12">
+                                        <label for="exampleInputCard">Card Number</label>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" name="exampleInputCard" id="exampleInputCard" placeholder="Card Number">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control col-md-4" name="exampleInputSecurity" id="exampleInputSecurity" placeholder="Security Code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="exampleInputHolder">Card Holders Name</label>
+                                        <input type="text" class="form-control" name="exampleInputHolder" id="exampleInputHolder" placeholder="Card Holders Name">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="exampleInputExpiration">Expiration</label>
+                                        <input type="text" class="form-control date-picker" name="exampleInputExpiration" id="exampleInputExpiration" placeholder="Expiration">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="exampleInputCsv">CSV</label>
+                                        <input type="text" class="form-control" name="exampleInputCsv" id="exampleInputCsv" placeholder="CSV">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="f-s-12">By pressing Next You will Agree to the Payment <a href="#">Terms & Conditions</a></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab4">
+                            <h2 class="no-s">Thank You !</h2>
+                            <div class="alert alert-info m-t-sm m-b-lg" role="alert">
+                                Congratulations ! You got the last step.
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab5">
+                            <h2 class="no-s">Thank You !</h2>
+                            <div class="alert alert-info m-t-sm m-b-lg" role="alert">
+                                Congratulations ! You got the last step.
+                            </div>
+                            <ul class="pager wizard">
+                                <li class="previous"><a href="#" class="btn btn-default">Previous</a></li>
+                                <li class="next"><a href="#" class="btn btn-default">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
