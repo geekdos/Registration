@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@UsmbaFLRegistrationBundle/Resources/config/services.yml" }
+#    - { resource: "@UsmbaFLRegistrationBundle/Resources/config/services.yml" }
     - { resource: "@ReregistrationBundle/Resources/config/services.yml" }
     - { resource: "sonata_project/sonata_doctrine_orm_admin.yml" }
     - { resource: "sonata_project/sonata_block.yml" }

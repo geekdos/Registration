@@ -1,16 +1,16 @@
 <?php
 
-namespace Usmba\FLRegistrationBundle\Entity;
+namespace ReregistrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TypeDiplome
+ * Fonction
  *
- * @ORM\Table(name="type_diplome")
- * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\TypeDiplomeRepository")
+ * @ORM\Table(name="fonction")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\FonctionRepository")
  */
-class TypeDiplome
+class Fonction
 {
     /**
      * @var int
@@ -29,10 +29,15 @@ class TypeDiplome
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="typeDiplome")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="fonctioPere")
      */
-    private $etudiants;
+    private $traveursPere;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="fonctioMere")
+     */
+    private $traveursMere;
+    
     /**
      * Get id
      *
@@ -48,7 +53,7 @@ class TypeDiplome
      *
      * @param string $nom
      *
-     * @return TypeDiplome
+     * @return Fonction
      */
     public function setNom($nom)
     {
@@ -66,8 +71,5 @@ class TypeDiplome
     {
         return $this->nom;
     }
-    public function __toString()
-    {
-        return $this->nom;
-    }
 }
+

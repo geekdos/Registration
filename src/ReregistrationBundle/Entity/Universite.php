@@ -5,12 +5,12 @@ namespace ReregistrationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Pays
+ * Universite
  *
- * @ORM\Table(name="pays")
- * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\PaysRepository")
+ * @ORM\Table(name="universite")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\UniversiteRepository")
  */
-class Pays
+class Universite
 {
     /**
      * @var int
@@ -29,9 +29,9 @@ class Pays
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Ville", mappedBy="pays")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="universite")
      */
-    private $villes;
+    private $etudiants;
 
     /**
      * Get id
@@ -43,7 +43,6 @@ class Pays
         return $this->id;
     }
     
-
     public function __toString()
     {
         return $this->nom;
@@ -53,7 +52,7 @@ class Pays
      */
     public function __construct()
     {
-        $this->villes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -61,7 +60,7 @@ class Pays
      *
      * @param string $nom
      *
-     * @return Pays
+     * @return Universite
      */
     public function setNom($nom)
     {
@@ -81,36 +80,36 @@ class Pays
     }
 
     /**
-     * Add ville
+     * Add etudiant
      *
-     * @param \ReregistrationBundle\Entity\Ville $ville
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      *
-     * @return Pays
+     * @return Universite
      */
-    public function addVille(\ReregistrationBundle\Entity\Ville $ville)
+    public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->villes[] = $ville;
+        $this->etudiants[] = $etudiant;
 
         return $this;
     }
 
     /**
-     * Remove ville
+     * Remove etudiant
      *
-     * @param \ReregistrationBundle\Entity\Ville $ville
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      */
-    public function removeVille(\ReregistrationBundle\Entity\Ville $ville)
+    public function removeEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->villes->removeElement($ville);
+        $this->etudiants->removeElement($etudiant);
     }
 
     /**
-     * Get villes
+     * Get etudiants
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVilles()
+    public function getEtudiants()
     {
-        return $this->villes;
+        return $this->etudiants;
     }
 }

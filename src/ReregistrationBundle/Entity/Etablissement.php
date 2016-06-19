@@ -5,12 +5,12 @@ namespace ReregistrationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Filiere
+ * Etablissement
  *
- * @ORM\Table(name="filiere")
- * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\FiliereRepository")
+ * @ORM\Table(name="etablissement")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtablissementRepository")
  */
-class Filiere
+class Etablissement
 {
     /**
      * @var int
@@ -32,11 +32,6 @@ class Filiere
      * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="etablisement")
      */
     private $etudians;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Parcours", inversedBy="filieres")
-     */
-    private $parcours;
     
     public function __toString()
     {
@@ -65,7 +60,7 @@ class Filiere
      *
      * @param string $nom
      *
-     * @return Filiere
+     * @return Etablissement
      */
     public function setNom($nom)
     {
@@ -89,7 +84,7 @@ class Filiere
      *
      * @param \ReregistrationBundle\Entity\Etudiant $etudian
      *
-     * @return Filiere
+     * @return Etablissement
      */
     public function addEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
     {
@@ -116,29 +111,5 @@ class Filiere
     public function getEtudians()
     {
         return $this->etudians;
-    }
-
-    /**
-     * Set parcours
-     *
-     * @param \ReregistrationBundle\Entity\Parcours $parcours
-     *
-     * @return Filiere
-     */
-    public function setParcours(\ReregistrationBundle\Entity\Parcours $parcours = null)
-    {
-        $this->parcours = $parcours;
-
-        return $this;
-    }
-
-    /**
-     * Get parcours
-     *
-     * @return \ReregistrationBundle\Entity\Parcours
-     */
-    public function getParcours()
-    {
-        return $this->parcours;
     }
 }

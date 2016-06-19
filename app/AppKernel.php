@@ -15,7 +15,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Usmba\FLRegistrationBundle\UsmbaFLRegistrationBundle(),
+
+            //new Usmba\FLRegistrationBundle\UsmbaFLRegistrationBundle(),
 
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),

@@ -1,6 +1,6 @@
 <?php
 
-namespace Usmba\FLRegistrationBundle\Entity;
+namespace ReregistrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TypeDiplome
  *
  * @ORM\Table(name="type_diplome")
- * @ORM\Entity(repositoryClass="Usmba\FLRegistrationBundle\Repository\TypeDiplomeRepository")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\TypeDiplomeRepository")
  */
 class TypeDiplome
 {
@@ -28,10 +28,6 @@ class TypeDiplome
      */
     private $nom;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="typeDiplome")
-     */
-    private $etudiants;
 
     /**
      * Get id

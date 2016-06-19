@@ -71,5 +71,80 @@ class Fonction
     {
         return $this->nom;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->traveursPere = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->traveursMere = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add traveursPere
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $traveursPere
+     *
+     * @return Fonction
+     */
+    public function addTraveursPere(\ReregistrationBundle\Entity\Etudiant $traveursPere)
+    {
+        $this->traveursPere[] = $traveursPere;
+
+        return $this;
+    }
+
+    /**
+     * Remove traveursPere
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $traveursPere
+     */
+    public function removeTraveursPere(\ReregistrationBundle\Entity\Etudiant $traveursPere)
+    {
+        $this->traveursPere->removeElement($traveursPere);
+    }
+
+    /**
+     * Get traveursPere
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTraveursPere()
+    {
+        return $this->traveursPere;
+    }
+
+    /**
+     * Add traveursMere
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $traveursMere
+     *
+     * @return Fonction
+     */
+    public function addTraveursMere(\ReregistrationBundle\Entity\Etudiant $traveursMere)
+    {
+        $this->traveursMere[] = $traveursMere;
+
+        return $this;
+    }
+
+    /**
+     * Remove traveursMere
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $traveursMere
+     */
+    public function removeTraveursMere(\ReregistrationBundle\Entity\Etudiant $traveursMere)
+    {
+        $this->traveursMere->removeElement($traveursMere);
+    }
+
+    /**
+     * Get traveursMere
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTraveursMere()
+    {
+        return $this->traveursMere;
+    }
+}
