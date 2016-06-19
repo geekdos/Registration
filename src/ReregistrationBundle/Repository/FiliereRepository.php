@@ -10,4 +10,11 @@ namespace ReregistrationBundle\Repository;
  */
 class FiliereRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllFilieres(){
+        return $qb = 
+            $this->createQueryBuilder('f')
+            ->select('*')
+            ->getQuery()
+            ->getResult();
+    }
 }

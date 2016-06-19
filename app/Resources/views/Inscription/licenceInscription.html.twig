@@ -1,7 +1,7 @@
 {% extends '::layout.html.twig' %}
 
 {% block body %}
-    {% include '@Reregistration/Includes/inscriptionForm.html.twig' %}
+    {{ render(controller('ReregistrationBundle:ChoixFiliere:filiereListe', {'parcours_id': app.request.get('parcours_id') })) }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

@@ -1,0 +1,13 @@
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Études Anglaises');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Études Françaises');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'التاريخ و الحضارة');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'الجغرافيا');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'الدراسات الإسلامية');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'الدراسات الأمازيغية');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'الدراسات العربية');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'علم الاجتماع والأنطربولوجيا');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'علوم الإعلام والتواصل');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Assistance sociale');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Tourisme et développement');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Tourisme, patrimoine et communication');
+INSERT INTO `filiere`(`parcours_id`, `nom`) VALUES (2,'Traduction et Communication multilingue');

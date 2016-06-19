@@ -1,10 +1,14 @@
 reregistration_etudiant:
     resource: "@ReregistrationBundle/Resources/config/routing/etudiant.yml"
-    prefix:   /inscription
+    prefix:   /inscription/new
 
 reregistration_homepage:
     path:     /
     defaults: { _controller: ReregistrationBundle:Default:index }
+
+reregistration_choix_filiere:
+    path:     /choix/filiere
+    defaults: { _controller: ReregistrationBundle:ChoixFiliere:index }
 
 reregistration_registration:
     path:     /inscription
@@ -15,7 +19,7 @@ reregistration_registration_deug:
     defaults: { _controller: ReregistrationBundle:Inscription:deug }
 
 reregistration_registration_licence:
-    path:     /inscription/licence
+    path:     /inscription/licence/{parcours_id}
     defaults: { _controller: ReregistrationBundle:Inscription:licence }
 
 reregistration_registration_master:
