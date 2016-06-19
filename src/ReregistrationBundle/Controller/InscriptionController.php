@@ -8,21 +8,21 @@ class InscriptionController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReregistrationBundle:Inscription:indexInscription.html.twig', [
+        return $this->render('Inscription/indexInscription.html.twig', [
             
         ]);
     }
 
     public function deugAction()
     {
-        return $this->render('ReregistrationBundle:Inscription:deugInscription.html.twig', [
+        return $this->render('Inscription/deugInscription.html.twig', [
 
         ]);
     }
 
     public function licenceAction()
     {
-        return $this->render('ReregistrationBundle:Inscription:licenceInscription.html.twig', [
+        return $this->render('Inscription/licenceInscription.html.twig', [
 
         ]);
     }

@@ -1,90 +1,135 @@
-{% extends 'base.html.twig' %}
-
+{% extends '::layout.html.twig' %}
 {% block body %}
-    <h3>
-        Faculté des lettres et sciences humaines Sais-Fes
-    </h3>
-    <p>Inscription dans les filières Bac+2, Licenses, Masters et Doctorats</p>
-    <!-- NEWS WIDGET -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body panel-body-image">
-                <a href="{{ path('usmba_fl_registration_bac_plus_deux') }}" style="text-decoration: none;">
-                    <img src="{{ asset('bundles/img/parcours/bac+2.jpg') }}" alt="Bac + 2"/>
-                </a>
-                <a href="{{ path('usmba_fl_registration_bac_plus_deux') }}" class="panel-body-inform">
-                    <span class="fa fa-graduation-cap"></span>
-                </a>
-            </div>
-            <div class="panel-body">
-                <a href="{{ path('usmba_fl_registration_bac_plus_deux') }}" style="text-decoration: none;">
-                    <h3 class="text-center">Bac + 2</h3>
-                </a>
-                <p></p>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel info-box panel-white">
+                <div class="panel-body">
+                    <div class="info-box-stats">
+                        <p class="counter">107,200</p>
+                        <span class="info-box-title">Etudiants inscri dans bac+2</span>
+                    </div>
+                    <div class="info-box-icon">
+                        <i class="icon-users"></i>
+                    </div>
+                    <div class="info-box-progress">
+                        <div class="progress progress-xs progress-squared bs-n">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- END NEWS WIDGET -->
-    <!-- NEWS WIDGET -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body panel-body-image">
-                <a href="{{ path('usmba_fl_registration_license') }}" style="text-decoration: none;">
-                <img src="{{ asset('bundles/img/parcours/license.jpg') }}" alt="License"/>
-                    </a>
-                <a href="#" class="panel-body-inform">
-                    <span class="fa fa-graduation-cap"></span>
-                </a>
-            </div>
-            <div class="panel-body">
-                <h3 class="text-center">
-                    <a href="{{ path('usmba_fl_registration_license') }}" style="text-decoration: none;">
-                        License
-                    </a>
-                </h3>
-                <p></p>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel info-box panel-white">
+                <div class="panel-body">
+                    <div class="info-box-stats">
+                        <p class="counter">340,230</p>
+                        <span class="info-box-title">Etudiants inscri dans les licences</span>
+                    </div>
+                    <div class="info-box-icon">
+                        <i class="icon-users"></i>
+                    </div>
+                    <div class="info-box-progress">
+                        <div class="progress progress-xs progress-squared bs-n">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- END NEWS WIDGET -->
-    <!-- NEWS WIDGET -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body panel-body-image">
-                <a href="{{ path('usmba_fl_registration_master') }}" style="text-decoration: none;">
-                    <img src="{{ asset('bundles/img/parcours/master.jpg') }}" alt="Master"/>
-                    </a>
-                <a href="#" class="panel-body-inform">
-                    <span class="fa fa-graduation-cap"></span>
-                </a>
-            </div>
-            <div class="panel-body">
-                <a href="{{ path('usmba_fl_registration_master') }}" style="text-decoration: none;">
-                    <h3 class="text-center">Master</h3>
-                </a>
-                <p></p>
-            </div>
-        </div>
-    </div>
-    <!-- END NEWS WIDGET -->
-    <!-- NEWS WIDGET -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body panel-body-image">
-                <a href="{{ path('usmba_fl_registration_doctorat') }}" style="text-decoration: none;">
-                    <img src="{{ asset('bundles/img/parcours/doctorat.jpg') }}" alt="Doctorat"/>
-                </a>
-                <a href="#" class="panel-body-inform">
-                    <span class="fa fa-graduation-cap"></span>
-                </a>
-            </div>
-            <div class="panel-body">
-                <a href="{{ path('usmba_fl_registration_doctorat') }}" style="text-decoration: none;">
-                    <h3 class="text-center">Doctorat</h3>
-                </a>
-                <p></p>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel info-box panel-white">
+                <div class="panel-body">
+                    <div class="info-box-stats">
+                        <p><span class="counter">653,000</span></p>
+                        <span class="info-box-title">Etudiants inscri dans Les Masters</span>
+                    </div>
+                    <div class="info-box-icon">
+                        <i class="icon-users"></i>
+                    </div>
+                    <div class="info-box-progress">
+                        <div class="progress progress-xs progress-squared bs-n">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- END NEWS WIDGET -->
-{% endblock body %}
+        <div class="col-lg-3 col-md-6">
+            <div class="panel info-box panel-white">
+                <div class="panel-body">
+                    <div class="info-box-stats">
+                        <p class="counter">47,500</p>
+                        <span class="info-box-title">Etudiants inscri dans le doctorat</span>
+                    </div>
+                    <div class="info-box-icon">
+                        <i class="icon-users"></i>
+                    </div>
+                    <div class="info-box-progress">
+                        <div class="progress progress-xs progress-squared bs-n">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Row -->
+    <div class="sortable">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-purple">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span>Une nouvelle Inscription</span> || <span class="pull-right">تسجيل جديد</span></h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here.
+                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_registration') }}" class="btn btn-primary btn-addon m-b-sm pull-right">تسجيل جديد</a>
+                            <a href="{{ path('reregistration_registration') }}" class="btn btn-primary btn-addon m-b-sm pull-left">Nouvelle Inscription</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span>Une Ré-Inscription</span> || <span class="pull-right">إعادة التسجيل</span></h3>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Remove" class="panel-remove"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Some default panel content here. Nulla vitae elit libero, a pharetra augue.
+                            Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                            Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            <a href="{{ path('reregistration_re_registration') }}" class="btn btn-success btn-addon m-b-sm pull-right">إعادة التسجيل</a>
+                            <a href="{{ path('reregistration_re_registration') }}" class="btn btn-success btn-addon m-b-sm pull-left">Ré-Inscription</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row -->
+    </div><!-- Sortable -->
+{% endblock %}

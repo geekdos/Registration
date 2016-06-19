@@ -1,3 +1,7 @@
+reregistration_etudiant:
+    resource: "@ReregistrationBundle/Resources/config/routing/etudiant.yml"
+    prefix:   /inscription
+
 reregistration_homepage:
     path:     /
     defaults: { _controller: ReregistrationBundle:Default:index }

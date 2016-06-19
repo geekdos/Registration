@@ -2,3 +2,92 @@ services:
 #    reregistration.example:
 #        class: ReregistrationBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+    reregistration.admin.academie:
+        class: ReregistrationBundle\Admin\AcademieAdmin
+        arguments: [~, ReregistrationBundle\Entity\Academie, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Academie }
+
+    reregistration.admin.etablessement:
+        class: ReregistrationBundle\Admin\EtablessementAdmin
+        arguments: [~, ReregistrationBundle\Entity\Etablessement, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Etablessement }
+
+    reregistration.admin.etudiant:
+        class: ReregistrationBundle\Admin\EtudiantAdmin
+        arguments: [~, ReregistrationBundle\Entity\Etudiant, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Etudiant }
+
+    reregistration.admin.filiere:
+        class: ReregistrationBundle\Admin\FiliereAdmin
+        arguments: [~, ReregistrationBundle\Entity\Filiere, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Filiere }
+
+    reregistration.admin.fonction:
+        class: ReregistrationBundle\Admin\FonctionAdmin
+        arguments: [~, ReregistrationBundle\Entity\Fonction, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Fonction }
+
+    reregistration.admin.mention:
+        class: ReregistrationBundle\Admin\MentionAdmin
+        arguments: [~, ReregistrationBundle\Entity\Mention, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Mention }
+
+    reregistration.admin.parcours:
+        class: ReregistrationBundle\Admin\ParcoursAdmin
+        arguments: [~, ReregistrationBundle\Entity\Parcours, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Parcours }
+
+    reregistration.admin.pays:
+        class: ReregistrationBundle\Admin\PaysAdmin
+        arguments: [~, ReregistrationBundle\Entity\Pays, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Pays }
+
+    reregistration.admin.serie_du_bac:
+        class: ReregistrationBundle\Admin\SerieDuBacAdmin
+        arguments: [~, ReregistrationBundle\Entity\SerieDuBac, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: SerieDuBac }
+
+    reregistration.admin.type_bac:
+        class: ReregistrationBundle\Admin\TypeBacAdmin
+        arguments: [~, ReregistrationBundle\Entity\TypeBac, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: TypeBac }
+
+    reregistration.admin.type_diplome:
+        class: ReregistrationBundle\Admin\TypeDiplomeAdmin
+        arguments: [~, ReregistrationBundle\Entity\TypeDiplome, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: TypeDiplome }
+
+    reregistration.admin.universite:
+        class: ReregistrationBundle\Admin\UniversiteAdmin
+        arguments: [~, ReregistrationBundle\Entity\Universite, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Universite }
+
+    reregistration.admin.ville:
+        class: ReregistrationBundle\Admin\VilleAdmin
+        arguments: [~, ReregistrationBundle\Entity\Ville, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Ville }
+
+    reregistration.admin.user:
+        class: ReregistrationBundle\Admin\UserAdmin
+        arguments: [~, ReregistrationBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: User }
+
+    reregistration.admin.etat_actuel:
+        class: ReregistrationBundle\Admin\EtatActuelAdmin
+        arguments: [~, ReregistrationBundle\Entity\EtatActuel, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtatActuel }

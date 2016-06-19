@@ -21,6 +21,17 @@ class Filiere
      */
     private $id;
 
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * @var string
      *
@@ -37,7 +48,7 @@ class Filiere
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Parcours", inversedBy="filieres")
      */
     private $parcours;
-    
+
     public function __toString()
     {
         return $this->nom;
@@ -48,16 +59,6 @@ class Filiere
     public function __construct()
     {
         $this->etudians = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

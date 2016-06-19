@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Etudiant
  *
- * @ORM\Entity
-
  * @ORM\Table(name="etudiant")
  * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtudiantRepository")
  */
@@ -22,6 +20,7 @@ class Etudiant
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
 
     /**
      * @var string
@@ -43,7 +42,7 @@ class Etudiant
      * @ORM\Column(name="nomfr", type="string", length=255)
      */
     private $nomfr;
-    
+
     /**
      * @var string
      *
@@ -80,9 +79,7 @@ class Etudiant
     private $etatCivil;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="statutActuel", type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\EtatActuel", inversedBy="etudiants")
      */
     private $statutActuel;
 
@@ -139,7 +136,7 @@ class Etudiant
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitants")
      */
     private $ville;
-    
+
     /**
      * @var string
      *
@@ -195,12 +192,13 @@ class Etudiant
     private $serieBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBac", nullable=true)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBac")
      */
     private $mentionBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantDeug", nullable=true)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantDeug")
+     *
      */
     private $mentionDeug;
 
@@ -215,7 +213,7 @@ class Etudiant
     private $universite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablissement", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablessement", inversedBy="etudiants")
      */
     private $etablisement;
 
@@ -232,14 +230,20 @@ class Etudiant
     private $filiere;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantLicence", nullable=true)
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantLicence")
      */
     private $mentionLicence;
+
+
+    public function __toString()
+    {
+        return $this->nomfr;
+    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -436,30 +440,6 @@ class Etudiant
     public function getEtatCivil()
     {
         return $this->etatCivil;
-    }
-
-    /**
-     * Set statutActuel
-     *
-     * @param string $statutActuel
-     *
-     * @return Etudiant
-     */
-    public function setStatutActuel($statutActuel)
-    {
-        $this->statutActuel = $statutActuel;
-
-        return $this;
-    }
-
-    /**
-     * Get statutActuel
-     *
-     * @return string
-     */
-    public function getStatutActuel()
-    {
-        return $this->statutActuel;
     }
 
     /**
@@ -989,30 +969,7 @@ class Etudiant
     {
         return $this->universite;
     }
-
-    /**
-     * Set etablisement
-     *
-     * @param \ReregistrationBundle\Entity\Etablissement $etablisement
-     *
-     * @return Etudiant
-     */
-    public function setEtablisement(\ReregistrationBundle\Entity\Etablissement $etablisement = null)
-    {
-        $this->etablisement = $etablisement;
-
-        return $this;
-    }
-
-    /**
-     * Get etablisement
-     *
-     * @return \ReregistrationBundle\Entity\Etablissement
-     */
-    public function getEtablisement()
-    {
-        return $this->etablisement;
-    }
+    
 
     /**
      * Set filiere
@@ -1060,5 +1017,53 @@ class Etudiant
     public function getMentionLicence()
     {
         return $this->mentionLicence;
+    }
+
+    /**
+     * Set etablisement
+     *
+     * @param \ReregistrationBundle\Entity\Etablessement $etablisement
+     *
+     * @return Etudiant
+     */
+    public function setEtablisement(\ReregistrationBundle\Entity\Etablessement $etablisement = null)
+    {
+        $this->etablisement = $etablisement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablisement
+     *
+     * @return \ReregistrationBundle\Entity\Etablessement
+     */
+    public function getEtablisement()
+    {
+        return $this->etablisement;
+    }
+
+    /**
+     * Set statutActuel
+     *
+     * @param \ReregistrationBundle\Entity\EtatActuel $statutActuel
+     *
+     * @return Etudiant
+     */
+    public function setStatutActuel(\ReregistrationBundle\Entity\EtatActuel $statutActuel = null)
+    {
+        $this->statutActuel = $statutActuel;
+
+        return $this;
+    }
+
+    /**
+     * Get statutActuel
+     *
+     * @return \ReregistrationBundle\Entity\EtatActuel
+     */
+    public function getStatutActuel()
+    {
+        return $this->statutActuel;
     }
 }

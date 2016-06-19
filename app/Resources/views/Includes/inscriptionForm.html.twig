@@ -13,22 +13,18 @@
                     <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                     </div>
                 </div>
-                <form id="wizardForm">
+                {{ form_start(form , {'attr':{'id': 'wizardForm'}}) }}
+                    {{ form_errors(form) }}
                     <div class="tab-content">
                         <div class="tab-pane active fade in" id="tab1">
                             <div class="row m-b-lg">
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label>Nationalité (*) | الجنسية</label>
-                                            <select class="form-control" name="ntionalite">
-                                                <option value="marocaine">Marocaine | مغربية</option>
-                                                <option value="etranger" selected>Étranger | أجنبية</option>
-                                            </select>
+                                            {{ form_row(form.nationalite, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="cne">CNE (*) | الرقم الوطني للطالب</label>
-                                            <input type="text" class="form-control" name="nomfr" id="nomfr" placeholder="CNE">
+                                            {{ form_row(form.cne, {'attr':{'class': 'form-control'}}) }}
                                             <div class="help-block">
                                                 <span>En 10 chiffres</span>
                                                 <span class="pull-right">10 أرقام</span>
@@ -37,82 +33,54 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="nomfr">Nom (*) | نسبك بالفرنسية</label>
-                                            <input type="text" class="form-control" name="nomfr" id="nomfr" placeholder="Votre nom en français">
+                                            {{ form_row(form.nomfr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group  col-md-6">
-                                            <label for="prenomfr">Prénom (*)</label>
-                                            <input type="text" class="form-control col-md-6" name="prenomfr" id="prenomfr" placeholder="Votre prénom en français" >
+                                            {{ form_row(form.prenomfr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6 text-right">
-                                            <label for="prenomar">الإسم (*)</label>
-                                            <input type="text" class="form-control text-right" name="prenomar" id="prenomar" placeholder="اسمك بالعربية">
+                                            {{ form_row(form.prenomAr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group  col-md-6 text-right">
-                                            <label for="nomar">النسب (*)</label>
-                                            <input type="text" class="form-control col-md-6 text-right" name="nomar" id="nomar" placeholder="نسبك بالعربية" >
+                                            {{ form_row(form.nomAr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
-                                            <label for="sexe">Sexe (*) | الجنس</label>
-                                            <select class="form-control" name="sexe">
-                                                <option value="masculin" selected>Masculin | ذكر</option>
-                                                <option value="fiminin">Féminin | أنثى</option>
-                                            </select>
+                                            {{ form_row(form.sexe, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="etatCivil">État civil (*) | الحالة المدنية</label>
-                                            <select class="form-control" name="etatCivil">
-                                                <option value="celebataire" selected>Célibataire |   (عازب (ة</option>
-                                                <option value="marier">Marier |(متزوج (ة</option>
-                                                <option value="divorcer">Divorcer | مطلق ة</option>
-                                            </select>
+                                            {{ form_row(form.etatCivil, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group  col-md-4">
-                                            <label for="statutActuel">Statut actuel (*) | الوضع الحالي</label>
-                                            <select class="form-control" name="statutActuel">
-                                                <option value="eleveEtudiant" selected>Éléve / Étudiant | تلميذ / طالب</option>
-                                            </select>
+                                            {{ form_row(form.statutActuel, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label>Avez vous un handicape(*) | هل لديك إعاقة</label>
-                                            <select class="form-control" name="handicape">
-                                                <option value="oui">Oui | نعم</option>
-                                                <option value="non" selected>Non | لا</option>
-                                            </select>
+                                            {{ form_row(form.handicap, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label>Boursier(*) | هل لديك المنحة</label>
-                                            <select class="form-control" name="boursier">
-                                                <option value="oui" selected>Oui | نعم</option>
-                                                <option value="non">Non | لا</option>
-                                            </select>
+                                            {{ form_row(form.bourse, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="lieudenaissancefr">Lieu de naissance (Fr) (*) | مكان الإزدياد</label>
-                                            <input type="text" class="form-control col-md-6" name="lieudenaissancefr" id="lieudenaissancefr" placeholder="Lieu de naissance" >
+                                            {{ form_row(form.lieuNaissFr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group  col-md-6 text-right">
-                                            <label for="lieudenaissancear">مكان الإزدياد (*)</label>
-                                            <input type="text" class="form-control col-md-6 text-right" name="lieudenaissancear" id="lieudenaissancear" placeholder="مكان الإزدياد" >
+                                            {{ form_row(form.lieuNaissAr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="datedenaissancefr">Date de naissance (*) | تاريخ الإزدياد</label>
-                                            <input type="date" class="form-control col-md-6" name="datedenaissancefr" id="datedenaissancefr" placeholder="02-04-1991">
+                                            {{ form_row(form.dateNaiss, {'attr':{'class': 'form-control'}}) }}
                                             <span class="help-block">تاريخ الإزدياد 14-12-1991</span>
                                         </div>
                                         <div class="form-group  col-md-6 text-right">
-                                            <label for="cin">CIN (*) | رقم البطاقة الوطنية</label>
-                                            <input type="text" class="form-control col-md-6" name="cin" id="cin" placeholder="CIN" >
+                                            {{ form_row(form.cin, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </div>
                                 </div>
@@ -156,42 +124,34 @@
                                 <div class="col-md-9">
                                     <row>
                                         <div class="form-group col-md-6">
-                                            <label for="adresse">Adresse (*) | العنوان</label>
-                                            <input type="text" class="form-control" name="adresse" id="adresse" placeholder="Adresse | العنوان" >
+                                            {{ form_row(form.adresseEtd, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="ville">Ville (*) | المدينة</label>
-                                            <input type="text" class="form-control" name="ville" id="ville" placeholder="Ville | المدينة">
+                                            {{ form_row(form.ville, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </row>
                                     <row>
                                         <div class="form-group col-md-6">
-                                            <label for="gsm">GSM (*) </label>
-                                            <input type="text" class="form-control" name="gsm" id="gsm" placeholder="GSM" >
+                                            {{ form_row(form.gsm, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="email">Email (*)</label>
-                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                            {{ form_row(form.email, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </row>
                                     <row>
                                         <div class="form-group col-md-6">
-                                            <label for="nomPere">Nom et prénom du pére (*) | الاسم الكامل للوالد</label>
-                                            <input type="text" class="form-control" name="exampleInputProductName" id="exampleInputProductName" placeholder="Product Name" >
+                                            {{ form_row(form.nomPrenomPereFr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="fonctionPere">Fonction du pére (*) | وظيفة الوالد</label>
-                                            <input type="text" class="form-control" name="fonctionPere" id="fonctionPere" placeholder="Fonction du pére (*) | وظيفة الوالد">
+                                            {{ form_row(form.fonctioPere, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </row>
                                     <row>
                                         <div class="form-group col-md-6">
-                                            <label for="nomMere">Nom et prénom de la mére (*) | الاسم الكامل الأم</label>
-                                            <input type="text" class="form-control" name="nomMere" id="nomMere" placeholder="Nom et prénom de la mére (*) | الاسم الكامل الأم" >
+                                            {{ form_row(form.nomPrenomMereFr, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="fonctionMere">Fonction de la mére (*) | وظيفة الأم</label>
-                                            <input type="text" class="form-control" name="fonctionMere" id="fonctionMere" placeholder="Fonction de la mére (*) | وظيفة الأم">
+                                            {{ form_row(form.fonctioMere, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                     </row>
                                 </div>
@@ -212,9 +172,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-6">
                                         <label for="acadimie">Acadimie | الأكادمية</label>
                                         <input type="text" class="form-control" name="acadimie" id="acadimie" placeholder="Acadimie | الأكادمية">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="province">Province | الإقليم</label>
+                                        <input type="text" class="form-control" name="province" id="province" placeholder="Province | الأكادمية">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="serieBac">Série du baccalauréat | مسلك البكالوريا</label>
@@ -255,8 +219,8 @@
                                         <input type="text" class="form-control" name="spesialiteDiplome" id="spesialiteDiplome" placeholder="Spésiaité du Diplôme">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="mentionBac">Mention du baccalauréat | ميزة البكالوريا</label>
-                                        <input type="text" class="form-control" name="mentionBac" id="mentionBac" placeholder="Mention du baccalauréat">
+                                        <label for="mentionDiplome">Mention du Diplôme | ميزة الشهادة</label>
+                                        <input type="text" class="form-control" name="mentionDiplome" id="mentionDiplome" placeholder="Mention du Diplôme">
                                     </div>
                                 </div>
                             </div>

@@ -32,23 +32,27 @@ class Parcours
      * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Filiere", mappedBy="parcours")
      */
     private $filieres;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     
+    public function __toString()
+    {
+        return $this->nom;
+    }
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->filieres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

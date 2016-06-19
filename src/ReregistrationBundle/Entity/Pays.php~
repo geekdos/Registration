@@ -42,10 +42,75 @@ class Pays
     {
         return $this->id;
     }
-    
+
 
     public function __toString()
     {
         return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->villes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Pays
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Add ville
+     *
+     * @param \ReregistrationBundle\Entity\Ville $ville
+     *
+     * @return Pays
+     */
+    public function addVille(\ReregistrationBundle\Entity\Ville $ville)
+    {
+        $this->villes[] = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Remove ville
+     *
+     * @param \ReregistrationBundle\Entity\Ville $ville
+     */
+    public function removeVille(\ReregistrationBundle\Entity\Ville $ville)
+    {
+        $this->villes->removeElement($ville);
+    }
+
+    /**
+     * Get villes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVilles()
+    {
+        return $this->villes;
     }
 }

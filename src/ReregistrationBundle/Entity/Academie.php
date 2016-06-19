@@ -33,6 +33,11 @@ class Academie
      */
     private $eleves;
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     /**
      * Get id
      *
@@ -41,6 +46,14 @@ class Academie
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -65,14 +78,6 @@ class Academie
     public function getNom()
     {
         return $this->nom;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

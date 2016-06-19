@@ -33,6 +33,11 @@ class Academie
      */
     private $eleves;
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     /**
      * Get id
      *
@@ -41,6 +46,14 @@ class Academie
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -67,4 +80,37 @@ class Academie
         return $this->nom;
     }
 
+    /**
+     * Add elefe
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $elefe
+     *
+     * @return Academie
+     */
+    public function addElefe(\ReregistrationBundle\Entity\Etudiant $elefe)
+    {
+        $this->eleves[] = $elefe;
+
+        return $this;
+    }
+
+    /**
+     * Remove elefe
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $elefe
+     */
+    public function removeElefe(\ReregistrationBundle\Entity\Etudiant $elefe)
+    {
+        $this->eleves->removeElement($elefe);
+    }
+
+    /**
+     * Get eleves
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEleves()
+    {
+        return $this->eleves;
+    }
 }

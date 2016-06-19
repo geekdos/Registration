@@ -43,6 +43,18 @@ class TypeBac
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Set nom
      *
@@ -65,18 +77,6 @@ class TypeBac
     public function getNom()
     {
         return $this->nom;
-    }
-
-    public function __toString()
-    {
-        return $this->nom;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

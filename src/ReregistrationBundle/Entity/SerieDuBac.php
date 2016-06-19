@@ -21,6 +21,7 @@ class SerieDuBac
      */
     private $id;
 
+
     /**
      * @var string
      *
@@ -48,6 +49,7 @@ class SerieDuBac
     {
         return $this->nom;
     }
+    
     /**
      * Constructor
      */

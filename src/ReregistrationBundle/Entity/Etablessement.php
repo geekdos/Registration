@@ -5,12 +5,12 @@ namespace ReregistrationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Etablissement
+ * Etablessement
  *
- * @ORM\Table(name="etablissement")
- * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtablissementRepository")
+ * @ORM\Table(name="etablessement")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtablessementRepository")
  */
-class Etablissement
+class Etablessement
 {
     /**
      * @var int
@@ -32,10 +32,20 @@ class Etablissement
      * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="etablisement")
      */
     private $etudians;
-    
+
     public function __toString()
     {
         return $this->nom;
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
     /**
      * Constructor
@@ -46,21 +56,11 @@ class Etablissement
     }
 
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set nom
      *
      * @param string $nom
      *
-     * @return Etablissement
+     * @return Etablessement
      */
     public function setNom($nom)
     {
@@ -84,7 +84,7 @@ class Etablissement
      *
      * @param \ReregistrationBundle\Entity\Etudiant $etudian
      *
-     * @return Etablissement
+     * @return Etablessement
      */
     public function addEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
     {

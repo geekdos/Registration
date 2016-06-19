@@ -1,0 +1,54 @@
+sonata_admin:
+    security:
+        information:
+            GUEST:    []
+            STAFF:    [EDIT, LIST, CREATE]
+            EDITOR:   [OPERATOR, EXPORT]
+            ADMIN:    [MASTER]
+        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
+
+    title:      FL-SAISS
+    title_logo: "/bundles/reregistration/assets/images/saiss.jpg"
+    options:
+        html5_validate: false # does not use html5 validation
+        pager_links: 5 # pager max links to display
+
+    templates:
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list }
+            #- { position: right, type: sonata.block.service.text, settings: { content: "<div class='panel panel-default'><div class='panel-heading'><h3 class='panel-title'>Welcome!</h3></div><div class='panel-body'>You can customize this dashboard by editing the <code>sonata_admin.yml</code> file. The current dashboard presents the recent items from the NewsBundle and a non-statistical e-commerce information.</div></div>"} }
+
+        groups:
+            sonata.admin.group.configuration:
+                label:           Configuration
+                label_catalogue: ReregistrationBundle
+                icon:            '<i class="fa fa-dashboard"></i>'
+                items:
+                    - reregistration.admin.academie
+                    - reregistration.admin.etablessement
+                    - reregistration.admin.filiere
+                    - reregistration.admin.mention
+                    - reregistration.admin.serie_du_bac
+                    - reregistration.admin.type_bac
+                    - reregistration.admin.type_diplome
+                    - reregistration.admin.parcours
+                    - reregistration.admin.universite
+                    - reregistration.admin.fonction
+                    - reregistration.admin.pays
+                    - reregistration.admin.ville
+                    - reregistration.admin.user
+        groups:
+            sonata.admin.group.admin:
+                label:           Administration
+                label_catalogue: ReregistrationBundle
+                icon:            '<i class="fa fa-cogs"></i>'
+                items:

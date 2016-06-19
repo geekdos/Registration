@@ -37,7 +37,13 @@ class Fonction
      * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="fonctioMere")
      */
     private $traveursMere;
-    
+
+    function __toString()
+    {
+        return $this->nom;
+    }
+
+
     /**
      * Get id
      *
@@ -46,6 +52,14 @@ class Fonction
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->traveursPere = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->traveursMere = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -70,14 +84,6 @@ class Fonction
     public function getNom()
     {
         return $this->nom;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->traveursPere = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->traveursMere = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

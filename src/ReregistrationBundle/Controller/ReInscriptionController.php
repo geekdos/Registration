@@ -9,7 +9,7 @@ class ReInscriptionController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReregistrationBundle:Inscription:indexReInscription.html.twig', [
+        return $this->render('Inscription/indexReInscription.html.twig', [
             
         ]);
     }
@@ -19,7 +19,7 @@ class ReInscriptionController extends Controller
         $cne = $request->request->get('cne');
 
         dump($cne);
-        return $this->render('ReregistrationBundle:Inscription:formReInscription.html.twig', [
+        return $this->render('Inscription/formReInscription.html.twig', [
 
         ]);
     }

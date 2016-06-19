@@ -21,6 +21,7 @@ class SerieDuBac
      */
     private $id;
 
+
     /**
      * @var string
      *
@@ -47,5 +48,71 @@ class SerieDuBac
     public function __toString()
     {
         return $this->nom;
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eleves = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return SerieDuBac
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Add elefe
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $elefe
+     *
+     * @return SerieDuBac
+     */
+    public function addElefe(\ReregistrationBundle\Entity\Etudiant $elefe)
+    {
+        $this->eleves[] = $elefe;
+
+        return $this;
+    }
+
+    /**
+     * Remove elefe
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $elefe
+     */
+    public function removeElefe(\ReregistrationBundle\Entity\Etudiant $elefe)
+    {
+        $this->eleves->removeElement($elefe);
+    }
+
+    /**
+     * Get eleves
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEleves()
+    {
+        return $this->eleves;
     }
 }

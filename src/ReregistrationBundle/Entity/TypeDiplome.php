@@ -28,7 +28,6 @@ class TypeDiplome
      */
     private $nom;
 
-
     /**
      * Get id
      *
@@ -37,6 +36,11 @@ class TypeDiplome
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 
     /**
@@ -59,10 +63,6 @@ class TypeDiplome
      * @return string
      */
     public function getNom()
-    {
-        return $this->nom;
-    }
-    public function __toString()
     {
         return $this->nom;
     }

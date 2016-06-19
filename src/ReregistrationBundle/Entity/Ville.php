@@ -37,8 +37,7 @@ class Ville
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Pays", inversedBy="villes")
      */
     private $pays;
-
-
+    
     /**
      * Get id
      *
@@ -48,8 +47,7 @@ class Ville
     {
         return $this->id;
     }
-    
-    
+
     public function __toString()
     {
         return $this->nom;
