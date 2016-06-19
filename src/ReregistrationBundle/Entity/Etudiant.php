@@ -192,9 +192,28 @@ class Etudiant
     private $serieBac;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="anneeBac", type="string", length=255)
+     */
+    private $anneeBac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anneeDiplome", type="string", length=255)
+     */
+    private $anneeDiplome;
+
+    /**
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBac")
      */
     private $mentionBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiant")
+     */
+    private $province;
 
     /**
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantDeug")
@@ -1065,5 +1084,77 @@ class Etudiant
     public function getStatutActuel()
     {
         return $this->statutActuel;
+    }
+
+    /**
+     * Set anneeBac
+     *
+     * @param string $anneeBac
+     *
+     * @return Etudiant
+     */
+    public function setAnneeBac($anneeBac)
+    {
+        $this->anneeBac = $anneeBac;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeBac
+     *
+     * @return string
+     */
+    public function getAnneeBac()
+    {
+        return $this->anneeBac;
+    }
+
+    /**
+     * Set province
+     *
+     * @param \ReregistrationBundle\Entity\Province $province
+     *
+     * @return Etudiant
+     */
+    public function setProvince(\ReregistrationBundle\Entity\Province $province = null)
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    /**
+     * Get province
+     *
+     * @return \ReregistrationBundle\Entity\Province
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * Set anneeDiplome
+     *
+     * @param string $anneeDiplome
+     *
+     * @return Etudiant
+     */
+    public function setAnneeDiplome($anneeDiplome)
+    {
+        $this->anneeDiplome = $anneeDiplome;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeDiplome
+     *
+     * @return string
+     */
+    public function getAnneeDiplome()
+    {
+        return $this->anneeDiplome;
     }
 }

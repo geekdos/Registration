@@ -5,12 +5,12 @@ namespace ReregistrationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * EtatActuel
+ * Province
  *
- * @ORM\Table(name="etat_actuel")
- * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtatActuelRepository")
+ * @ORM\Table(name="province")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\ProvinceRepository")
  */
-class EtatActuel
+class Province
 {
     /**
      * @var int
@@ -27,9 +27,9 @@ class EtatActuel
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
-    
+
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="statutActuel")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="province")
      */
     private $etudiants;
 
@@ -49,7 +49,7 @@ class EtatActuel
      *
      * @param string $nom
      *
-     * @return EtatActuel
+     * @return Province
      */
     public function setNom($nom)
     {
@@ -67,6 +67,11 @@ class EtatActuel
     {
         return $this->nom;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
     /**
      * Constructor
      */
@@ -80,7 +85,7 @@ class EtatActuel
      *
      * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      *
-     * @return EtatActuel
+     * @return Province
      */
     public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
@@ -107,10 +112,5 @@ class EtatActuel
     public function getEtudiants()
     {
         return $this->etudiants;
-    }
-
-    public function __toString()
-    {
-        return $this->nom;
     }
 }

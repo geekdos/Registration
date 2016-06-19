@@ -107,17 +107,45 @@ class EtudiantType extends AbstractType
             ->add('fonctioMere',null, array(
                 'label' => 'Fonction du pére (*) | وظيفة الأم'
             ))
-            ->add('spesialite')
-            ->add('typeBac')
-            ->add('academie')
-            ->add('serieBac')
-            ->add('mentionBac')
-            ->add('mentionDeug')
-            ->add('typeDiplome')
-            ->add('universite')
-            ->add('etablisement')
-            ->add('filiere')
-            ->add('mentionLicence')
+            ->add('typeBac', null, array(
+                'label' => 'Type du Baccalauréat (*) | نوع البكالوريا'
+            ))
+            ->add('anneeBac', null, array(
+                'label' => 'Année d\'obtention du baccalauréat (*) | سنة الحصل على البكالوريا'
+            ))
+            ->add('academie', null, array(
+                'label' => 'Acadimie (*) | الأكادمية'
+            ))
+            ->add('province', null, array(
+                'label' => 'Province (*) | الإقليم'
+            ))
+            ->add('serieBac', null, array(
+                'label' => 'Série du baccalauréat (*) | مسلك البكالوريا'
+            ))
+            ->add('mentionBac', null, array(
+                'label' => 'Mention du baccalauréat (*) | ميزة البكالوريا'
+            ))
+            ->add('mentionDeug', null, array(
+                'label' => 'Type du Baccalauréat (*) | نوع البكالوريا'
+            ))
+            ->add('typeDiplome', null, array(
+                'label' => 'Type du Diplôme (*) | نوع الشهادة'
+            ))
+            ->add('anneeDiplome', TextType::class, array(
+                'label' => 'Année d\'obtention du Diplôme (*) | سنة الحصل على الشهادة'
+            ))
+            ->add('etablisement', null, array(
+                'label' => 'Établissement d\'origine  (*) | المؤسسة الأصلية'
+            ))
+            ->add('universite', null, array(
+                'label' => 'Université d\'origine  (*) | الجامعة الأصلية'
+            ))
+            ->add('spesialite',TextType::class, array(
+                'label' => 'Spésiaité du Diplôme (*) | تخصص الشهادة'
+            ))
+            ->add('mentionDeug', null, array(
+                'label' => 'Mention du Diplôme  (*) | ميزة الشهادة'
+            ))
         ;
     }
     

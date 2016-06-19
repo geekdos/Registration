@@ -1,0 +1,5 @@
+INSERT INTO `mention`(`nom`) VALUES ('Assez bien');
+INSERT INTO `mention`(`nom`) VALUES ('Bien');
+INSERT INTO `mention`(`nom`) VALUES ('Excellent');
+INSERT INTO `mention`(`nom`) VALUES ('Passable');
+INSERT INTO `mention`(`nom`) VALUES ('Très bien');

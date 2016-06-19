@@ -6,7 +6,7 @@
                     <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
                     <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Diplôle DEUG | المعلومات دبلوم الدراسات الجامعية</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Dernier diplôme | معلومات دبلوم الأخير</a></li>
                     <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
                 </ul>
                 <div class="progress progress-sm m-t-sm">
@@ -163,30 +163,24 @@
                                     <div class="form-group col-md-12">
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <label for="typeBac">Type du Baccalauréat | نوع البكالوريا</label>
-                                                <input type="text" class="form-control" name="typeBac" id="typeBac" placeholder="Type du Baccalauréat | نوع البكالوريا">
+                                                {{ form_row(form.typeBac, {'attr':{'class': 'form-control'}}) }}
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="anneeBac">Année d'obtention du baccalauréat | سنة الحصل على البكالوريا</label>
-                                                <input type="text" class="form-control col-md-4" name="anneeBac" id="anneeBac" placeholder="Exemple 2011">
+                                                {{ form_row(form.anneeBac, {'attr':{'class': 'form-control'}}) }}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="acadimie">Acadimie | الأكادمية</label>
-                                        <input type="text" class="form-control" name="acadimie" id="acadimie" placeholder="Acadimie | الأكادمية">
+                                        {{ form_row(form.academie, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="province">Province | الإقليم</label>
-                                        <input type="text" class="form-control" name="province" id="province" placeholder="Province | الأكادمية">
+                                        {{ form_row(form.province, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="serieBac">Série du baccalauréat | مسلك البكالوريا</label>
-                                        <input type="text" class="form-control" name="serieBac" id="serieBac" placeholder="Série du baccalauréat">
+                                        {{ form_row(form.serieBac, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="mentionBac">Mention du baccalauréat | ميزة البكالوريا</label>
-                                        <input type="text" class="form-control" name="mentionBac" id="mentionBac" placeholder="Mention du baccalauréat">
+                                        {{ form_row(form.mentionBac, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                 </div>
                             </div>
@@ -195,32 +189,27 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group col-md-12">
+                                        {{ form_row(form.anneeBac, {'attr':{'class': 'form-control'}}) }}
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <label for="typeDiplome">Type du Diplôme | نوع الشهادة</label>
-                                                <input type="text" class="form-control" name="typeDiplome" id="typeDiplome" placeholder="Type du Diplome">
+                                                {{ form_row(form.typeDiplome, {'attr':{'class': 'form-control'}}) }}
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="anneeDiplome">Année d'obtention du Diplôme | سنة الحصل على الشهادة</label>
-                                                <input type="text" class="form-control col-md-4" name="anneeDiplome" id="anneeDiplome" placeholder="Exemple 2011">
+                                                {{ form_row(form.anneeDiplome, {'attr':{'class': 'form-control'}}) }}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="etablissementDiplome">Établissement d'origine | المؤسسة الأصلية</label>
-                                        <input type="text" class="form-control" name="etablissementDiplome" id="etablissementDiplome" placeholder="Établissement d'origine | الأكادمية">
+                                        {{ form_row(form.etablisement, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="univDiplome">Université d'origine | الجامعة الأصلية</label>
-                                        <input type="text" class="form-control" name="univDiplome" id="univDiplome" placeholder="Université d'origine">
+                                        {{ form_row(form.universite, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="spesialiteDiplome">Spésiaité du Diplôme | تخصص الشهادة</label>
-                                        <input type="text" class="form-control" name="spesialiteDiplome" id="spesialiteDiplome" placeholder="Spésiaité du Diplôme">
+                                        {{ form_row(form.spesialite, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="mentionDiplome">Mention du Diplôme | ميزة الشهادة</label>
-                                        <input type="text" class="form-control" name="mentionDiplome" id="mentionDiplome" placeholder="Mention du Diplôme">
+                                        {{ form_row(form.mentionDeug, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                 </div>
                             </div>
@@ -230,6 +219,7 @@
                             <div class="alert alert-danger m-t-sm m-b-lg" role="alert">
                                 Verfier tous les infos
                             </div>
+                            {{ form_rest(form) }}
                             <button type="submit" class="btn btn-success">S'inscrire | تسجيل</button>
                         </div>
                     </div>
