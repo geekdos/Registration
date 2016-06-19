@@ -179,4 +179,23 @@ class Etudiant
      */
     private $fonctioMere;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeBac", inversedBy="eleves")
+     */
+    private $typeBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Academie", inversedBy="eleves")
+     */
+    private $academie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\SerieDuBac", inversedBy="eleves")
+     */
+    private $serieBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBac")
+     */
+    private $mentionBac;
 }
