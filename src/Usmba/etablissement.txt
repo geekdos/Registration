@@ -1,7 +1,8 @@
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Agadir');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Beni Mellal');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Aïn Chock/Casablanca');
-INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Ben M\'Sick/Casablanca');INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines El Jadida            ');
+INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Ben M\'Sick/Casablanca');
+INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines El Jadida            ');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Dhar El Mahraz/Fès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Saïs/Fès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Kenitra');
@@ -13,7 +14,7 @@ INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Lettres et des Sciences Humaines Tétouan');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Agadir');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Aïn Chock/Casablanca');
-INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Ben M'Sick/Casablanca');
+INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Ben M\'Sick/Casablanca');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences El Jadida');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Dhar El Mehraz/Fès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences Kenitra');
@@ -29,9 +30,9 @@ INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences et Techniques 
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences et Techniques Mohammedia');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences et Techniques Settat');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences et Techniques Tanger');
-INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale Supérieure d'Electricité et de Mécanique Casablanca');
+INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale Supérieure d\'Electricité et de Mécanique Casablanca');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Mohammedia des Ingénieurs Rabat');
-INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale Supérieure d'Informatique et d'Analyse des Systèmes Rabat');
+INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale Supérieure d\'Informatique et d\'Analyse des Systèmes Rabat');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Agadir');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Casablanca');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Fès');
@@ -39,7 +40,7 @@ INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Mek
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Oujda');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Safi');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Supérieure de Technologie Salé');
-INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences de l'Education Rabat');
+INSERT INTO `etablessement`(`nom`) VALUES ('Faculté des Sciences de l\'Education Rabat');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale Supérieure des Arts et Métiers Meknès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées Tanger');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées Agadir');
@@ -62,14 +63,14 @@ INSERT INTO `etablessement`(`nom`) VALUES ('Ecole supérieur de Technologie Berr
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté Polydisciplinaire El  Kelaâ Sraghna');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées El Jadida');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées Tétouan');
-INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées d'Al Hoceima');
+INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées d\'Al Hoceima');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Nationale des Sciences Appliquées de Kenitra');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure Tétouan');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté Polydisciplinaire Larache');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure Fès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure Marrakech');
-INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de l'Enseignement Technique Rabat');
-INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de l'Enseignement Technique Mohammedia');
+INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de l\'Enseignement Technique Rabat');
+INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de l\'Enseignement Technique Mohammedia');
 INSERT INTO `etablessement`(`nom`) VALUES ('Faculté Polydisciplinaire Taroudant');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de Meknès');
 INSERT INTO `etablessement`(`nom`) VALUES ('Ecole Normale Supérieure de Casablanca');
