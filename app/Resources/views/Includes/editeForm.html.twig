@@ -1,0 +1,259 @@
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div id="rootwizard">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab0" data-toggle="tab"><i class="fa fa-graduation-cap m-r-xs"></i>Filiére | الشعبة</a></li>
+                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Dernier diplôme | معلومات دبلوم الأخير</a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
+                </ul>
+                <div class="progress progress-sm m-t-sm">
+                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    </div>
+                </div>
+                {{ form_start(edit_form , {'attr':{'id': 'wizardForm'}}) }}
+                {% if form_errors(edit_form)  %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(edit_form) }}
+                    </div>
+                {% endif %}
+                <div class="tab-content">
+
+                    <div class="tab-pane active fade in" id="tab0">
+                        <div class="row">
+                            <div class="col-md-6 center">
+                                <div class="panel panel-white">
+                                    <div class="panel-heading clearfix">
+                                        <h4 class="panel-title">Le Choix de la Filière <span class="text-right"> الشعبة</span> </h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        {{ form_row(edit_form.filiere, {'attr':{'class': 'form-control', 'desibled': 'desibled'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade " id="tab1">
+                        <div class="row m-b-lg">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.nationalite, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.cne, {'attr':{'class': 'form-control'}}) }}
+                                        <div class="help-block">
+                                            <span>En 10 chiffres</span>
+                                            <span class="pull-right">10 أرقام</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.nomfr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        {{ form_row(edit_form.prenomfr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 text-right">
+                                        {{ form_row(edit_form.prenomAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(edit_form.nomAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        {{ form_row(edit_form.sexe, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        {{ form_row(edit_form.etatCivil, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-4">
+                                        {{ form_row(edit_form.statutActuel, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.handicap, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.bourse, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.lieuNaissFr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(edit_form.lieuNaissAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.dateNaiss, {'attr':{'class': 'form-control'}}) }}
+                                        <span class="help-block">تاريخ الإزدياد 14/05/1991</span>
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(edit_form.cin, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Personal Info</h3>
+                                <p>
+                                    1 - Vous devez remplir soigneusement et attentivement votre formulaire de candidature en ligne.
+                                    <br>
+                                    2 - Toute information erronée entraîne l'annulation de votre candidature.
+                                    <br>
+                                    N.B : Pour compléter la procédure de préinscription en ligne le candidat doit:
+                                    <br>
+                                    1) Scanner sur un même fichier (format PDF; taille max 5Mo) les documents suivants: Relevés des notes de toutes les années universitaires;
+                                    diplômes (ou attestations) universitaires et du baccalauréat ; copie de la CIN.
+                                    <br>
+                                    2)Envoyer obligatoirement, à l’adresse e-mail de la filière, le fichier des documents scannés.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ asset('bundles/reregistration/assets/images/saiss.jpg') }}" title="Faculté des Lettres et des Sciences Humaines Saïs-Fés" width="250" alt="Faculté des Lettres et des Sciences Humaines Saïs-Fés">
+                                <div class="m-t-md">
+                                    <address>
+                                        <strong>
+                                            FLSHSF
+                                        </strong><br>
+                                        BP 59 Route Immouzer CP 30000 Fès Maroc.
+                                        <abbr title="Téléphone">Tél :</abbr> +212 5 35 61 82 26
+                                        <br>
+                                        <abbr title="Fax">Fax : </abbr> +212 5 35 61 82 53
+                                    </address>
+                                    <address>
+                                        <strong>Faculté des Lettres et des Sciences Humaines Saïs-Fés</strong><br>
+                                        <a href="mailto:#">flshsf@gmail.com</a>
+                                    </address>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <row>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.adresseEtd, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.ville, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </row>
+                                <row>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.gsm, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.email, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </row>
+                                <row>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.nomPrenomPereFr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.fonctioPere, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </row>
+                                <row>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.nomPrenomMereFr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(edit_form.fonctioMere, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </row>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            {{ form_row(edit_form.typeBac, {'attr':{'class': 'form-control'}}) }}
+                                        </div>
+                                        <div class="col-md-4">
+                                            {{ form_row(edit_form.anneeBac, {'attr':{'class': 'form-control'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.academie, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.province, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.serieBac, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.mentionBac, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group col-md-12">
+                                    {{ form_row(edit_form.anneeBac, {'attr':{'class': 'form-control'}}) }}
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            {{ form_row(edit_form.typeDiplome, {'attr':{'class': 'form-control'}}) }}
+                                        </div>
+                                        <div class="col-md-4">
+                                            {{ form_row(edit_form.anneeDiplome, {'attr':{'class': 'form-control'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.etablisement, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.universite, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.spesialite, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form_row(edit_form.mentionDeug, {'attr':{'class': 'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab5">
+                        <h2 class="no-s">Attention | تحذير</h2>
+                        <div class="alert alert-danger m-t-sm m-b-lg" role="alert">
+                            Verfier tous les infos
+                        </div>
+                        {{ form_rest(edit_form) }}
+                        {% if etudiant != null %}
+                            <button type="submit" class="btn btn-success">Enregistrer | تأكيد</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-success">S'inscrire | تسجيل</button>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <ul class="pager wizard">
+                    <li class="previous"><a href="#" class="btn btn-default">Precedent | الرجوع</a></li>
+                    <li class="next"><a href="#" class="btn btn-default">Suivant | التالي</a></li>
+                </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

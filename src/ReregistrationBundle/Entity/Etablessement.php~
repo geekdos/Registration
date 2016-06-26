@@ -31,28 +31,29 @@ class Etablessement
     /**
      * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="etablisement")
      */
-    private $etudians;
+    private $etudiants;
 
     public function __toString()
     {
         return $this->nom;
     }
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->etudians = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -80,36 +81,36 @@ class Etablessement
     }
 
     /**
-     * Add etudian
+     * Add etudiant
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudian
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      *
      * @return Etablessement
      */
-    public function addEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
+    public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->etudians[] = $etudian;
+        $this->etudiants[] = $etudiant;
 
         return $this;
     }
 
     /**
-     * Remove etudian
+     * Remove etudiant
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudian
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      */
-    public function removeEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
+    public function removeEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->etudians->removeElement($etudian);
+        $this->etudiants->removeElement($etudiant);
     }
 
     /**
-     * Get etudians
+     * Get etudiants
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEtudians()
+    public function getEtudiants()
     {
-        return $this->etudians;
+        return $this->etudiants;
     }
 }

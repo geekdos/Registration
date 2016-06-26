@@ -63,11 +63,13 @@ class EtudiantType extends AbstractType
                 'label' => 'Statut actuel (*) | الوضع الحالي'
             ))
             ->add('handicap', CheckboxType::class, array(
-                    'label' => 'Avez vous un handicape(*) | هل لديك إعاقة'
+                    'label' => 'Avez vous un handicape(*) | هل لديك إعاقة',
+                    'required' => false
                 )
             )
             ->add('bourse', CheckboxType::class, array(
-                    'label' => 'Boursier (*) | هل لديك المنحة'
+                    'label' => 'Boursier (*) | هل لديك المنحة',
+                    'required' => false
                 )
             )
             ->add('lieuNaissFr',TextType::class, array(
@@ -147,7 +149,9 @@ class EtudiantType extends AbstractType
             ->add('mentionDeug', null, array(
                 'label' => 'Mention du Diplôme  (*) | ميزة الشهادة'
             ))
-            ->add('filiere', HiddenType::class)
+            ->add('filiere', null, array(
+                'label' => ' '
+            ))
         ;
     }
     

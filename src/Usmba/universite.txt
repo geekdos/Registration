@@ -1,9 +1,9 @@
+INSERT INTO `universite`(`nom`) VALUES ('Université Sidi Mohammed Ben Abdellah Fès');
 INSERT INTO `universite`(`nom`) VALUES ('Université Quaraouiyine Fès');
 INSERT INTO `universite`(`nom`) VALUES ('Université Mohammed V Agdal Rabat');
 INSERT INTO `universite`(`nom`) VALUES ('Université Mohammed V Souissi Rabat');
 INSERT INTO `universite`(`nom`) VALUES ('Université Hassan II AïnChock Casablanca');
 INSERT INTO `universite`(`nom`) VALUES ('Université Hassan II Mohammadia');
-INSERT INTO `universite`(`nom`) VALUES ('Université Sidi Mohammed Ben Abdellah Fès');
 INSERT INTO `universite`(`nom`) VALUES ('Université Cadi Ayyad Marrakech');
 INSERT INTO `universite`(`nom`) VALUES ('Université Mohammed Premier Oujda');
 INSERT INTO `universite`(`nom`) VALUES ('Université Abdelmalek Essaâdi Tétouan');

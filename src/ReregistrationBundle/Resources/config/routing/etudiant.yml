@@ -1,10 +1,15 @@
+etudiant_index:
+    path:     /liste
+    defaults: { _controller: "ReregistrationBundle:Etudiant:index" }
+    methods:  GET
+
 etudiant_show:
     path:     /{id}/show
     defaults: { _controller: "ReregistrationBundle:Etudiant:show" }
     methods:  GET
 
 etudiant_new:
-    path:     /
+    path:     /new/{parcours_id}
     defaults: { _controller: "ReregistrationBundle:Etudiant:new" }
     methods:  [GET, POST]
 
@@ -17,8 +22,3 @@ etudiant_delete:
     path:     /{id}/delete
     defaults: { _controller: "ReregistrationBundle:Etudiant:delete" }
     methods:  DELETE
-
-etudiant_index:
-    path:     /
-    defaults: { _controller: "ReregistrationBundle:Etudiant:index" }
-    methods:  GET

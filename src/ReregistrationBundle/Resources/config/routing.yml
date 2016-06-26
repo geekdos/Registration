@@ -1,6 +1,6 @@
 reregistration_etudiant:
     resource: "@ReregistrationBundle/Resources/config/routing/etudiant.yml"
-    prefix:   /inscription/new
+    prefix:   /inscription
 
 reregistration_homepage:
     path:     /

@@ -1,3 +1,4 @@
+INSERT INTO `pays`(`nom`) VALUES ('Maroc');
 INSERT INTO `pays`(`nom`) VALUES ('Afghanistan');
 INSERT INTO `pays`(`nom`) VALUES ('Albanie');
 INSERT INTO `pays`(`nom`) VALUES ('Algérie');
@@ -142,7 +143,6 @@ INSERT INTO `pays`(`nom`) VALUES ('Moldavie');
 INSERT INTO `pays`(`nom`) VALUES ('Monaco');
 INSERT INTO `pays`(`nom`) VALUES ('Mongolie');
 INSERT INTO `pays`(`nom`) VALUES ('Montserrat');
-INSERT INTO `pays`(`nom`) VALUES ('Maroc');
 INSERT INTO `pays`(`nom`) VALUES ('Mozambique');
 INSERT INTO `pays`(`nom`) VALUES ('Myanmar');
 INSERT INTO `pays`(`nom`) VALUES ('Namibie');

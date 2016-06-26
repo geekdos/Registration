@@ -2,6 +2,7 @@
 
 namespace ReregistrationBundle\Controller;
 
+use ReregistrationBundle\Entity\Filiere;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -33,7 +34,7 @@ class EtudiantController extends Controller
      * Creates a new Etudiant entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $parcours_id)
     {
         $etudiant = new Etudiant();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantType', $etudiant);
@@ -41,9 +42,14 @@ class EtudiantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            /*
+            $filiere = $request->getSession()->get('choix');
+            dump($filiere->getId());
+            $etudiant->setFiliere($filiere);
+            dump($etudiant);
+            */
             $em->persist($etudiant);
             $em->flush();
-
             return $this->redirectToRoute('etudiant_show', array('id' => $etudiant->getId()));
         }
 
@@ -81,10 +87,8 @@ class EtudiantController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiant);
             $em->flush();
-
             return $this->redirectToRoute('etudiant_edit', array('id' => $etudiant->getId()));
         }
-
         return $this->render('etudiant/edit.html.twig', array(
             'etudiant' => $etudiant,
             'edit_form' => $editForm->createView(),

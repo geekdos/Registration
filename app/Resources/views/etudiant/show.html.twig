@@ -1,4 +1,4 @@
-{% extends '::layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
     <h1>Etudiant</h1>
@@ -40,10 +40,6 @@
             <tr>
                 <th>Etatcivil</th>
                 <td>{{ etudiant.etatCivil }}</td>
-            </tr>
-            <tr>
-                <th>Statutactuel</th>
-                <td>{{ etudiant.statutActuel.nom }}</td>
             </tr>
             <tr>
                 <th>Handicap</th>
@@ -88,6 +84,14 @@
             <tr>
                 <th>Nomprenommerefr</th>
                 <td>{{ etudiant.nomPrenomMereFr }}</td>
+            </tr>
+            <tr>
+                <th>Anneebac</th>
+                <td>{{ etudiant.anneeBac }}</td>
+            </tr>
+            <tr>
+                <th>Anneediplome</th>
+                <td>{{ etudiant.anneeDiplome }}</td>
             </tr>
             <tr>
                 <th>Spesialite</th>

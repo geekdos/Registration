@@ -5,7 +5,7 @@
             <div class="panel info-box panel-white">
                 <div class="panel-body">
                     <div class="info-box-stats">
-                        <p class="counter">107,200</p>
+                        <p class="counter">{{ nbrDEUG }}</p>
                         <span class="info-box-title">Etudiants inscri dans bac+2</span>
                     </div>
                     <div class="info-box-icon">
@@ -13,7 +13,7 @@
                     </div>
                     <div class="info-box-progress">
                         <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ nbrDEUG }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDEUG }}%">
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
             <div class="panel info-box panel-white">
                 <div class="panel-body">
                     <div class="info-box-stats">
-                        <p class="counter">340,230</p>
+                        <p class="counter">{{ nbrLicence }}</p>
                         <span class="info-box-title">Etudiants inscri dans les licences</span>
                     </div>
                     <div class="info-box-icon">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="info-box-progress">
                         <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ nbrLicence }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrLicence }}%">
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             <div class="panel info-box panel-white">
                 <div class="panel-body">
                     <div class="info-box-stats">
-                        <p><span class="counter">653,000</span></p>
+                        <p><span class="counter">{{ nbrMaster }}</span></p>
                         <span class="info-box-title">Etudiants inscri dans Les Masters</span>
                     </div>
                     <div class="info-box-icon">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="info-box-progress">
                         <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ nbrMaster }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrMaster }}%">
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
             <div class="panel info-box panel-white">
                 <div class="panel-body">
                     <div class="info-box-stats">
-                        <p class="counter">47,500</p>
+                        <p class="counter">{{ nbrDoctorat }}</p>
                         <span class="info-box-title">Etudiants inscri dans le doctorat</span>
                     </div>
                     <div class="info-box-icon">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="info-box-progress">
                         <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ nbrDoctorat }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDoctorat }}%">
                             </div>
                         </div>
                     </div>

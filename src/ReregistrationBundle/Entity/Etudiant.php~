@@ -211,7 +211,7 @@ class Etudiant
     private $mentionBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiant")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiants")
      */
     private $province;
 
@@ -1132,5 +1132,29 @@ class Etudiant
     public function getProvince()
     {
         return $this->province;
+    }
+
+    /**
+     * Set anneeDiplome
+     *
+     * @param string $anneeDiplome
+     *
+     * @return Etudiant
+     */
+    public function setAnneeDiplome($anneeDiplome)
+    {
+        $this->anneeDiplome = $anneeDiplome;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeDiplome
+     *
+     * @return string
+     */
+    public function getAnneeDiplome()
+    {
+        return $this->anneeDiplome;
     }
 }

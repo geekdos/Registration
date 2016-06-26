@@ -211,7 +211,7 @@ class Etudiant
     private $mentionBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiant")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiants")
      */
     private $province;
 

@@ -1,0 +1,4 @@
+INSERT INTO `parcours` (`nom`) VALUES ('DEUG');
+INSERT INTO `parcours` (`nom`) VALUES ('Licence');
+INSERT INTO `parcours` (`nom`) VALUES ('Master');
+INSERT INTO `parcours` (`nom`) VALUES ('Doctorat');

@@ -2,6 +2,7 @@
 
 namespace ReregistrationBundle\Controller;
 
+use ReregistrationBundle\Entity\Filiere;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -9,14 +10,23 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class ChoixFiliereController extends Controller
 {
     public function indexAction(Request $request)
-    {
-        $filiere_id = $request->get('filiere');
+    {   $session = new Session();
+        $filiere = $request->get('filiere');
+        $choix = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('ReregistrationBundle:Filiere')
+            ->findOneBy([
+                'id' => $filiere
+            ])
+        ;
+        $request->getSession()->set('choix', $choix);
         return $this->redirectToRoute('etudiant_new', [
-            'filiere_id' => $filiere_id
+            'choix' => $choix
         ]);
     }
 
-    public function filiereListeAction($parcours_id)
+    public function filiereListeAction(Request $request, $parcours_id)
     {
         $filireLicence = $this
             ->getDoctrine()
@@ -26,8 +36,9 @@ class ChoixFiliereController extends Controller
                 'parcours' => $parcours_id
             ])
         ;
-        return $this->render(':Includes:licenceFilires.html.twig',[
-            'filireLicence' => $filireLicence
-        ]);
+
+        return $this->render(':Includes:licenceFilires.html.twig', array(
+            'filireLicence' => $filireLicence,
+        ));
     }
 }

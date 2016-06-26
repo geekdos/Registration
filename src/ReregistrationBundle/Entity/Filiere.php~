@@ -40,9 +40,9 @@ class Filiere
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="etablisement")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="filiere")
      */
-    private $etudians;
+    private $etudiants;
 
     /**
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Parcours", inversedBy="filieres")
@@ -53,12 +53,13 @@ class Filiere
     {
         return $this->nom;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->etudians = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -86,37 +87,37 @@ class Filiere
     }
 
     /**
-     * Add etudian
+     * Add etudiant
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudian
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      *
      * @return Filiere
      */
-    public function addEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
+    public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->etudians[] = $etudian;
+        $this->etudiants[] = $etudiant;
 
         return $this;
     }
 
     /**
-     * Remove etudian
+     * Remove etudiant
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudian
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
      */
-    public function removeEtudian(\ReregistrationBundle\Entity\Etudiant $etudian)
+    public function removeEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
     {
-        $this->etudians->removeElement($etudian);
+        $this->etudiants->removeElement($etudiant);
     }
 
     /**
-     * Get etudians
+     * Get etudiants
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEtudians()
+    public function getEtudiants()
     {
-        return $this->etudians;
+        return $this->etudiants;
     }
 
     /**

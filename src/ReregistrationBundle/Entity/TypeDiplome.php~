@@ -29,6 +29,11 @@ class TypeDiplome
     private $nom;
 
     /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="typeDiplome")
+     */
+    private $etudiants;
+    
+    /**
      * Get id
      *
      * @return int
@@ -43,27 +48,4 @@ class TypeDiplome
         return $this->nom;
     }
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return TypeDiplome
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
 }

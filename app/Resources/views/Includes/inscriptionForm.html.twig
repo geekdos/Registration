@@ -3,7 +3,8 @@
         <div class="panel-body">
             <div id="rootwizard">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
+                    <li role="presentation" class="active"><a href="#tab0" data-toggle="tab"><i class="fa fa-graduation-cap m-r-xs"></i>Filiére | الشعبة</a></li>
+                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
                     <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
                     <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Dernier diplôme | معلومات دبلوم الأخير</a></li>
@@ -14,9 +15,28 @@
                     </div>
                 </div>
                 {{ form_start(form , {'attr':{'id': 'wizardForm'}}) }}
-                    {{ form_errors(form) }}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form) }}
+                    </div>
                     <div class="tab-content">
-                        <div class="tab-pane active fade in" id="tab1">
+
+                        <div class="tab-pane active fade in" id="tab0">
+                            <div class="row">
+                                <div class="col-md-6 center">
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading clearfix">
+                                            <h4 class="panel-title">Le Choix de la Filière <span class="text-right"> الشعبة</span> </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            {% if(form.filiere.vars['choices'][1].data.parcours.id) ==  app.request.get('parcours_id')%}
+                                            {{ form_row(form.filiere, {'attr':{'class': 'form-control'}}) }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="tab1">
                             <div class="row m-b-lg">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -24,11 +44,7 @@
                                             {{ form_row(form.nationalite, {'attr':{'class': 'form-control'}}) }}
                                         </div>
                                         <div class="form-group col-md-6">
-                                            {% if etudiant != null %}
-                                                {{ form_row(form.cne, {'attr':{'class': 'form-control', 'disabled': 'disabled'}}) }}
-                                            {% else %}
                                                 {{ form_row(form.cne, {'attr':{'class': 'form-control'}}) }}
-                                            {% endif %}
                                             <div class="help-block">
                                                 <span>En 10 chiffres</span>
                                                 <span class="pull-right">10 أرقام</span>
@@ -81,7 +97,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             {{ form_row(form.dateNaiss, {'attr':{'class': 'form-control'}}) }}
-                                            <span class="help-block">تاريخ الإزدياد 14-12-1991</span>
+                                            <span class="help-block">تاريخ الإزدياد 14/05/1991</span>
                                         </div>
                                         <div class="form-group  col-md-6 text-right">
                                             {{ form_row(form.cin, {'attr':{'class': 'form-control'}}) }}
@@ -215,9 +231,6 @@
                                     <div class="form-group col-md-6">
                                         {{ form_row(form.mentionDeug, {'attr':{'class': 'form-control'}}) }}
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        {{ form_row(form.filiere, {'attr':{'value': app.request.get('filiere_id')}}) }}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -236,8 +249,8 @@
                         </div>
                     </div>
                 <ul class="pager wizard">
-                    <li class="previous"><a href="#" class="btn btn-default">Previous</a></li>
-                    <li class="next"><a href="#" class="btn btn-default">Next</a></li>
+                    <li class="previous"><a href="#" class="btn btn-default">Precedent | الرجوع</a></li>
+                    <li class="next"><a href="#" class="btn btn-default">Suivant | التالي</a></li>
                 </ul>
                 </form>
             </div>

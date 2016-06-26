@@ -29,6 +29,11 @@ class TypeDiplome
     private $nom;
 
     /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="typeDiplome")
+     */
+    private $etudiants;
+    
+    /**
      * Get id
      *
      * @return int
@@ -41,6 +46,14 @@ class TypeDiplome
     public function __toString()
     {
         return $this->nom;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etudiants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -65,5 +78,39 @@ class TypeDiplome
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Add etudiant
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
+     *
+     * @return TypeDiplome
+     */
+    public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants[] = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiant
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
+     */
+    public function removeEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants->removeElement($etudiant);
+    }
+
+    /**
+     * Get etudiants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiants()
+    {
+        return $this->etudiants;
     }
 }
