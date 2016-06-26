@@ -17,7 +17,3 @@ sonata_classification:
             class:        Sonata\ClassificationBundle\Admin\CollectionAdmin
             controller:   SonataAdminBundle:CRUD
             translation:  SonataClassificationBundle
-doctrine:
-    dbal:
-        types:
-            json:     Sonata\Doctrine\Types\JsonType
