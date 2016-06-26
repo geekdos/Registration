@@ -7,8 +7,8 @@ imports:
     - { resource: "sonata_project/sonata_admin.yml" }
     - { resource: "sonata_project/sonata_doctrine_orm_admin.yml" }
     - { resource: "sonata_project/sonata_block.yml" }
-    - { resource: "sonata_project/sonata_classification.yml" }
-    - { resource: "sonata_project/sonata_media.yml" }
+#    - { resource: "sonata_project/sonata_classification.yml" }
+#    - { resource: "sonata_project/sonata_media.yml" }
     - { resource: "fos/fos_user.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
