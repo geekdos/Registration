@@ -13,6 +13,15 @@ sonata_admin:
     options:
         html5_validate: false # does not use html5 validation
         pager_links: 5 # pager max links to display
+        sort_admins:          false
+        confirm_exit:         true
+        use_select2:          true
+        use_icheck:           true
+        use_bootlint:         false
+        use_stickyforms:      true
+        form_type:            standard
+        dropdown_number_groups_per_colums:  2
+        title_mode:          single_text # One of "single_text"; "single_image"; "both"
 
     templates:
         layout:  SonataAdminBundle::standard_layout.html.twig
@@ -24,23 +33,56 @@ sonata_admin:
 
     dashboard:
         blocks:
-            - { position: left, type: sonata.admin.block.admin_list }
-            #- { position: right, type: sonata.block.service.text, settings: { content: "<div class='panel panel-default'><div class='panel-heading'><h3 class='panel-title'>Welcome!</h3></div><div class='panel-body'>You can customize this dashboard by editing the <code>sonata_admin.yml</code> file. The current dashboard presents the recent items from the NewsBundle and a non-statistical e-commerce information.</div></div>"} }
-
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <div class='panel panel-default'>
+                          <div class='panel-heading'>
+                            <h3 class='panel-title'>Welcome!</h3>
+                          </div>
+                          <div class='panel-body'>You can customize this dashboard by editing the
+                          <code>sonata_admin.yml</code> file.
+                          The current dashboard presents the recent items from the NewsBundle and a
+                          non-statistical e-commerce information.
+                          </div>
+                        </div>
+            -
+                position: right
+                type: sonata.block.service.rss
+                settings:
+                    title: Men Gov RSS
+                    url: https://sonata-project.org/blog/archive.rss
         groups:
-            sonata.admin.group.configuration:
-                label:           Configuration
+            sonata.admin.group.etudiants:
+                label:           Etudiants
                 label_catalogue: ReregistrationBundle
-                icon:            '<i class="fa fa-dashboard"></i>'
+                icon:            '<i class="fa fa-users"></i>'
                 items:
                     - reregistration.admin.etudiant_deug
                     - reregistration.admin.etudiant_licence
                     - reregistration.admin.etudiant_master
                     - reregistration.admin.etudiant_doctorat
+
+            sonata.admin.group.filieres:
+                label:           Filières
+                label_catalogue: ReregistrationBundle
+                icon:            '<i class="fa fa-list"></i>'
+                items:
                     - reregistration.admin.filiere_deug
                     - reregistration.admin.filiere_licence
                     - reregistration.admin.filiere_master
                     - reregistration.admin.labo_doctorat
+
+            sonata.admin.group.content:
+                label:           Les Contenus
+                label_catalogue: ReregistrationBundle
+                icon:            '<i class="fa fa-dashboard"></i>'
+                items:
                     - reregistration.admin.academie
                     - reregistration.admin.etablessement
                     - reregistration.admin.mention
@@ -52,11 +94,11 @@ sonata_admin:
                     - reregistration.admin.fonction
                     - reregistration.admin.pays
                     - reregistration.admin.ville
-                    - reregistration.admin.user
-                    - reregistration.admin.configuration
-        groups:
-            sonata.admin.group.admin:
+
+            sonata.admin.group.administration:
                 label:           Administration
                 label_catalogue: ReregistrationBundle
                 icon:            '<i class="fa fa-cogs"></i>'
                 items:
+                    - reregistration.admin.user
+                    - reregistration.admin.configuration

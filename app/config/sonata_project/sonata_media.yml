@@ -37,7 +37,7 @@ sonata_media:
 
     cdn:
         server:
-            path:      /uploads/media # http://media.sonata-project.org
+            path:      /uploads/media
 
         panther:
             path:       http://domain.pantherportal.com/uploads/media
@@ -62,7 +62,7 @@ sonata_media:
             port:     21
             passive:  false
             create:   false
-            mode:     2 # this is the FTP_BINARY constant. see: http://php.net/manual/en/ftp.constants.php
+            mode:     2
 
         s3:
             bucket:
@@ -141,10 +141,16 @@ sonata_media:
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
 
+        image:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+        youtube:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+        dailymotion:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
     pixlr:
         enabled:  true
         secret:   theSecretHash
         referrer: Application Name
 
     buzz:
-        connector:  sonata.media.buzz.connector.file_get_contents # sonata.media.buzz.connector.curl
+        connector:  sonata.media.buzz.connector.file_get_contents

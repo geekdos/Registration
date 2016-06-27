@@ -11,6 +11,8 @@ imports:
     - { resource: "fos/fos_user.yml" }
     - { resource: "sonata_project/sonata_classification.yml" }
     - { resource: "sonata_project/sonata_media.yml" }
+    - { resource: "ivory_ck_editor/ivory_ck_editor.yml" }
+#    - { resource: "liip/liip_imagine.yml" }
 
 parameters:
     locale: fr

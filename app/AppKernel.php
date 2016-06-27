@@ -30,7 +30,6 @@ class AppKernel extends Kernel
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
