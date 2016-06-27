@@ -97,3 +97,9 @@ services:
         arguments: [~, ReregistrationBundle\Entity\Province, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Province }
+
+    reregistration.admin.configuration:
+        class: ReregistrationBundle\Admin\ConfigurationAdmin
+        arguments: [~, ReregistrationBundle\Entity\Configuration, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Configuration }

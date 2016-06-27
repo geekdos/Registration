@@ -2,19 +2,16 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-#    - { resource: "@UsmbaFLRegistrationBundle/Resources/config/services.yml" }
     - { resource: "@ReregistrationBundle/Resources/config/services.yml" }
     - { resource: "sonata_project/sonata_admin.yml" }
     - { resource: "sonata_project/sonata_doctrine_orm_admin.yml" }
     - { resource: "sonata_project/sonata_block.yml" }
-    - { resource: "sonata_project/sonata_classification.yml" }
     - { resource: "sonata_project/sonata_formatter.yml" }
     - { resource: "sonata_project/sonata_intl.yml" }
-#    - { resource: "sonata_project/sonata_media.yml" }
     - { resource: "fos/fos_user.yml" }
+#    - { resource: "sonata_project/sonata_classification.yml" }
+#    - { resource: "sonata_project/sonata_media.yml" }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
     upload: "%kernel.root_dir%/../web/uploads/media"
@@ -36,7 +33,6 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
-        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~

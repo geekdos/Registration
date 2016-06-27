@@ -1,6 +1,0 @@
-INSERT INTO `type_diplome`(`nom`) VALUES ('Licence Professionnelle');
-INSERT INTO `type_diplome`(`nom`) VALUES ('Maîtrise ès-Sciences Spécialisées');
-INSERT INTO `type_diplome`(`nom`) VALUES ('Maîtrise ès-Sciences et Techniques');
-INSERT INTO `type_diplome`(`nom`) VALUES ('Diplôme Ingénieur Etat');
-INSERT INTO `type_diplome`(`nom`) VALUES ('Licence Fondamentale');
-INSERT INTO `type_diplome`(`nom`) VALUES ('Licence Sciences et Techniques');

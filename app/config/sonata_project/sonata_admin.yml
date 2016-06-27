@@ -33,6 +33,7 @@ sonata_admin:
                 label_catalogue: ReregistrationBundle
                 icon:            '<i class="fa fa-dashboard"></i>'
                 items:
+                    - reregistration.admin.etudiant
                     - reregistration.admin.academie
                     - reregistration.admin.etablessement
                     - reregistration.admin.filiere
@@ -46,6 +47,7 @@ sonata_admin:
                     - reregistration.admin.pays
                     - reregistration.admin.ville
                     - reregistration.admin.user
+                    - reregistration.admin.configuration
         groups:
             sonata.admin.group.admin:
                 label:           Administration
