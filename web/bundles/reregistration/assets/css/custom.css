@@ -1,7 +1,6 @@
 .page-inner{
     margin-top: 61px;
 }
-/*
-.section{
-    display: none;
+.page-header-fixed:not(.page-sidebar-fixed):not(.page-horizontal-bar) .page-inner {
+    padding: 0px 0 50px;
 }

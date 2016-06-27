@@ -7,7 +7,8 @@ sonata_block:
         sonata.block.service.rss:
         sonata.admin_doctrine_orm.block.audit:
             contexts:   [admin]
-
+        sonata.admin.block.search_result:
+            contexts:   [admin]
         # Some specific block from the SonataMediaBundle
         sonata.media.block.media:
         sonata.media.block.gallery:

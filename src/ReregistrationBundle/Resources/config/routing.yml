@@ -86,4 +86,6 @@ reregistration_re_registration_doctorat:
     path:     /re-inscription/doctorat
     defaults: { _controller: ReregistrationBundle:ReInscription:doctoratCnePage }
 
-
+index:
+    path:     wizard
+    defaults: { _controller: ReregistrationBundle:TestTemplate:index }

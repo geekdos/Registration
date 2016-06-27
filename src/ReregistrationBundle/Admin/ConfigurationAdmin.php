@@ -30,8 +30,10 @@ class ConfigurationAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('nom')
-            ->add('value')
-            ->add('online')
+            ->add('online', null, array(
+                'editable' => true,
+                'ajax_hidden' => true
+            ))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -48,9 +50,18 @@ class ConfigurationAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nom')
-            ->add('value')
-            ->add('online')
+            ->with('Nom de la Configuration a ne pas modifier', array('class'=> 'col-md-6'))
+                ->add('nom')
+            ->end()
+            ->with('Online', array('class'=> 'col-md-6'))
+                ->add('online')
+            ->end()
+            ->with('Contenu Facultatif')
+                ->add('value', 'ckeditor', array(
+                    'required' => true,
+                    'attr' => array('cols' => '8', 'rows' => '8')
+                ))
+            ->end()
         ;
     }
 

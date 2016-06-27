@@ -27,8 +27,8 @@ class FiliereDeugAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('nom')
+            ->addIdentifier('id')
+            ->addIdentifier('nom')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -45,8 +45,15 @@ class FiliereDeugAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
-            ->add('nom')
+            ->with('Le nom de la Filière', array('class' => 'col-md-6'))
+                ->add('nom')
+            ->end()
+            ->with('Le Parcours de cette filière', array('class' => 'col-md-6'))
+                ->add('parcours', 'sonata_type_model', array(
+                    'class' => 'ReregistrationBundle\Entity\Parcours',
+                    'property' => 'nom'
+                ))
+            ->end()
         ;
     }
 
