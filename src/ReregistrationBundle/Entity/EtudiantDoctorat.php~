@@ -1,0 +1,258 @@
+<?php
+
+namespace ReregistrationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EtudiantDoctorat
+ *
+ * @ORM\Table(name="etudiant_doctorat")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtudiantDoctoratRepository")
+ */
+class EtudiantDoctorat
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cne", type="string", length=10)
+     */
+    private $cne;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=10)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomfr", type="string", length=255)
+     */
+    private $nomfr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomfr", type="string", length=255)
+     */
+    private $prenomfr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomAr", type="string", length=255)
+     */
+    private $nomAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomAr", type="string", length=255)
+     */
+    private $prenomAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255)
+     */
+    private $sexe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatCivil", type="string", length=100)
+     */
+    private $etatCivil;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\EtatActuel", inversedBy="etudiantsDoctorat")
+     */
+    private $statutActuel;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="handicap", type="boolean")
+     */
+    private $handicap;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="bourse", type="boolean")
+     */
+    private $bourse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieuNaissFr", type="string", length=255)
+     */
+    private $lieuNaissFr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieuNaissAr", type="string", length=255)
+     */
+    private $lieuNaissAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dateNaiss", type="datetime", length=255)
+     */
+    private $dateNaiss;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=20)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseEtd", type="string", length=255)
+     */
+    private $adresseEtd;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitantsDoctorat")
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gsm", type="string", length=30, nullable=true)
+     */
+    private $gsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomPrenomPereFr", type="string", length=255)
+     */
+    private $nomPrenomPereFr;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursPereDoctorat")
+     */
+    private $fonctioPere;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomPrenomMereFr", type="string", length=255)
+     */
+    private $nomPrenomMereFr;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursMereDoctorat")
+     */
+    private $fonctioMere;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeBac", inversedBy="elevesDoctorat")
+     */
+    private $typeBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Academie", inversedBy="elevesDoctorat")
+     */
+    private $academie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\SerieDuBac", inversedBy="elevesDoctorat")
+     */
+    private $serieBac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anneeBac", type="string", length=255)
+     */
+    private $anneeBac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anneeDiplome", type="string", length=255)
+     */
+    private $anneeDiplome;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBacDoctorat")
+     */
+    private $mentionBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiantsDoctorat")
+     */
+    private $province;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeDiplome", inversedBy="etudiantsDoctorat")
+     */
+    private $typeDiplome;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Universite", inversedBy="etudiantsDoctorat")
+     */
+    private $universite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablessement", inversedBy="etudiantsDoctorat")
+     */
+    private $etablisement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="spesialite", type="string", length=255)
+     */
+    private $spesialite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\LaboDoctorat", inversedBy="etudiantsDoctorat")
+     */
+    private $filiere;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantsDoctorat")
+     */
+    private $mentionMaster;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nomfr . ' ' . $this->prenomfr . ' ' . $this->cne;
+    }
+
+}

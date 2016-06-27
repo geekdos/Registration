@@ -44,7 +44,15 @@ class FiliereAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nom')
+            ->with('Le Nom de la Filière', array('class' => 'col-md-6'))
+                ->add('nom', 'text')
+            ->end()
+            ->with('Le Parcours', array('class' => 'col-md-6'))
+                ->add('parcours', 'sonata_type_model', array(
+                    'class' => 'ReregistrationBundle\Entity\Parcours',
+                    'property' => 'nom',
+                ))
+            ->end()
         ;
     }
 

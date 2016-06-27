@@ -79,7 +79,7 @@ class EtudiantMaster
     private $etatCivil;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\EtatActuel", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\EtatActuel", inversedBy="etudiantsMaster")
      */
     private $statutActuel;
 
@@ -133,7 +133,7 @@ class EtudiantMaster
     private $adresseEtd;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitantsMaster")
      */
     private $ville;
 
@@ -160,7 +160,7 @@ class EtudiantMaster
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursPere")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursPereMaster")
      */
     private $fonctioPere;
 
@@ -172,22 +172,22 @@ class EtudiantMaster
     private $nomPrenomMereFr;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursMere")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursMereMaster")
      */
     private $fonctioMere;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeBac", inversedBy="eleves")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeBac", inversedBy="elevesMaster")
      */
     private $typeBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Academie", inversedBy="eleves")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Academie", inversedBy="elevesMaster")
      */
     private $academie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\SerieDuBac", inversedBy="eleves")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\SerieDuBac", inversedBy="elevesMaster")
      */
     private $serieBac;
 
@@ -206,33 +206,27 @@ class EtudiantMaster
     private $anneeDiplome;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBac")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBacMaster")
      */
     private $mentionBac;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiantsMaster")
      */
     private $province;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantDeug")
-     *
-     */
-    private $mentionDeug;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeDiplome", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeDiplome", inversedBy="etudiantsMaster")
      */
     private $typeDiplome;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Universite", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Universite", inversedBy="etudiantsMaster")
      */
     private $universite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablessement", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablessement", inversedBy="etudiantsMaster")
      */
     private $etablisement;
 
@@ -244,25 +238,27 @@ class EtudiantMaster
     private $spesialite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Filiere", inversedBy="etudiants")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\FiliereMaster", inversedBy="etudiantsMaster")
      */
     private $filiere;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantLicence")
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="etudiantMaster")
      */
     private $mentionLicence;
 
-
+    /**
+     * @return string
+     */
     public function __toString()
     {
-        return $this->nomfr;
+        return $this->nomfr.' '.$this->prenomfr.' '.$this->cne;
     }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -274,7 +270,7 @@ class EtudiantMaster
      *
      * @param string $cne
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setCne($cne)
     {
@@ -298,7 +294,7 @@ class EtudiantMaster
      *
      * @param string $nationalite
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setNationalite($nationalite)
     {
@@ -322,7 +318,7 @@ class EtudiantMaster
      *
      * @param string $nomfr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setNomfr($nomfr)
     {
@@ -346,7 +342,7 @@ class EtudiantMaster
      *
      * @param string $prenomfr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setPrenomfr($prenomfr)
     {
@@ -370,7 +366,7 @@ class EtudiantMaster
      *
      * @param string $nomAr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setNomAr($nomAr)
     {
@@ -394,7 +390,7 @@ class EtudiantMaster
      *
      * @param string $prenomAr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setPrenomAr($prenomAr)
     {
@@ -418,7 +414,7 @@ class EtudiantMaster
      *
      * @param string $sexe
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setSexe($sexe)
     {
@@ -442,7 +438,7 @@ class EtudiantMaster
      *
      * @param string $etatCivil
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setEtatCivil($etatCivil)
     {
@@ -466,7 +462,7 @@ class EtudiantMaster
      *
      * @param boolean $handicap
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setHandicap($handicap)
     {
@@ -490,7 +486,7 @@ class EtudiantMaster
      *
      * @param boolean $bourse
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setBourse($bourse)
     {
@@ -514,7 +510,7 @@ class EtudiantMaster
      *
      * @param string $lieuNaissFr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setLieuNaissFr($lieuNaissFr)
     {
@@ -538,7 +534,7 @@ class EtudiantMaster
      *
      * @param string $lieuNaissAr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setLieuNaissAr($lieuNaissAr)
     {
@@ -562,7 +558,7 @@ class EtudiantMaster
      *
      * @param \DateTime $dateNaiss
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setDateNaiss($dateNaiss)
     {
@@ -586,7 +582,7 @@ class EtudiantMaster
      *
      * @param string $cin
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setCin($cin)
     {
@@ -610,7 +606,7 @@ class EtudiantMaster
      *
      * @param string $adresseEtd
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setAdresseEtd($adresseEtd)
     {
@@ -634,7 +630,7 @@ class EtudiantMaster
      *
      * @param string $gsm
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setGsm($gsm)
     {
@@ -658,7 +654,7 @@ class EtudiantMaster
      *
      * @param string $email
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setEmail($email)
     {
@@ -682,7 +678,7 @@ class EtudiantMaster
      *
      * @param string $nomPrenomPereFr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setNomPrenomPereFr($nomPrenomPereFr)
     {
@@ -706,7 +702,7 @@ class EtudiantMaster
      *
      * @param string $nomPrenomMereFr
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setNomPrenomMereFr($nomPrenomMereFr)
     {
@@ -726,11 +722,59 @@ class EtudiantMaster
     }
 
     /**
+     * Set anneeBac
+     *
+     * @param string $anneeBac
+     *
+     * @return EtudiantMaster
+     */
+    public function setAnneeBac($anneeBac)
+    {
+        $this->anneeBac = $anneeBac;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeBac
+     *
+     * @return string
+     */
+    public function getAnneeBac()
+    {
+        return $this->anneeBac;
+    }
+
+    /**
+     * Set anneeDiplome
+     *
+     * @param string $anneeDiplome
+     *
+     * @return EtudiantMaster
+     */
+    public function setAnneeDiplome($anneeDiplome)
+    {
+        $this->anneeDiplome = $anneeDiplome;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeDiplome
+     *
+     * @return string
+     */
+    public function getAnneeDiplome()
+    {
+        return $this->anneeDiplome;
+    }
+
+    /**
      * Set spesialite
      *
      * @param string $spesialite
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setSpesialite($spesialite)
     {
@@ -750,11 +794,35 @@ class EtudiantMaster
     }
 
     /**
+     * Set statutActuel
+     *
+     * @param \ReregistrationBundle\Entity\EtatActuel $statutActuel
+     *
+     * @return EtudiantMaster
+     */
+    public function setStatutActuel(\ReregistrationBundle\Entity\EtatActuel $statutActuel = null)
+    {
+        $this->statutActuel = $statutActuel;
+
+        return $this;
+    }
+
+    /**
+     * Get statutActuel
+     *
+     * @return \ReregistrationBundle\Entity\EtatActuel
+     */
+    public function getStatutActuel()
+    {
+        return $this->statutActuel;
+    }
+
+    /**
      * Set ville
      *
      * @param \ReregistrationBundle\Entity\Ville $ville
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setVille(\ReregistrationBundle\Entity\Ville $ville = null)
     {
@@ -778,7 +846,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\Fonction $fonctioPere
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setFonctioPere(\ReregistrationBundle\Entity\Fonction $fonctioPere = null)
     {
@@ -802,7 +870,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\Fonction $fonctioMere
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setFonctioMere(\ReregistrationBundle\Entity\Fonction $fonctioMere = null)
     {
@@ -826,7 +894,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\TypeBac $typeBac
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setTypeBac(\ReregistrationBundle\Entity\TypeBac $typeBac = null)
     {
@@ -850,7 +918,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\Academie $academie
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setAcademie(\ReregistrationBundle\Entity\Academie $academie = null)
     {
@@ -874,7 +942,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\SerieDuBac $serieBac
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setSerieBac(\ReregistrationBundle\Entity\SerieDuBac $serieBac = null)
     {
@@ -898,7 +966,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\Mention $mentionBac
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setMentionBac(\ReregistrationBundle\Entity\Mention $mentionBac = null)
     {
@@ -918,27 +986,27 @@ class EtudiantMaster
     }
 
     /**
-     * Set mentionDeug
+     * Set province
      *
-     * @param \ReregistrationBundle\Entity\Mention $mentionDeug
+     * @param \ReregistrationBundle\Entity\Province $province
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
-    public function setMentionDeug(\ReregistrationBundle\Entity\Mention $mentionDeug = null)
+    public function setProvince(\ReregistrationBundle\Entity\Province $province = null)
     {
-        $this->mentionDeug = $mentionDeug;
+        $this->province = $province;
 
         return $this;
     }
 
     /**
-     * Get mentionDeug
+     * Get province
      *
-     * @return \ReregistrationBundle\Entity\Mention
+     * @return \ReregistrationBundle\Entity\Province
      */
-    public function getMentionDeug()
+    public function getProvince()
     {
-        return $this->mentionDeug;
+        return $this->province;
     }
 
     /**
@@ -946,7 +1014,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\TypeDiplome $typeDiplome
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setTypeDiplome(\ReregistrationBundle\Entity\TypeDiplome $typeDiplome = null)
     {
@@ -970,7 +1038,7 @@ class EtudiantMaster
      *
      * @param \ReregistrationBundle\Entity\Universite $universite
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setUniversite(\ReregistrationBundle\Entity\Universite $universite = null)
     {
@@ -989,61 +1057,12 @@ class EtudiantMaster
         return $this->universite;
     }
 
-
-    /**
-     * Set filiere
-     *
-     * @param \ReregistrationBundle\Entity\Filiere $filiere
-     *
-     * @return Etudiant
-     */
-    public function setFiliere(\ReregistrationBundle\Entity\Filiere $filiere = null)
-    {
-        $this->filiere = $filiere;
-
-        return $this;
-    }
-
-    /**
-     * Get filiere
-     *
-     * @return \ReregistrationBundle\Entity\Filiere
-     */
-    public function getFiliere()
-    {
-        return $this->filiere;
-    }
-
-    /**
-     * Set mentionLicence
-     *
-     * @param \ReregistrationBundle\Entity\Mention $mentionLicence
-     *
-     * @return Etudiant
-     */
-    public function setMentionLicence(\ReregistrationBundle\Entity\Mention $mentionLicence = null)
-    {
-        $this->mentionLicence = $mentionLicence;
-
-        return $this;
-    }
-
-    /**
-     * Get mentionLicence
-     *
-     * @return \ReregistrationBundle\Entity\Mention
-     */
-    public function getMentionLicence()
-    {
-        return $this->mentionLicence;
-    }
-
     /**
      * Set etablisement
      *
      * @param \ReregistrationBundle\Entity\Etablessement $etablisement
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
     public function setEtablisement(\ReregistrationBundle\Entity\Etablessement $etablisement = null)
     {
@@ -1063,99 +1082,50 @@ class EtudiantMaster
     }
 
     /**
-     * Set statutActuel
+     * Set filiere
      *
-     * @param \ReregistrationBundle\Entity\EtatActuel $statutActuel
+     * @param \ReregistrationBundle\Entity\FiliereMaster $filiere
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
-    public function setStatutActuel(\ReregistrationBundle\Entity\EtatActuel $statutActuel = null)
+    public function setFiliere(\ReregistrationBundle\Entity\FiliereMaster $filiere = null)
     {
-        $this->statutActuel = $statutActuel;
+        $this->filiere = $filiere;
 
         return $this;
     }
 
     /**
-     * Get statutActuel
+     * Get filiere
      *
-     * @return \ReregistrationBundle\Entity\EtatActuel
+     * @return \ReregistrationBundle\Entity\FiliereMaster
      */
-    public function getStatutActuel()
+    public function getFiliere()
     {
-        return $this->statutActuel;
+        return $this->filiere;
     }
 
     /**
-     * Set anneeBac
+     * Set mentionLicence
      *
-     * @param string $anneeBac
+     * @param \ReregistrationBundle\Entity\Mention $mentionLicence
      *
-     * @return Etudiant
+     * @return EtudiantMaster
      */
-    public function setAnneeBac($anneeBac)
+    public function setMentionLicence(\ReregistrationBundle\Entity\Mention $mentionLicence = null)
     {
-        $this->anneeBac = $anneeBac;
+        $this->mentionLicence = $mentionLicence;
 
         return $this;
     }
 
     /**
-     * Get anneeBac
+     * Get mentionLicence
      *
-     * @return string
+     * @return \ReregistrationBundle\Entity\Mention
      */
-    public function getAnneeBac()
+    public function getMentionLicence()
     {
-        return $this->anneeBac;
-    }
-
-    /**
-     * Set province
-     *
-     * @param \ReregistrationBundle\Entity\Province $province
-     *
-     * @return Etudiant
-     */
-    public function setProvince(\ReregistrationBundle\Entity\Province $province = null)
-    {
-        $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get province
-     *
-     * @return \ReregistrationBundle\Entity\Province
-     */
-    public function getProvince()
-    {
-        return $this->province;
-    }
-
-    /**
-     * Set anneeDiplome
-     *
-     * @param string $anneeDiplome
-     *
-     * @return Etudiant
-     */
-    public function setAnneeDiplome($anneeDiplome)
-    {
-        $this->anneeDiplome = $anneeDiplome;
-
-        return $this;
-    }
-
-    /**
-     * Get anneeDiplome
-     *
-     * @return string
-     */
-    public function getAnneeDiplome()
-    {
-        return $this->anneeDiplome;
+        return $this->mentionLicence;
     }
 }
-

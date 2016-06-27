@@ -1,0 +1,984 @@
+<?php
+
+namespace ReregistrationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EtudiantDeug
+ *
+ * @ORM\Table(name="etudiant_deug")
+ * @ORM\Entity(repositoryClass="ReregistrationBundle\Repository\EtudiantDeugRepository")
+ */
+class EtudiantDeug
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cne", type="string", length=10)
+     */
+    private $cne;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=10)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomfr", type="string", length=255)
+     */
+    private $nomfr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomfr", type="string", length=255)
+     */
+    private $prenomfr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomAr", type="string", length=255)
+     */
+    private $nomAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomAr", type="string", length=255)
+     */
+    private $prenomAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255)
+     */
+    private $sexe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatCivil", type="string", length=100)
+     */
+    private $etatCivil;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\EtatActuel", inversedBy="etudiantsDeug")
+     */
+    private $statutActuel;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="handicap", type="boolean")
+     */
+    private $handicap;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="bourse", type="boolean")
+     */
+    private $bourse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieuNaissFr", type="string", length=255)
+     */
+    private $lieuNaissFr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieuNaissAr", type="string", length=255)
+     */
+    private $lieuNaissAr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dateNaiss", type="datetime", length=255)
+     */
+    private $dateNaiss;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=20)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseEtd", type="string", length=255)
+     */
+    private $adresseEtd;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Ville", inversedBy="habitantsDeug")
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gsm", type="string", length=30, nullable=true)
+     */
+    private $gsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomPrenomPereFr", type="string", length=255)
+     */
+    private $nomPrenomPereFr;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursPereDeug")
+     */
+    private $fonctioPere;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomPrenomMereFr", type="string", length=255)
+     */
+    private $nomPrenomMereFr;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Fonction", inversedBy="traveursMereDeug")
+     */
+    private $fonctioMere;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\TypeBac", inversedBy="elevesDeug")
+     */
+    private $typeBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Academie", inversedBy="elevesDeug")
+     */
+    private $academie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\SerieDuBac", inversedBy="elevesDeug")
+     */
+    private $serieBac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anneeBac", type="string", length=255)
+     */
+    private $anneeBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Mention", inversedBy="elevesBacDeug")
+     */
+    private $mentionBac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Province", inversedBy="etudiantsDeug")
+     */
+    private $province;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Etablessement", inversedBy="etudiantsDeug")
+     */
+    private $etablisement;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\FiliereDeug", inversedBy="etudiantsDeug")
+     */
+    private $filiere;
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nomfr.' '.$this->prenomfr.' '.$this->cne;
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set cne
+     *
+     * @param string $cne
+     *
+     * @return EtudiantDeug
+     */
+    public function setCne($cne)
+    {
+        $this->cne = $cne;
+
+        return $this;
+    }
+
+    /**
+     * Get cne
+     *
+     * @return string
+     */
+    public function getCne()
+    {
+        return $this->cne;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     *
+     * @return EtudiantDeug
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * Set nomfr
+     *
+     * @param string $nomfr
+     *
+     * @return EtudiantDeug
+     */
+    public function setNomfr($nomfr)
+    {
+        $this->nomfr = $nomfr;
+
+        return $this;
+    }
+
+    /**
+     * Get nomfr
+     *
+     * @return string
+     */
+    public function getNomfr()
+    {
+        return $this->nomfr;
+    }
+
+    /**
+     * Set prenomfr
+     *
+     * @param string $prenomfr
+     *
+     * @return EtudiantDeug
+     */
+    public function setPrenomfr($prenomfr)
+    {
+        $this->prenomfr = $prenomfr;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomfr
+     *
+     * @return string
+     */
+    public function getPrenomfr()
+    {
+        return $this->prenomfr;
+    }
+
+    /**
+     * Set nomAr
+     *
+     * @param string $nomAr
+     *
+     * @return EtudiantDeug
+     */
+    public function setNomAr($nomAr)
+    {
+        $this->nomAr = $nomAr;
+
+        return $this;
+    }
+
+    /**
+     * Get nomAr
+     *
+     * @return string
+     */
+    public function getNomAr()
+    {
+        return $this->nomAr;
+    }
+
+    /**
+     * Set prenomAr
+     *
+     * @param string $prenomAr
+     *
+     * @return EtudiantDeug
+     */
+    public function setPrenomAr($prenomAr)
+    {
+        $this->prenomAr = $prenomAr;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomAr
+     *
+     * @return string
+     */
+    public function getPrenomAr()
+    {
+        return $this->prenomAr;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return EtudiantDeug
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set etatCivil
+     *
+     * @param string $etatCivil
+     *
+     * @return EtudiantDeug
+     */
+    public function setEtatCivil($etatCivil)
+    {
+        $this->etatCivil = $etatCivil;
+
+        return $this;
+    }
+
+    /**
+     * Get etatCivil
+     *
+     * @return string
+     */
+    public function getEtatCivil()
+    {
+        return $this->etatCivil;
+    }
+
+    /**
+     * Set handicap
+     *
+     * @param boolean $handicap
+     *
+     * @return EtudiantDeug
+     */
+    public function setHandicap($handicap)
+    {
+        $this->handicap = $handicap;
+
+        return $this;
+    }
+
+    /**
+     * Get handicap
+     *
+     * @return boolean
+     */
+    public function getHandicap()
+    {
+        return $this->handicap;
+    }
+
+    /**
+     * Set bourse
+     *
+     * @param boolean $bourse
+     *
+     * @return EtudiantDeug
+     */
+    public function setBourse($bourse)
+    {
+        $this->bourse = $bourse;
+
+        return $this;
+    }
+
+    /**
+     * Get bourse
+     *
+     * @return boolean
+     */
+    public function getBourse()
+    {
+        return $this->bourse;
+    }
+
+    /**
+     * Set lieuNaissFr
+     *
+     * @param string $lieuNaissFr
+     *
+     * @return EtudiantDeug
+     */
+    public function setLieuNaissFr($lieuNaissFr)
+    {
+        $this->lieuNaissFr = $lieuNaissFr;
+
+        return $this;
+    }
+
+    /**
+     * Get lieuNaissFr
+     *
+     * @return string
+     */
+    public function getLieuNaissFr()
+    {
+        return $this->lieuNaissFr;
+    }
+
+    /**
+     * Set lieuNaissAr
+     *
+     * @param string $lieuNaissAr
+     *
+     * @return EtudiantDeug
+     */
+    public function setLieuNaissAr($lieuNaissAr)
+    {
+        $this->lieuNaissAr = $lieuNaissAr;
+
+        return $this;
+    }
+
+    /**
+     * Get lieuNaissAr
+     *
+     * @return string
+     */
+    public function getLieuNaissAr()
+    {
+        return $this->lieuNaissAr;
+    }
+
+    /**
+     * Set dateNaiss
+     *
+     * @param \DateTime $dateNaiss
+     *
+     * @return EtudiantDeug
+     */
+    public function setDateNaiss($dateNaiss)
+    {
+        $this->dateNaiss = $dateNaiss;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaiss
+     *
+     * @return \DateTime
+     */
+    public function getDateNaiss()
+    {
+        return $this->dateNaiss;
+    }
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     *
+     * @return EtudiantDeug
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set adresseEtd
+     *
+     * @param string $adresseEtd
+     *
+     * @return EtudiantDeug
+     */
+    public function setAdresseEtd($adresseEtd)
+    {
+        $this->adresseEtd = $adresseEtd;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseEtd
+     *
+     * @return string
+     */
+    public function getAdresseEtd()
+    {
+        return $this->adresseEtd;
+    }
+
+    /**
+     * Set gsm
+     *
+     * @param string $gsm
+     *
+     * @return EtudiantDeug
+     */
+    public function setGsm($gsm)
+    {
+        $this->gsm = $gsm;
+
+        return $this;
+    }
+
+    /**
+     * Get gsm
+     *
+     * @return string
+     */
+    public function getGsm()
+    {
+        return $this->gsm;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return EtudiantDeug
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set nomPrenomPereFr
+     *
+     * @param string $nomPrenomPereFr
+     *
+     * @return EtudiantDeug
+     */
+    public function setNomPrenomPereFr($nomPrenomPereFr)
+    {
+        $this->nomPrenomPereFr = $nomPrenomPereFr;
+
+        return $this;
+    }
+
+    /**
+     * Get nomPrenomPereFr
+     *
+     * @return string
+     */
+    public function getNomPrenomPereFr()
+    {
+        return $this->nomPrenomPereFr;
+    }
+
+    /**
+     * Set nomPrenomMereFr
+     *
+     * @param string $nomPrenomMereFr
+     *
+     * @return EtudiantDeug
+     */
+    public function setNomPrenomMereFr($nomPrenomMereFr)
+    {
+        $this->nomPrenomMereFr = $nomPrenomMereFr;
+
+        return $this;
+    }
+
+    /**
+     * Get nomPrenomMereFr
+     *
+     * @return string
+     */
+    public function getNomPrenomMereFr()
+    {
+        return $this->nomPrenomMereFr;
+    }
+
+    /**
+     * Set anneeBac
+     *
+     * @param string $anneeBac
+     *
+     * @return EtudiantDeug
+     */
+    public function setAnneeBac($anneeBac)
+    {
+        $this->anneeBac = $anneeBac;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeBac
+     *
+     * @return string
+     */
+    public function getAnneeBac()
+    {
+        return $this->anneeBac;
+    }
+
+    /**
+     * Set statutActuel
+     *
+     * @param \ReregistrationBundle\Entity\EtatActuel $statutActuel
+     *
+     * @return EtudiantDeug
+     */
+    public function setStatutActuel(\ReregistrationBundle\Entity\EtatActuel $statutActuel = null)
+    {
+        $this->statutActuel = $statutActuel;
+
+        return $this;
+    }
+
+    /**
+     * Get statutActuel
+     *
+     * @return \ReregistrationBundle\Entity\EtatActuel
+     */
+    public function getStatutActuel()
+    {
+        return $this->statutActuel;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \ReregistrationBundle\Entity\Ville $ville
+     *
+     * @return EtudiantDeug
+     */
+    public function setVille(\ReregistrationBundle\Entity\Ville $ville = null)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \ReregistrationBundle\Entity\Ville
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set fonctioPere
+     *
+     * @param \ReregistrationBundle\Entity\Fonction $fonctioPere
+     *
+     * @return EtudiantDeug
+     */
+    public function setFonctioPere(\ReregistrationBundle\Entity\Fonction $fonctioPere = null)
+    {
+        $this->fonctioPere = $fonctioPere;
+
+        return $this;
+    }
+
+    /**
+     * Get fonctioPere
+     *
+     * @return \ReregistrationBundle\Entity\Fonction
+     */
+    public function getFonctioPere()
+    {
+        return $this->fonctioPere;
+    }
+
+    /**
+     * Set fonctioMere
+     *
+     * @param \ReregistrationBundle\Entity\Fonction $fonctioMere
+     *
+     * @return EtudiantDeug
+     */
+    public function setFonctioMere(\ReregistrationBundle\Entity\Fonction $fonctioMere = null)
+    {
+        $this->fonctioMere = $fonctioMere;
+
+        return $this;
+    }
+
+    /**
+     * Get fonctioMere
+     *
+     * @return \ReregistrationBundle\Entity\Fonction
+     */
+    public function getFonctioMere()
+    {
+        return $this->fonctioMere;
+    }
+
+    /**
+     * Set typeBac
+     *
+     * @param \ReregistrationBundle\Entity\TypeBac $typeBac
+     *
+     * @return EtudiantDeug
+     */
+    public function setTypeBac(\ReregistrationBundle\Entity\TypeBac $typeBac = null)
+    {
+        $this->typeBac = $typeBac;
+
+        return $this;
+    }
+
+    /**
+     * Get typeBac
+     *
+     * @return \ReregistrationBundle\Entity\TypeBac
+     */
+    public function getTypeBac()
+    {
+        return $this->typeBac;
+    }
+
+    /**
+     * Set academie
+     *
+     * @param \ReregistrationBundle\Entity\Academie $academie
+     *
+     * @return EtudiantDeug
+     */
+    public function setAcademie(\ReregistrationBundle\Entity\Academie $academie = null)
+    {
+        $this->academie = $academie;
+
+        return $this;
+    }
+
+    /**
+     * Get academie
+     *
+     * @return \ReregistrationBundle\Entity\Academie
+     */
+    public function getAcademie()
+    {
+        return $this->academie;
+    }
+
+    /**
+     * Set serieBac
+     *
+     * @param \ReregistrationBundle\Entity\SerieDuBac $serieBac
+     *
+     * @return EtudiantDeug
+     */
+    public function setSerieBac(\ReregistrationBundle\Entity\SerieDuBac $serieBac = null)
+    {
+        $this->serieBac = $serieBac;
+
+        return $this;
+    }
+
+    /**
+     * Get serieBac
+     *
+     * @return \ReregistrationBundle\Entity\SerieDuBac
+     */
+    public function getSerieBac()
+    {
+        return $this->serieBac;
+    }
+
+    /**
+     * Set mentionBac
+     *
+     * @param \ReregistrationBundle\Entity\Mention $mentionBac
+     *
+     * @return EtudiantDeug
+     */
+    public function setMentionBac(\ReregistrationBundle\Entity\Mention $mentionBac = null)
+    {
+        $this->mentionBac = $mentionBac;
+
+        return $this;
+    }
+
+    /**
+     * Get mentionBac
+     *
+     * @return \ReregistrationBundle\Entity\Mention
+     */
+    public function getMentionBac()
+    {
+        return $this->mentionBac;
+    }
+
+    /**
+     * Set province
+     *
+     * @param \ReregistrationBundle\Entity\Province $province
+     *
+     * @return EtudiantDeug
+     */
+    public function setProvince(\ReregistrationBundle\Entity\Province $province = null)
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    /**
+     * Get province
+     *
+     * @return \ReregistrationBundle\Entity\Province
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * Set etablisement
+     *
+     * @param \ReregistrationBundle\Entity\Etablessement $etablisement
+     *
+     * @return EtudiantDeug
+     */
+    public function setEtablisement(\ReregistrationBundle\Entity\Etablessement $etablisement = null)
+    {
+        $this->etablisement = $etablisement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablisement
+     *
+     * @return \ReregistrationBundle\Entity\Etablessement
+     */
+    public function getEtablisement()
+    {
+        return $this->etablisement;
+    }
+
+    /**
+     * Set filiere
+     *
+     * @param \ReregistrationBundle\Entity\FiliereDeug $filiere
+     *
+     * @return EtudiantDeug
+     */
+    public function setFiliere(\ReregistrationBundle\Entity\FiliereDeug $filiere = null)
+    {
+        $this->filiere = $filiere;
+
+        return $this;
+    }
+
+    /**
+     * Get filiere
+     *
+     * @return \ReregistrationBundle\Entity\FiliereDeug
+     */
+    public function getFiliere()
+    {
+        return $this->filiere;
+    }
+}

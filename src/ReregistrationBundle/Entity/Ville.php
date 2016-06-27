@@ -29,35 +29,54 @@ class Ville
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="ville")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantDeug", mappedBy="ville")
      */
-    private $habitants;
+    private $habitantsDeug;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantLicence", mappedBy="ville")
+     */
+    private $habitantsLicence;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantMaster", mappedBy="ville")
+     */
+    private $habitantsMaster;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantDoctorat", mappedBy="ville")
+     */
+    private $habitantsDoctorat;
 
     /**
      * @ORM\ManyToOne(targetEntity="ReregistrationBundle\Entity\Pays", inversedBy="villes")
      */
     private $pays;
-    
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function __toString()
     {
         return $this->nom;
     }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->habitants = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->habitantsDeug = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->habitantsLicence = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->habitantsMaster = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->habitantsDoctorat = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -85,37 +104,139 @@ class Ville
     }
 
     /**
-     * Add habitant
+     * Add habitantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitant
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDeug
      *
      * @return Ville
      */
-    public function addHabitant(\ReregistrationBundle\Entity\Etudiant $habitant)
+    public function addHabitantsDeug(\ReregistrationBundle\Entity\Etudiant $habitantsDeug)
     {
-        $this->habitants[] = $habitant;
+        $this->habitantsDeug[] = $habitantsDeug;
 
         return $this;
     }
 
     /**
-     * Remove habitant
+     * Remove habitantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitant
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDeug
      */
-    public function removeHabitant(\ReregistrationBundle\Entity\Etudiant $habitant)
+    public function removeHabitantsDeug(\ReregistrationBundle\Entity\Etudiant $habitantsDeug)
     {
-        $this->habitants->removeElement($habitant);
+        $this->habitantsDeug->removeElement($habitantsDeug);
     }
 
     /**
-     * Get habitants
+     * Get habitantsDeug
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getHabitants()
+    public function getHabitantsDeug()
     {
-        return $this->habitants;
+        return $this->habitantsDeug;
+    }
+
+    /**
+     * Add habitantsLicence
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsLicence
+     *
+     * @return Ville
+     */
+    public function addHabitantsLicence(\ReregistrationBundle\Entity\Etudiant $habitantsLicence)
+    {
+        $this->habitantsLicence[] = $habitantsLicence;
+
+        return $this;
+    }
+
+    /**
+     * Remove habitantsLicence
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsLicence
+     */
+    public function removeHabitantsLicence(\ReregistrationBundle\Entity\Etudiant $habitantsLicence)
+    {
+        $this->habitantsLicence->removeElement($habitantsLicence);
+    }
+
+    /**
+     * Get habitantsLicence
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHabitantsLicence()
+    {
+        return $this->habitantsLicence;
+    }
+
+    /**
+     * Add habitantsMaster
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsMaster
+     *
+     * @return Ville
+     */
+    public function addHabitantsMaster(\ReregistrationBundle\Entity\Etudiant $habitantsMaster)
+    {
+        $this->habitantsMaster[] = $habitantsMaster;
+
+        return $this;
+    }
+
+    /**
+     * Remove habitantsMaster
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsMaster
+     */
+    public function removeHabitantsMaster(\ReregistrationBundle\Entity\Etudiant $habitantsMaster)
+    {
+        $this->habitantsMaster->removeElement($habitantsMaster);
+    }
+
+    /**
+     * Get habitantsMaster
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHabitantsMaster()
+    {
+        return $this->habitantsMaster;
+    }
+
+    /**
+     * Add habitantsDoctorat
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDoctorat
+     *
+     * @return Ville
+     */
+    public function addHabitantsDoctorat(\ReregistrationBundle\Entity\Etudiant $habitantsDoctorat)
+    {
+        $this->habitantsDoctorat[] = $habitantsDoctorat;
+
+        return $this;
+    }
+
+    /**
+     * Remove habitantsDoctorat
+     *
+     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDoctorat
+     */
+    public function removeHabitantsDoctorat(\ReregistrationBundle\Entity\Etudiant $habitantsDoctorat)
+    {
+        $this->habitantsDoctorat->removeElement($habitantsDoctorat);
+    }
+
+    /**
+     * Get habitantsDoctorat
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHabitantsDoctorat()
+    {
+        return $this->habitantsDoctorat;
     }
 
     /**

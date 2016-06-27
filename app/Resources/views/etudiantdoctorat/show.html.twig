@@ -1,0 +1,116 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>EtudiantDoctorat</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etudiantDoctorat.id }}</td>
+            </tr>
+            <tr>
+                <th>Cne</th>
+                <td>{{ etudiantDoctorat.cne }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ etudiantDoctorat.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Nomfr</th>
+                <td>{{ etudiantDoctorat.nomfr }}</td>
+            </tr>
+            <tr>
+                <th>Prenomfr</th>
+                <td>{{ etudiantDoctorat.prenomfr }}</td>
+            </tr>
+            <tr>
+                <th>Nomar</th>
+                <td>{{ etudiantDoctorat.nomAr }}</td>
+            </tr>
+            <tr>
+                <th>Prenomar</th>
+                <td>{{ etudiantDoctorat.prenomAr }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ etudiantDoctorat.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Etatcivil</th>
+                <td>{{ etudiantDoctorat.etatCivil }}</td>
+            </tr>
+            <tr>
+                <th>Handicap</th>
+                <td>{% if etudiantDoctorat.handicap %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Bourse</th>
+                <td>{% if etudiantDoctorat.bourse %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissfr</th>
+                <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissar</th>
+                <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
+            </tr>
+            <tr>
+                <th>Datenaiss</th>
+                <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ etudiantDoctorat.cin }}</td>
+            </tr>
+            <tr>
+                <th>Adresseetd</th>
+                <td>{{ etudiantDoctorat.adresseEtd }}</td>
+            </tr>
+            <tr>
+                <th>Gsm</th>
+                <td>{{ etudiantDoctorat.gsm }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ etudiantDoctorat.email }}</td>
+            </tr>
+            <tr>
+                <th>Nomprenomperefr</th>
+                <td>{{ etudiantDoctorat.nomPrenomPereFr }}</td>
+            </tr>
+            <tr>
+                <th>Nomprenommerefr</th>
+                <td>{{ etudiantDoctorat.nomPrenomMereFr }}</td>
+            </tr>
+            <tr>
+                <th>Anneebac</th>
+                <td>{{ etudiantDoctorat.anneeBac }}</td>
+            </tr>
+            <tr>
+                <th>Anneediplome</th>
+                <td>{{ etudiantDoctorat.anneeDiplome }}</td>
+            </tr>
+            <tr>
+                <th>Spesialite</th>
+                <td>{{ etudiantDoctorat.spesialite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiantdoctorat_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

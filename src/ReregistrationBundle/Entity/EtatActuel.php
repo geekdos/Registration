@@ -29,15 +29,48 @@ class EtatActuel
     private $nom;
     
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Etudiant", mappedBy="statutActuel")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantDeug", mappedBy="statutActuel")
      */
-    private $etudiants;
+    private $etudiantsDeug;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantLicence", mappedBy="statutActuel")
+     */
+    private $etudiantsLicence;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantMaster", mappedBy="statutActuel")
+     */
+    private $etudiantsMaster;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\EtudiantDoctorat", mappedBy="statutActuel")
+     */
+    private $etudiantsDoctorat;
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etudiantsDeug = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiantsLicence = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiantsMaster = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etudiantsDoctorat = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -67,50 +100,140 @@ class EtatActuel
     {
         return $this->nom;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->etudiants = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add etudiant
+     * Add etudiantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
+     * @param \ReregistrationBundle\Entity\EtudiantDeug $etudiantsDeug
      *
      * @return EtatActuel
      */
-    public function addEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
+    public function addEtudiantsDeug(\ReregistrationBundle\Entity\EtudiantDeug $etudiantsDeug)
     {
-        $this->etudiants[] = $etudiant;
+        $this->etudiantsDeug[] = $etudiantsDeug;
 
         return $this;
     }
 
     /**
-     * Remove etudiant
+     * Remove etudiantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $etudiant
+     * @param \ReregistrationBundle\Entity\EtudiantDeug $etudiantsDeug
      */
-    public function removeEtudiant(\ReregistrationBundle\Entity\Etudiant $etudiant)
+    public function removeEtudiantsDeug(\ReregistrationBundle\Entity\EtudiantDeug $etudiantsDeug)
     {
-        $this->etudiants->removeElement($etudiant);
+        $this->etudiantsDeug->removeElement($etudiantsDeug);
     }
 
     /**
-     * Get etudiants
+     * Get etudiantsDeug
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEtudiants()
+    public function getEtudiantsDeug()
     {
-        return $this->etudiants;
+        return $this->etudiantsDeug;
     }
 
-    public function __toString()
+    /**
+     * Add etudiantsLicence
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantLicence $etudiantsLicence
+     *
+     * @return EtatActuel
+     */
+    public function addEtudiantsLicence(\ReregistrationBundle\Entity\EtudiantLicence $etudiantsLicence)
     {
-        return $this->nom;
+        $this->etudiantsLicence[] = $etudiantsLicence;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiantsLicence
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantLicence $etudiantsLicence
+     */
+    public function removeEtudiantsLicence(\ReregistrationBundle\Entity\EtudiantLicence $etudiantsLicence)
+    {
+        $this->etudiantsLicence->removeElement($etudiantsLicence);
+    }
+
+    /**
+     * Get etudiantsLicence
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiantsLicence()
+    {
+        return $this->etudiantsLicence;
+    }
+
+    /**
+     * Add etudiantsMaster
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantMaster $etudiantsMaster
+     *
+     * @return EtatActuel
+     */
+    public function addEtudiantsMaster(\ReregistrationBundle\Entity\EtudiantMaster $etudiantsMaster)
+    {
+        $this->etudiantsMaster[] = $etudiantsMaster;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiantsMaster
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantMaster $etudiantsMaster
+     */
+    public function removeEtudiantsMaster(\ReregistrationBundle\Entity\EtudiantMaster $etudiantsMaster)
+    {
+        $this->etudiantsMaster->removeElement($etudiantsMaster);
+    }
+
+    /**
+     * Get etudiantsMaster
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiantsMaster()
+    {
+        return $this->etudiantsMaster;
+    }
+
+    /**
+     * Add etudiantsDoctorat
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantDoctorat $etudiantsDoctorat
+     *
+     * @return EtatActuel
+     */
+    public function addEtudiantsDoctorat(\ReregistrationBundle\Entity\EtudiantDoctorat $etudiantsDoctorat)
+    {
+        $this->etudiantsDoctorat[] = $etudiantsDoctorat;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiantsDoctorat
+     *
+     * @param \ReregistrationBundle\Entity\EtudiantDoctorat $etudiantsDoctorat
+     */
+    public function removeEtudiantsDoctorat(\ReregistrationBundle\Entity\EtudiantDoctorat $etudiantsDoctorat)
+    {
+        $this->etudiantsDoctorat->removeElement($etudiantsDoctorat);
+    }
+
+    /**
+     * Get etudiantsDoctorat
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiantsDoctorat()
+    {
+        return $this->etudiantsDoctorat;
     }
 }

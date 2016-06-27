@@ -1,0 +1,24 @@
+etudiantdeug_index:
+    path:     /
+    defaults: { _controller: "ReregistrationBundle:EtudiantDeug:index" }
+    methods:  GET
+
+etudiantdeug_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReregistrationBundle:EtudiantDeug:show" }
+    methods:  GET
+
+etudiantdeug_new:
+    path:     /new
+    defaults: { _controller: "ReregistrationBundle:EtudiantDeug:new" }
+    methods:  [GET, POST]
+
+etudiantdeug_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReregistrationBundle:EtudiantDeug:edit" }
+    methods:  [GET, POST]
+
+etudiantdeug_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReregistrationBundle:EtudiantDeug:delete" }
+    methods:  DELETE

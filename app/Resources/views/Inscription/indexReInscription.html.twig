@@ -1,27 +1,49 @@
 {% extends '::layout.html.twig' %}
 
 {% block body %}
-    <div class="col-md-6 center">
-        <div class="panel panel-white">
-            <div class="panel-heading clearfix">
-                <h4 class="panel-title pull-left">Teppez Votre CNE</h4>
-                <h4 class="panel-title pull-right">أكتب رقمك الوطني للاطالب</h4>
-            </div>
-            <div class="panel-body">
-                <form method="post" action="{{ path('reregistration_re_registration_checking') }}">
-                    <div class="form-group">
-                        <label for="cne">CNE</label>
-                        <input type="text" class="form-control" name="cne" id="cne" placeholder="10XXXXXXXX">
-                        <div class="help-block">
-                            <span>Teppez votre CNE par exemple 10XXXXXXXX</span>
-                            <span class="pull-right">أكتب الرقم الوطني للأطالب على شكل 10 أرقام</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Recherher</button>
-                    <button type="submit" class="btn btn-primary pull-right">إبحث</button>
-                </form>
+    <a href="{{ path('reregistration_re_registration_deug') }}">
+        <div class="col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">BAC + 2 | DUEG | دبلوم الدراسات الجامعية</h1>
+                </div>
+                <div class="panel-body">
+                </div>
             </div>
         </div>
-    </div>
+    </a>
+    <a href="{{ path('reregistration_re_registration_licence') }}">
+        <div class="col-md-6">
+            <div class="panel panel-purple">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">BAC + 3 | Licence | الإجازة</h1>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="{{ path('reregistration_re_registration_master') }}">
+        <div class="col-md-6">
+            <div class="panel panel-blue">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">BAC + 5 | Master | الماستر</h1>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="{{ path('reregistration_re_registration_doctorat') }}">
+        <div class="col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">BAC + 8 | Doctorat | الدكتوراة</h1>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </a>
 {% endblock %}
 

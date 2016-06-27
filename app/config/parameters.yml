@@ -2,7 +2,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: registration
+    database_name: flsh_scolarite
     database_user: root
     database_password: root
     mailer_transport: smtp

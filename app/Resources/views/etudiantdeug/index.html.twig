@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>EtudiantDeug list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cne</th>
+                <th>Nationalite</th>
+                <th>Nomfr</th>
+                <th>Prenomfr</th>
+                <th>Nomar</th>
+                <th>Prenomar</th>
+                <th>Sexe</th>
+                <th>Etatcivil</th>
+                <th>Handicap</th>
+                <th>Bourse</th>
+                <th>Lieunaissfr</th>
+                <th>Lieunaissar</th>
+                <th>Datenaiss</th>
+                <th>Cin</th>
+                <th>Adresseetd</th>
+                <th>Gsm</th>
+                <th>Email</th>
+                <th>Nomprenomperefr</th>
+                <th>Nomprenommerefr</th>
+                <th>Anneebac</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiantDeug in etudiantDeugs %}
+            <tr>
+                <td><a href="{{ path('etudiantdeug_show', { 'id': etudiantDeug.id }) }}">{{ etudiantDeug.id }}</a></td>
+                <td>{{ etudiantDeug.cne }}</td>
+                <td>{{ etudiantDeug.nationalite }}</td>
+                <td>{{ etudiantDeug.nomfr }}</td>
+                <td>{{ etudiantDeug.prenomfr }}</td>
+                <td>{{ etudiantDeug.nomAr }}</td>
+                <td>{{ etudiantDeug.prenomAr }}</td>
+                <td>{{ etudiantDeug.sexe }}</td>
+                <td>{{ etudiantDeug.etatCivil }}</td>
+                <td>{% if etudiantDeug.handicap %}Yes{% else %}No{% endif %}</td>
+                <td>{% if etudiantDeug.bourse %}Yes{% else %}No{% endif %}</td>
+                <td>{{ etudiantDeug.lieuNaissFr }}</td>
+                <td>{{ etudiantDeug.lieuNaissAr }}</td>
+                <td>{% if etudiantDeug.dateNaiss %}{{ etudiantDeug.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ etudiantDeug.cin }}</td>
+                <td>{{ etudiantDeug.adresseEtd }}</td>
+                <td>{{ etudiantDeug.gsm }}</td>
+                <td>{{ etudiantDeug.email }}</td>
+                <td>{{ etudiantDeug.nomPrenomPereFr }}</td>
+                <td>{{ etudiantDeug.nomPrenomMereFr }}</td>
+                <td>{{ etudiantDeug.anneeBac }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etudiantdeug_show', { 'id': etudiantDeug.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etudiantdeug_edit', { 'id': etudiantDeug.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiantdeug_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

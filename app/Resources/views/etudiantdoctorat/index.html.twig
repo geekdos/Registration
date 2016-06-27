@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>EtudiantDoctorat list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cne</th>
+                <th>Nationalite</th>
+                <th>Nomfr</th>
+                <th>Prenomfr</th>
+                <th>Nomar</th>
+                <th>Prenomar</th>
+                <th>Sexe</th>
+                <th>Etatcivil</th>
+                <th>Handicap</th>
+                <th>Bourse</th>
+                <th>Lieunaissfr</th>
+                <th>Lieunaissar</th>
+                <th>Datenaiss</th>
+                <th>Cin</th>
+                <th>Adresseetd</th>
+                <th>Gsm</th>
+                <th>Email</th>
+                <th>Nomprenomperefr</th>
+                <th>Nomprenommerefr</th>
+                <th>Anneebac</th>
+                <th>Anneediplome</th>
+                <th>Spesialite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiantDoctorat in etudiantDoctorats %}
+            <tr>
+                <td><a href="{{ path('etudiantdoctorat_show', { 'id': etudiantDoctorat.id }) }}">{{ etudiantDoctorat.id }}</a></td>
+                <td>{{ etudiantDoctorat.cne }}</td>
+                <td>{{ etudiantDoctorat.nationalite }}</td>
+                <td>{{ etudiantDoctorat.nomfr }}</td>
+                <td>{{ etudiantDoctorat.prenomfr }}</td>
+                <td>{{ etudiantDoctorat.nomAr }}</td>
+                <td>{{ etudiantDoctorat.prenomAr }}</td>
+                <td>{{ etudiantDoctorat.sexe }}</td>
+                <td>{{ etudiantDoctorat.etatCivil }}</td>
+                <td>{% if etudiantDoctorat.handicap %}Yes{% else %}No{% endif %}</td>
+                <td>{% if etudiantDoctorat.bourse %}Yes{% else %}No{% endif %}</td>
+                <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
+                <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
+                <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ etudiantDoctorat.cin }}</td>
+                <td>{{ etudiantDoctorat.adresseEtd }}</td>
+                <td>{{ etudiantDoctorat.gsm }}</td>
+                <td>{{ etudiantDoctorat.email }}</td>
+                <td>{{ etudiantDoctorat.nomPrenomPereFr }}</td>
+                <td>{{ etudiantDoctorat.nomPrenomMereFr }}</td>
+                <td>{{ etudiantDoctorat.anneeBac }}</td>
+                <td>{{ etudiantDoctorat.anneeDiplome }}</td>
+                <td>{{ etudiantDoctorat.spesialite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etudiantdoctorat_show', { 'id': etudiantDoctorat.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiantdoctorat_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

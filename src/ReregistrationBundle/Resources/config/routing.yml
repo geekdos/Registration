@@ -1,6 +1,18 @@
-reregistration_etudiant:
-    resource: "@ReregistrationBundle/Resources/config/routing/etudiant.yml"
-    prefix:   /inscription
+reregistration_etudiantdeug:
+    resource: "@ReregistrationBundle/Resources/config/routing/etudiantdeug.yml"
+    prefix:   /etudiantdeug
+
+reregistration_etudiantlicence:
+    resource: "@ReregistrationBundle/Resources/config/routing/etudiantlicence.yml"
+    prefix:   /etudiantlicence
+
+reregistration_etudiantmaster:
+    resource: "@ReregistrationBundle/Resources/config/routing/etudiantmaster.yml"
+    prefix:   /etudiantmaster
+
+reregistration_etudiantdoctorat:
+    resource: "@ReregistrationBundle/Resources/config/routing/etudiantdoctorat.yml"
+    prefix:   /etudiantdoctorat
 
 reregistration_homepage:
     path:     /
@@ -41,3 +53,37 @@ reregistration_re_registration_edite:
 reregistration_re_registration_checking:
     path:     /re-inscription/checking
     defaults: { _controller: ReregistrationBundle:ReInscription:checking }
+
+reregistration_re_registration_checking_deug:
+    path:     /re-inscription/checking/deug
+    defaults: { _controller: ReregistrationBundle:ReInscription:checkingDeug }
+
+reregistration_re_registration_checking_licence:
+    path:     /re-inscription/checking/licence
+    defaults: { _controller: ReregistrationBundle:ReInscription:checkingLicence }
+
+reregistration_re_registration_checking_master:
+    path:     /re-inscription/checking/master
+    defaults: { _controller: ReregistrationBundle:ReInscription:checkingMaster }
+
+reregistration_re_registration_checking_doctorat:
+    path:     /re-inscription/checking/doctorat
+    defaults: { _controller: ReregistrationBundle:ReInscription:checkingDoctorat }
+
+reregistration_re_registration_deug:
+    path:     /re-inscription/deug
+    defaults: { _controller: ReregistrationBundle:ReInscription:deugCnePage }
+
+reregistration_re_registration_licence:
+    path:     /re-inscription/licence
+    defaults: { _controller: ReregistrationBundle:ReInscription:licenceCnePage }
+
+reregistration_re_registration_master:
+    path:     /re-inscription/master
+    defaults: { _controller: ReregistrationBundle:ReInscription:masterCnePage }
+
+reregistration_re_registration_doctorat:
+    path:     /re-inscription/doctorat
+    defaults: { _controller: ReregistrationBundle:ReInscription:doctoratCnePage }
+
+

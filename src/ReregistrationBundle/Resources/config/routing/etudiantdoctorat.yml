@@ -1,0 +1,24 @@
+etudiantdoctorat_index:
+    path:     /
+    defaults: { _controller: "ReregistrationBundle:EtudiantDoctorat:index" }
+    methods:  GET
+
+etudiantdoctorat_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReregistrationBundle:EtudiantDoctorat:show" }
+    methods:  GET
+
+etudiantdoctorat_new:
+    path:     /new
+    defaults: { _controller: "ReregistrationBundle:EtudiantDoctorat:new" }
+    methods:  [GET, POST]
+
+etudiantdoctorat_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReregistrationBundle:EtudiantDoctorat:edit" }
+    methods:  [GET, POST]
+
+etudiantdoctorat_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReregistrationBundle:EtudiantDoctorat:delete" }
+    methods:  DELETE

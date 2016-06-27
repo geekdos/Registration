@@ -29,9 +29,24 @@ class Parcours
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\Filiere", mappedBy="parcours")
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\FiliereDeug", mappedBy="parcours")
      */
-    private $filieres;
+    private $filieresDeug;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\FiliereLicence", mappedBy="parcours")
+     */
+    private $filieresLicence;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\FiliereMaster", mappedBy="parcours")
+     */
+    private $filieresMaster;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ReregistrationBundle\Entity\LaboDoctorat", mappedBy="parcours")
+     */
+    private $laboDoctoctorat;
 
     /**
      * Get id
@@ -47,12 +62,16 @@ class Parcours
     {
         return $this->nom;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->filieres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->filieresDeug = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->filieresLicence = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->filieresMaster = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->laboDoctoctorat = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -80,36 +99,138 @@ class Parcours
     }
 
     /**
-     * Add filiere
+     * Add filieresDeug
      *
-     * @param \ReregistrationBundle\Entity\Filiere $filiere
+     * @param \ReregistrationBundle\Entity\FiliereDeug $filieresDeug
      *
      * @return Parcours
      */
-    public function addFiliere(\ReregistrationBundle\Entity\Filiere $filiere)
+    public function addFilieresDeug(\ReregistrationBundle\Entity\FiliereDeug $filieresDeug)
     {
-        $this->filieres[] = $filiere;
+        $this->filieresDeug[] = $filieresDeug;
 
         return $this;
     }
 
     /**
-     * Remove filiere
+     * Remove filieresDeug
      *
-     * @param \ReregistrationBundle\Entity\Filiere $filiere
+     * @param \ReregistrationBundle\Entity\FiliereDeug $filieresDeug
      */
-    public function removeFiliere(\ReregistrationBundle\Entity\Filiere $filiere)
+    public function removeFilieresDeug(\ReregistrationBundle\Entity\FiliereDeug $filieresDeug)
     {
-        $this->filieres->removeElement($filiere);
+        $this->filieresDeug->removeElement($filieresDeug);
     }
 
     /**
-     * Get filieres
+     * Get filieresDeug
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFilieres()
+    public function getFilieresDeug()
     {
-        return $this->filieres;
+        return $this->filieresDeug;
+    }
+
+    /**
+     * Add filieresLicence
+     *
+     * @param \ReregistrationBundle\Entity\FiliereLicence $filieresLicence
+     *
+     * @return Parcours
+     */
+    public function addFilieresLicence(\ReregistrationBundle\Entity\FiliereLicence $filieresLicence)
+    {
+        $this->filieresLicence[] = $filieresLicence;
+
+        return $this;
+    }
+
+    /**
+     * Remove filieresLicence
+     *
+     * @param \ReregistrationBundle\Entity\FiliereLicence $filieresLicence
+     */
+    public function removeFilieresLicence(\ReregistrationBundle\Entity\FiliereLicence $filieresLicence)
+    {
+        $this->filieresLicence->removeElement($filieresLicence);
+    }
+
+    /**
+     * Get filieresLicence
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFilieresLicence()
+    {
+        return $this->filieresLicence;
+    }
+
+    /**
+     * Add filieresMaster
+     *
+     * @param \ReregistrationBundle\Entity\FiliereMaster $filieresMaster
+     *
+     * @return Parcours
+     */
+    public function addFilieresMaster(\ReregistrationBundle\Entity\FiliereMaster $filieresMaster)
+    {
+        $this->filieresMaster[] = $filieresMaster;
+
+        return $this;
+    }
+
+    /**
+     * Remove filieresMaster
+     *
+     * @param \ReregistrationBundle\Entity\FiliereMaster $filieresMaster
+     */
+    public function removeFilieresMaster(\ReregistrationBundle\Entity\FiliereMaster $filieresMaster)
+    {
+        $this->filieresMaster->removeElement($filieresMaster);
+    }
+
+    /**
+     * Get filieresMaster
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFilieresMaster()
+    {
+        return $this->filieresMaster;
+    }
+
+    /**
+     * Add laboDoctoctorat
+     *
+     * @param \ReregistrationBundle\Entity\LaboDoctorat $laboDoctoctorat
+     *
+     * @return Parcours
+     */
+    public function addLaboDoctoctorat(\ReregistrationBundle\Entity\LaboDoctorat $laboDoctoctorat)
+    {
+        $this->laboDoctoctorat[] = $laboDoctoctorat;
+
+        return $this;
+    }
+
+    /**
+     * Remove laboDoctoctorat
+     *
+     * @param \ReregistrationBundle\Entity\LaboDoctorat $laboDoctoctorat
+     */
+    public function removeLaboDoctoctorat(\ReregistrationBundle\Entity\LaboDoctorat $laboDoctoctorat)
+    {
+        $this->laboDoctoctorat->removeElement($laboDoctoctorat);
+    }
+
+    /**
+     * Get laboDoctoctorat
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLaboDoctoctorat()
+    {
+        return $this->laboDoctoctorat;
     }
 }

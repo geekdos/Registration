@@ -1,0 +1,24 @@
+etudiantlicence_index:
+    path:     /
+    defaults: { _controller: "ReregistrationBundle:EtudiantLicence:index" }
+    methods:  GET
+
+etudiantlicence_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReregistrationBundle:EtudiantLicence:show" }
+    methods:  GET
+
+etudiantlicence_new:
+    path:     /new
+    defaults: { _controller: "ReregistrationBundle:EtudiantLicence:new" }
+    methods:  [GET, POST]
+
+etudiantlicence_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReregistrationBundle:EtudiantLicence:edit" }
+    methods:  [GET, POST]
+
+etudiantlicence_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReregistrationBundle:EtudiantLicence:delete" }
+    methods:  DELETE

@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>EtudiantMaster list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cne</th>
+                <th>Nationalite</th>
+                <th>Nomfr</th>
+                <th>Prenomfr</th>
+                <th>Nomar</th>
+                <th>Prenomar</th>
+                <th>Sexe</th>
+                <th>Etatcivil</th>
+                <th>Handicap</th>
+                <th>Bourse</th>
+                <th>Lieunaissfr</th>
+                <th>Lieunaissar</th>
+                <th>Datenaiss</th>
+                <th>Cin</th>
+                <th>Adresseetd</th>
+                <th>Gsm</th>
+                <th>Email</th>
+                <th>Nomprenomperefr</th>
+                <th>Nomprenommerefr</th>
+                <th>Anneebac</th>
+                <th>Anneediplome</th>
+                <th>Spesialite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiantMaster in etudiantMasters %}
+            <tr>
+                <td><a href="{{ path('etudiantmaster_show', { 'id': etudiantMaster.id }) }}">{{ etudiantMaster.id }}</a></td>
+                <td>{{ etudiantMaster.cne }}</td>
+                <td>{{ etudiantMaster.nationalite }}</td>
+                <td>{{ etudiantMaster.nomfr }}</td>
+                <td>{{ etudiantMaster.prenomfr }}</td>
+                <td>{{ etudiantMaster.nomAr }}</td>
+                <td>{{ etudiantMaster.prenomAr }}</td>
+                <td>{{ etudiantMaster.sexe }}</td>
+                <td>{{ etudiantMaster.etatCivil }}</td>
+                <td>{% if etudiantMaster.handicap %}Yes{% else %}No{% endif %}</td>
+                <td>{% if etudiantMaster.bourse %}Yes{% else %}No{% endif %}</td>
+                <td>{{ etudiantMaster.lieuNaissFr }}</td>
+                <td>{{ etudiantMaster.lieuNaissAr }}</td>
+                <td>{% if etudiantMaster.dateNaiss %}{{ etudiantMaster.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ etudiantMaster.cin }}</td>
+                <td>{{ etudiantMaster.adresseEtd }}</td>
+                <td>{{ etudiantMaster.gsm }}</td>
+                <td>{{ etudiantMaster.email }}</td>
+                <td>{{ etudiantMaster.nomPrenomPereFr }}</td>
+                <td>{{ etudiantMaster.nomPrenomMereFr }}</td>
+                <td>{{ etudiantMaster.anneeBac }}</td>
+                <td>{{ etudiantMaster.anneeDiplome }}</td>
+                <td>{{ etudiantMaster.spesialite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etudiantmaster_show', { 'id': etudiantMaster.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etudiantmaster_edit', { 'id': etudiantMaster.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiantmaster_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

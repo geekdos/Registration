@@ -10,4 +10,19 @@ namespace ReregistrationBundle\Repository;
  */
 class EtudiantDoctoratRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getNbrDoctoratStudent(){
+        return $this->counter(4);
+    }
+
+    private function counter($id_parcours){
+        $qb = $this->createQueryBuilder('e');
+
+        $qb->select($qb->expr()->count('e.id'))
+            ->join('e.filiere', 'f')
+            ->where('f.parcours = :id_parcours')
+            ->setParameter('id_parcours', $id_parcours);
+
+        return $count = $qb->getQuery()->getSingleScalarResult();
+    }
 }

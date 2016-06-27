@@ -8,12 +8,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:Etudiant');
 
-        $DEUG = $em->getNbrDEUGStudent();
-        $licence = $em->getNbrLicenceStudent();
-        $master = $em->getNbrMasterStudent();
-        $doctorat = $em->getNbrDoctoratStudent();
+        $DEUG = $this->getTheRepo('EtudiantDeug')->getNbrDEUGStudent();
+        $licence = $this->getTheRepo('EtudiantLicence')->getNbrLicenceStudent();
+        $master = $this->getTheRepo('EtudiantMaster')->getNbrMasterStudent();
+        $doctorat = $this->getTheRepo('EtudiantDoctorat')->getNbrDoctoratStudent();
 
         return $this->render('Default/index.html.twig',[
             'nbrDEUG' => $DEUG,
@@ -22,4 +21,10 @@ class DefaultController extends Controller
             'nbrDoctorat' => $doctorat,
         ]);
     }
+    
+    public function getTheRepo($entity)
+    {
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
+    }
+    
 }

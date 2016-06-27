@@ -1,9 +1,0 @@
-{% extends '::layout.html.twig' %}
-
-{% block body %}
-    {% if app.session.get('id') == etudiant.id %}
-        {% include ':Includes:editeForm.html.twig' %}
-    {% else %}
-        {% include ':errors:404.html.twig' %}
-    {% endif %}
-{% endblock %}

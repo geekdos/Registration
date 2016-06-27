@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>EtudiantLicence list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cne</th>
+                <th>Nationalite</th>
+                <th>Nomfr</th>
+                <th>Prenomfr</th>
+                <th>Nomar</th>
+                <th>Prenomar</th>
+                <th>Sexe</th>
+                <th>Etatcivil</th>
+                <th>Handicap</th>
+                <th>Bourse</th>
+                <th>Lieunaissfr</th>
+                <th>Lieunaissar</th>
+                <th>Datenaiss</th>
+                <th>Cin</th>
+                <th>Adresseetd</th>
+                <th>Gsm</th>
+                <th>Email</th>
+                <th>Nomprenomperefr</th>
+                <th>Nomprenommerefr</th>
+                <th>Anneebac</th>
+                <th>Anneediplome</th>
+                <th>Spesialite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiantLicence in etudiantLicences %}
+            <tr>
+                <td><a href="{{ path('etudiantlicence_show', { 'id': etudiantLicence.id }) }}">{{ etudiantLicence.id }}</a></td>
+                <td>{{ etudiantLicence.cne }}</td>
+                <td>{{ etudiantLicence.nationalite }}</td>
+                <td>{{ etudiantLicence.nomfr }}</td>
+                <td>{{ etudiantLicence.prenomfr }}</td>
+                <td>{{ etudiantLicence.nomAr }}</td>
+                <td>{{ etudiantLicence.prenomAr }}</td>
+                <td>{{ etudiantLicence.sexe }}</td>
+                <td>{{ etudiantLicence.etatCivil }}</td>
+                <td>{% if etudiantLicence.handicap %}Yes{% else %}No{% endif %}</td>
+                <td>{% if etudiantLicence.bourse %}Yes{% else %}No{% endif %}</td>
+                <td>{{ etudiantLicence.lieuNaissFr }}</td>
+                <td>{{ etudiantLicence.lieuNaissAr }}</td>
+                <td>{% if etudiantLicence.dateNaiss %}{{ etudiantLicence.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ etudiantLicence.cin }}</td>
+                <td>{{ etudiantLicence.adresseEtd }}</td>
+                <td>{{ etudiantLicence.gsm }}</td>
+                <td>{{ etudiantLicence.email }}</td>
+                <td>{{ etudiantLicence.nomPrenomPereFr }}</td>
+                <td>{{ etudiantLicence.nomPrenomMereFr }}</td>
+                <td>{{ etudiantLicence.anneeBac }}</td>
+                <td>{{ etudiantLicence.anneeDiplome }}</td>
+                <td>{{ etudiantLicence.spesialite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etudiantlicence_show', { 'id': etudiantLicence.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiantlicence_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

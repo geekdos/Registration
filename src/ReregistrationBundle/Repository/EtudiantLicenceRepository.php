@@ -10,4 +10,19 @@ namespace ReregistrationBundle\Repository;
  */
 class EtudiantLicenceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNbrLicenceStudent(){
+        return $this->counter(2);
+    }
+    
+
+    private function counter($id_parcours){
+        $qb = $this->createQueryBuilder('e');
+
+        $qb->select($qb->expr()->count('e.id'))
+            ->join('e.filiere', 'f')
+            ->where('f.parcours = :id_parcours')
+            ->setParameter('id_parcours', $id_parcours);
+
+        return $count = $qb->getQuery()->getSingleScalarResult();
+    }
 }
