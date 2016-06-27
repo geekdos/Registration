@@ -9,8 +9,8 @@ imports:
     - { resource: "sonata_project/sonata_formatter.yml" }
     - { resource: "sonata_project/sonata_intl.yml" }
     - { resource: "fos/fos_user.yml" }
-#    - { resource: "sonata_project/sonata_classification.yml" }
-#    - { resource: "sonata_project/sonata_media.yml" }
+    - { resource: "sonata_project/sonata_classification.yml" }
+    - { resource: "sonata_project/sonata_media.yml" }
 
 parameters:
     locale: fr

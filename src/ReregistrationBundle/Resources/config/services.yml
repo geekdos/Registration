@@ -14,18 +14,6 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Etablessement }
 
-    reregistration.admin.etudiant:
-        class: ReregistrationBundle\Admin\EtudiantAdmin
-        arguments: [~, ReregistrationBundle\Entity\Etudiant, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Etudiant }
-
-    reregistration.admin.filiere:
-        class: ReregistrationBundle\Admin\FiliereAdmin
-        arguments: [~, ReregistrationBundle\Entity\Filiere, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Filiere }
-
     reregistration.admin.fonction:
         class: ReregistrationBundle\Admin\FonctionAdmin
         arguments: [~, ReregistrationBundle\Entity\Fonction, SonataAdminBundle:CRUD]
@@ -103,3 +91,51 @@ services:
         arguments: [~, ReregistrationBundle\Entity\Configuration, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Configuration }
+
+    reregistration.admin.etudiant_deug:
+        class: ReregistrationBundle\Admin\EtudiantDeugAdmin
+        arguments: [~, ReregistrationBundle\Entity\EtudiantDeug, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtudiantDeug }
+
+    reregistration.admin.etudiant_doctorat:
+        class: ReregistrationBundle\Admin\EtudiantDoctoratAdmin
+        arguments: [~, ReregistrationBundle\Entity\EtudiantDoctorat, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtudiantDoctorat }
+
+    reregistration.admin.etudiant_licence:
+        class: ReregistrationBundle\Admin\EtudiantLicenceAdmin
+        arguments: [~, ReregistrationBundle\Entity\EtudiantLicence, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtudiantLicence }
+
+    reregistration.admin.etudiant_master:
+        class: ReregistrationBundle\Admin\EtudiantMasterAdmin
+        arguments: [~, ReregistrationBundle\Entity\EtudiantMaster, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtudiantMaster }
+
+    reregistration.admin.filiere_deug:
+        class: ReregistrationBundle\Admin\FiliereDeugAdmin
+        arguments: [~, ReregistrationBundle\Entity\FiliereDeug, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: FiliereDeug }
+
+    reregistration.admin.filiere_licence:
+        class: ReregistrationBundle\Admin\FiliereLicenceAdmin
+        arguments: [~, ReregistrationBundle\Entity\FiliereLicence, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: FiliereLicence }
+
+    reregistration.admin.filiere_master:
+        class: ReregistrationBundle\Admin\FiliereMasterAdmin
+        arguments: [~, ReregistrationBundle\Entity\FiliereMaster, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: FiliereMaster }
+
+    reregistration.admin.labo_doctorat:
+        class: ReregistrationBundle\Admin\LaboDoctoratAdmin
+        arguments: [~, ReregistrationBundle\Entity\LaboDoctorat, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: LaboDoctorat }

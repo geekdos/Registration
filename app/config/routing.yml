@@ -15,13 +15,17 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-#gallery:
-#    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
-#    prefix: /media/gallery
-#
-#media:
-#    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
-#    prefix: /media
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
+sonata_media_pixlr:
+    resource: '@SonataMediaBundle/Resources/config/routing/pixlr.xml'
+    prefix: /admin/media
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
