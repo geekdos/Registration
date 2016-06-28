@@ -42,14 +42,17 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        {% if app.user %}
                         <li>
                             <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                         </li>
+
                         <li>
                             <a href="{{ path('fos_user_security_logout') }}" class="log-out waves-effect waves-button waves-classic">
                                 <span><i class="fa fa-sign-out m-r-xs"></i>Se Déconncter</span>
                             </a>
                         </li>
+                        {% endif %}
                         <li>
                             <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
                             </a>
