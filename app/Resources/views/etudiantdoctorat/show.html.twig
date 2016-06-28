@@ -1,116 +1,96 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>EtudiantDoctorat</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ etudiantDoctorat.id }}</td>
-            </tr>
-            <tr>
-                <th>Cne</th>
-                <td>{{ etudiantDoctorat.cne }}</td>
-            </tr>
-            <tr>
-                <th>Nationalite</th>
-                <td>{{ etudiantDoctorat.nationalite }}</td>
-            </tr>
-            <tr>
-                <th>Nomfr</th>
-                <td>{{ etudiantDoctorat.nomfr }}</td>
-            </tr>
-            <tr>
-                <th>Prenomfr</th>
-                <td>{{ etudiantDoctorat.prenomfr }}</td>
-            </tr>
-            <tr>
-                <th>Nomar</th>
-                <td>{{ etudiantDoctorat.nomAr }}</td>
-            </tr>
-            <tr>
-                <th>Prenomar</th>
-                <td>{{ etudiantDoctorat.prenomAr }}</td>
-            </tr>
-            <tr>
-                <th>Sexe</th>
-                <td>{{ etudiantDoctorat.sexe }}</td>
-            </tr>
-            <tr>
-                <th>Etatcivil</th>
-                <td>{{ etudiantDoctorat.etatCivil }}</td>
-            </tr>
-            <tr>
-                <th>Handicap</th>
-                <td>{% if etudiantDoctorat.handicap %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Bourse</th>
-                <td>{% if etudiantDoctorat.bourse %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Lieunaissfr</th>
-                <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
-            </tr>
-            <tr>
-                <th>Lieunaissar</th>
-                <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
-            </tr>
-            <tr>
-                <th>Datenaiss</th>
-                <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Cin</th>
-                <td>{{ etudiantDoctorat.cin }}</td>
-            </tr>
-            <tr>
-                <th>Adresseetd</th>
-                <td>{{ etudiantDoctorat.adresseEtd }}</td>
-            </tr>
-            <tr>
-                <th>Gsm</th>
-                <td>{{ etudiantDoctorat.gsm }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ etudiantDoctorat.email }}</td>
-            </tr>
-            <tr>
-                <th>Nomprenomperefr</th>
-                <td>{{ etudiantDoctorat.nomPrenomPereFr }}</td>
-            </tr>
-            <tr>
-                <th>Nomprenommerefr</th>
-                <td>{{ etudiantDoctorat.nomPrenomMereFr }}</td>
-            </tr>
-            <tr>
-                <th>Anneebac</th>
-                <td>{{ etudiantDoctorat.anneeBac }}</td>
-            </tr>
-            <tr>
-                <th>Anneediplome</th>
-                <td>{{ etudiantDoctorat.anneeDiplome }}</td>
-            </tr>
-            <tr>
-                <th>Spesialite</th>
-                <td>{{ etudiantDoctorat.spesialite }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('etudiantdoctorat_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}">Edit</a>
-        </li>
-        <li>
+    <h1>Vous ete bien inscrit dans la Filiére <code>{{ etudiantDoctorat.filiere.nom }}</code></h1>
+    <a href="{{ path('etudiantDoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left">Modifier | تغيير</a>
+    {{ form_start(delete_form) }}
+    <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
+    {{ form_end(delete_form) }}
+    <div class="panel panel-purple">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title">Vérifier Bien Vos informations avant de générer le PDF | عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>CNE</th>
+                    <td>{{ etudiantDoctorat.cne }}</td>
+                </tr>
+                <tr>
+                    <th>Nationalité</th>
+                    <td>{{ etudiantDoctorat.nationalite }}</td>
+                </tr>
+                <tr>
+                    <th>Nom en Français</th>
+                    <td>{{ etudiantDoctorat.nomfr }}</td>
+                </tr>
+                <tr>
+                    <th>Prenom en Français</th>
+                    <td>{{ etudiantDoctorat.prenomfr }}</td>
+                </tr>
+                <tr>
+                    <th>Nom en Arabe</th>
+                    <td>{{ etudiantDoctorat.nomAr }}</td>
+                </tr>
+                <tr>
+                    <th>Prenom en Arabe</th>
+                    <td>{{ etudiantDoctorat.prenomAr }}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{ etudiantDoctorat.sexe }}</td>
+                </tr>
+                <tr>
+                    <th>L'état civil</th>
+                    <td>{{ etudiantDoctorat.etatCivil }}</td>
+                </tr>
+                <tr>
+                    <th>Handicap</th>
+                    <td>{% if etudiantDoctorat.handicap %}Oui{% else %}Non{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Bourse</th>
+                    <td>{% if etudiantDoctorat.bourse %}Oui{% else %}Non{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Lieu de naissance en Français</th>
+                    <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
+                </tr>
+                <tr>
+                    <th>Lieu de naissance en Arabe</th>
+                    <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
+                </tr>
+                <tr>
+                    <th>Date de naissance</th>
+                    <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>CIN</th>
+                    <td>{{ etudiantDoctorat.cin }}</td>
+                </tr>
+                <tr>
+                    <th>GSM</th>
+                    <td>{{ etudiantDoctorat.gsm }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ etudiantDoctorat.email }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <hr>
+            <a href="#" class="btn btn-success btn-large">générer le PDF | إنشاء بدف</a>
+            <hr>
+            <a href="{{ path('etudiantDoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left">Modifier | تغيير</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            <hr>
+            <hr>
+        </div>
+
+    </div>
 {% endblock %}

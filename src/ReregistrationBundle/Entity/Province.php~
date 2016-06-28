@@ -49,6 +49,14 @@ class Province
     private $etudiantsDoctorat;
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+    /**
      * Constructor
      */
     public function __construct()

@@ -77,7 +77,7 @@ class EtudiantLicenceType extends AbstractType
             ))
             ->add('dateNaiss', DateType::class,array(
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => 'dd/MM/yyy',
                 'label' => 'تاريخ الإزدياد (*)Date de naissance'
             ))
             ->add('cin',TextType::class, array(

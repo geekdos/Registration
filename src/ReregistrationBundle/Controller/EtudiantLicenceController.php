@@ -82,7 +82,7 @@ class EtudiantLicenceController extends Controller
             $em->persist($etudiantLicence);
             $em->flush();
 
-            return $this->redirectToRoute('etudiantlicence_edit', array('id' => $etudiantLicence->getId()));
+            return $this->redirectToRoute('etudiantlicence_show', array('id' => $etudiantLicence->getId()));
         }
 
         return $this->render('etudiantlicence/edit.html.twig', array(

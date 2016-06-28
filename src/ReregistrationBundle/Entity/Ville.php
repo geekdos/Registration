@@ -57,7 +57,7 @@ class Ville
     {
         return $this->nom;
     }
-    
+
     /**
      * Constructor
      */
@@ -106,11 +106,11 @@ class Ville
     /**
      * Add habitantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDeug
+     * @param \ReregistrationBundle\Entity\EtudiantDeug $habitantsDeug
      *
      * @return Ville
      */
-    public function addHabitantsDeug(\ReregistrationBundle\Entity\Etudiant $habitantsDeug)
+    public function addHabitantsDeug(\ReregistrationBundle\Entity\EtudiantDeug $habitantsDeug)
     {
         $this->habitantsDeug[] = $habitantsDeug;
 
@@ -120,9 +120,9 @@ class Ville
     /**
      * Remove habitantsDeug
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDeug
+     * @param \ReregistrationBundle\Entity\EtudiantDeug $habitantsDeug
      */
-    public function removeHabitantsDeug(\ReregistrationBundle\Entity\Etudiant $habitantsDeug)
+    public function removeHabitantsDeug(\ReregistrationBundle\Entity\EtudiantDeug $habitantsDeug)
     {
         $this->habitantsDeug->removeElement($habitantsDeug);
     }
@@ -140,11 +140,11 @@ class Ville
     /**
      * Add habitantsLicence
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsLicence
+     * @param \ReregistrationBundle\Entity\EtudiantLicence $habitantsLicence
      *
      * @return Ville
      */
-    public function addHabitantsLicence(\ReregistrationBundle\Entity\Etudiant $habitantsLicence)
+    public function addHabitantsLicence(\ReregistrationBundle\Entity\EtudiantLicence $habitantsLicence)
     {
         $this->habitantsLicence[] = $habitantsLicence;
 
@@ -154,9 +154,9 @@ class Ville
     /**
      * Remove habitantsLicence
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsLicence
+     * @param \ReregistrationBundle\Entity\EtudiantLicence $habitantsLicence
      */
-    public function removeHabitantsLicence(\ReregistrationBundle\Entity\Etudiant $habitantsLicence)
+    public function removeHabitantsLicence(\ReregistrationBundle\Entity\EtudiantLicence $habitantsLicence)
     {
         $this->habitantsLicence->removeElement($habitantsLicence);
     }
@@ -174,11 +174,11 @@ class Ville
     /**
      * Add habitantsMaster
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsMaster
+     * @param \ReregistrationBundle\Entity\EtudiantMaster $habitantsMaster
      *
      * @return Ville
      */
-    public function addHabitantsMaster(\ReregistrationBundle\Entity\Etudiant $habitantsMaster)
+    public function addHabitantsMaster(\ReregistrationBundle\Entity\EtudiantMaster $habitantsMaster)
     {
         $this->habitantsMaster[] = $habitantsMaster;
 
@@ -188,9 +188,9 @@ class Ville
     /**
      * Remove habitantsMaster
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsMaster
+     * @param \ReregistrationBundle\Entity\EtudiantMaster $habitantsMaster
      */
-    public function removeHabitantsMaster(\ReregistrationBundle\Entity\Etudiant $habitantsMaster)
+    public function removeHabitantsMaster(\ReregistrationBundle\Entity\EtudiantMaster $habitantsMaster)
     {
         $this->habitantsMaster->removeElement($habitantsMaster);
     }
@@ -208,11 +208,11 @@ class Ville
     /**
      * Add habitantsDoctorat
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDoctorat
+     * @param \ReregistrationBundle\Entity\EtudiantDoctorat $habitantsDoctorat
      *
      * @return Ville
      */
-    public function addHabitantsDoctorat(\ReregistrationBundle\Entity\Etudiant $habitantsDoctorat)
+    public function addHabitantsDoctorat(\ReregistrationBundle\Entity\EtudiantDoctorat $habitantsDoctorat)
     {
         $this->habitantsDoctorat[] = $habitantsDoctorat;
 
@@ -222,9 +222,9 @@ class Ville
     /**
      * Remove habitantsDoctorat
      *
-     * @param \ReregistrationBundle\Entity\Etudiant $habitantsDoctorat
+     * @param \ReregistrationBundle\Entity\EtudiantDoctorat $habitantsDoctorat
      */
-    public function removeHabitantsDoctorat(\ReregistrationBundle\Entity\Etudiant $habitantsDoctorat)
+    public function removeHabitantsDoctorat(\ReregistrationBundle\Entity\EtudiantDoctorat $habitantsDoctorat)
     {
         $this->habitantsDoctorat->removeElement($habitantsDoctorat);
     }
