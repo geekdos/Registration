@@ -103,19 +103,25 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h3>Personal Info</h3>
-                                <p>
-                                    1 - Vous devez remplir soigneusement et attentivement votre formulaire de candidature en ligne.
-                                    <br>
-                                    2 - Toute information erronée entraîne l'annulation de votre candidature.
-                                    <br>
-                                    N.B : Pour compléter la procédure de préinscription en ligne le candidat doit:
-                                    <br>
-                                    1) Scanner sur un même fichier (format PDF; taille max 5Mo) les documents suivants: Relevés des notes de toutes les années universitaires;
-                                    diplômes (ou attestations) universitaires et du baccalauréat ; copie de la CIN.
-                                    <br>
-                                    2)Envoyer obligatoirement, à l’adresse e-mail de la filière, le fichier des documents scannés.
-                                </p>
+                                <div class="form-group  col-md-12">
+                                    {{ form_row(form.media, {'attr':{'class': 'form-control btn btn-info'}}) }}
+                                </div>
+                                <hr>
+                                <div class="col-md-12">
+                                    <h3>Personal Info</h3>
+                                    <p>
+                                        1 - Vous devez remplir soigneusement et attentivement votre formulaire de candidature en ligne.
+                                        <br>
+                                        2 - Toute information erronée entraîne l'annulation de votre candidature.
+                                        <br>
+                                        N.B : Pour compléter la procédure de préinscription en ligne le candidat doit:
+                                        <br>
+                                        1) Scanner sur un même fichier (format PDF; taille max 5Mo) les documents suivants: Relevés des notes de toutes les années universitaires;
+                                        diplômes (ou attestations) universitaires et du baccalauréat ; copie de la CIN.
+                                        <br>
+                                        2)Envoyer obligatoirement, à l’adresse e-mail de la filière, le fichier des documents scannés.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

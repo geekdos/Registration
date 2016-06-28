@@ -114,3 +114,8 @@ sonata_admin:
                 items:
                     - reregistration.admin.user
                     - reregistration.admin.configuration
+                    - sonata.media.admin.media
+                    - sonata.media.admin.gallery
+                    - sonata.classification.admin.category
+                    - sonata.classification.admin.tag
+                    - sonata.classification.admin.collection

@@ -22,6 +22,11 @@ class EtudiantDoctoratType extends AbstractType
             ->add('cne', TextType::class, array(
                 'label' => 'CNE (*) | الرقم الوطني للطالب'
             ))
+            ->add('media', 'sonata_media_type', array(
+                'required' => false,
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'default'
+            ))
             ->add('nationalite', ChoiceType::class, array(
                 'choices'  => array(
                     'Marocaine' => 'Marocaine',
