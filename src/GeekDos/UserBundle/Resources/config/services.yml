@@ -1,0 +1,6 @@
+services:
+    geek_dos_user.admin.user:
+        class: GeekDos\UserBundle\Admin\UserAdmin
+        arguments: [~, GeekDos\UserBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: User }

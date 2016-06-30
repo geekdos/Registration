@@ -112,7 +112,7 @@ sonata_admin:
                 label_catalogue: ReregistrationBundle
                 icon:            '<i class="fa fa-cogs"></i>'
                 items:
-                    - reregistration.admin.user
+                    - geek_dos_user.admin.user
                     - reregistration.admin.configuration
                     - sonata.media.admin.media
                     - sonata.media.admin.gallery

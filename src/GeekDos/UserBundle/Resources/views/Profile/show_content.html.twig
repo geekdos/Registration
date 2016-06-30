@@ -1,0 +1,75 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="profile-cover">
+    <div class="row">
+        <div class="col-md-3 profile-image">
+            <div class="profile-image-container">
+                <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" title="{{ user.username }} Avatar" alt="{{ user.username }} Avatar">
+            </div>
+        </div>
+        <div class="col-md-12 profile-info">
+            <div class=" profile-info-value">
+                <h3>{{ 'profile.show.username'|trans }}</h3>
+                <p class="text-center">{{ user.username }}</p>
+            </div>
+            <div class="profile-info-value">
+                <h3>{{ 'profile.show.email'|trans }}</h3>
+                <p class="text-center">{{ user.email }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-wrapper">
+    <div class="row">
+        <div class="col-md-3 user-profile">
+            <h3 class="text-center">{{ user.username }}</h3>
+            <p class="text-center">Etudiant Filiere</p>
+            <hr>
+            <ul class="list-unstyled text-center">
+                <li><p><i class="fa fa-map-marker m-r-xs"></i>Ville, Pays</p></li>
+                <li><p><i class="fa fa-envelope m-r-xs"></i><a href="#">{{ user.email }}</a></p></li>
+            </ul>
+            <hr>
+            <button class="btn btn-primary btn-block"><i class="fa fa-plus m-r-xs"></i>Re-inscription</button>
+        </div>
+        <div class="col-md-6 m-t-lg">
+            {{ render(controller('FOSUserBundle:Profile:edit')) }}
+        </div>
+        <div class="col-md-3 m-t-lg">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <div class="panel-title">Team</div>
+                </div>
+                <div class="panel-body">
+                    <div class="team">
+                        <div class="team-member">
+                            <div class="online on"></div>
+                            <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" alt="">
+                        </div>
+                        <div class="team-member">
+                            <div class="online off"></div>
+                            <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" alt="">
+                        </div>
+                        <div class="team-member">
+                            <div class="online on"></div>
+                            <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" alt="">
+                        </div>
+                        <div class="team-member">
+                            <div class="online on"></div>
+                            <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" alt="">
+                        </div>
+                        <p class="more-members"><a href="#">+5 more...</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <div class="panel-title">La filiere</div>
+                </div>
+                <div class="panel-body">
+                    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

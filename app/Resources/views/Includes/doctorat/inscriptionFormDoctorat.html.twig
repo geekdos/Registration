@@ -4,11 +4,13 @@
             <div id="rootwizard">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab0" data-toggle="tab"><i class="fa fa-graduation-cap m-r-xs"></i>Filiére | الشعبة</a></li>
-                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
+                    <li role="presentation"><a href="#tab0" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
+                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations parents | معلومات الأباء</a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
-                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Dernier diplôme | معلومات دبلوم الأخير</a></li>
-                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | البكالوريا</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Licence | الإجازة</a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Master | الماستر</a></li>
+                    <li role="presentation"><a href="#tab6" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
                 </ul>
                 <div class="progress progress-sm m-t-sm">
                     <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -19,7 +21,6 @@
                     {{ form_errors(form) }}
                 </div>
                 <div class="tab-content">
-
                     <div class="tab-pane active fade in" id="tab0">
                         <div class="row">
                             <div class="col-md-6 center">
@@ -119,7 +120,92 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab2">
+                    <div class="tab-pane fade " id="tab2">
+                        <div class="row m-b-lg">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.nationalite, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.cne, {'attr':{'class': 'form-control'}}) }}
+                                        <div class="help-block">
+                                            <span>En 10 chiffres</span>
+                                            <span class="pull-right">10 أرقام</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.nomfr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        {{ form_row(form.prenomfr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 text-right">
+                                        {{ form_row(form.prenomAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(form.nomAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        {{ form_row(form.sexe, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        {{ form_row(form.etatCivil, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-4">
+                                        {{ form_row(form.statutActuel, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.handicap, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.bourse, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.lieuNaissFr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(form.lieuNaissAr, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        {{ form_row(form.dateNaiss, {'attr':{'class': 'form-control'}}) }}
+                                        <span class="help-block">تاريخ الإزدياد 14/05/1991</span>
+                                    </div>
+                                    <div class="form-group  col-md-6 text-right">
+                                        {{ form_row(form.cin, {'attr':{'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Personal Info</h3>
+                                <p>
+                                    1 - Vous devez remplir soigneusement et attentivement votre formulaire de candidature en ligne.
+                                    <br>
+                                    2 - Toute information erronée entraîne l'annulation de votre candidature.
+                                    <br>
+                                    N.B : Pour compléter la procédure de préinscription en ligne le candidat doit:
+                                    <br>
+                                    1) Scanner sur un même fichier (format PDF; taille max 5Mo) les documents suivants: Relevés des notes de toutes les années universitaires;
+                                    diplômes (ou attestations) universitaires et du baccalauréat ; copie de la CIN.
+                                    <br>
+                                    2)Envoyer obligatoirement, à l’adresse e-mail de la filière, le fichier des documents scannés.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab3">
                         <div class="row">
                             <div class="col-md-3">
                                 <img src="{{ asset('bundles/reregistration/assets/images/saiss.jpg') }}" title="Faculté des Lettres et des Sciences Humaines Saïs-Fés" width="250" alt="Faculté des Lettres et des Sciences Humaines Saïs-Fés">
@@ -175,7 +261,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab3">
+                    <div class="tab-pane fade" id="tab4">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group col-md-12">
@@ -203,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab4">
+                    <div class="tab-pane fade" id="tab5">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group col-md-12">
@@ -232,7 +318,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab5">
+                    <div class="tab-pane fade" id="tab6">
                         <h2 class="no-s">Attention | تحذير</h2>
                         <div class="alert alert-danger m-t-sm m-b-lg" role="alert">
                             Verfier tous les infos
