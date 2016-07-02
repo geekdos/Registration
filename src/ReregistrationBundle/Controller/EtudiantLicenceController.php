@@ -2,8 +2,13 @@
 
 namespace ReregistrationBundle\Controller;
 
+use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use ReregistrationBundle\Entity\EtudiantLicence;
 use ReregistrationBundle\Form\EtudiantLicenceType;
@@ -28,10 +33,40 @@ class EtudiantLicenceController extends Controller
             'etudiantLicences' => $etudiantLicences,
         ));
     }
+    public function registerNewUser(Request $request, EtudiantLicence $etudiantLicence)
+    {
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+        $user->setEmail($etudiantLicence->getEmail());
+        $user->setUsername($etudiantLicence->getCne());
+        $user->setPlainPassword($etudiantLicence->getCin());
+
+        $event = new GetResponseUserEvent($user, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+        $userManager->updateUser($user);
+
+        if (null === $response = $event->getResponse()) {
+            $url = $this->generateUrl('fos_user_registration_confirmed');
+            $response = new RedirectResponse($url);
+        }
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+        return $response;
+    }
 
     /**
      * Creates a new EtudiantLicence entity.
-     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -41,6 +76,7 @@ class EtudiantLicenceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $this->registerNewUser($request, $etudiantLicence);
             $em->persist($etudiantLicence);
             $em->flush();
 
@@ -55,12 +91,13 @@ class EtudiantLicenceController extends Controller
 
     /**
      * Finds and displays a EtudiantLicence entity.
-     *
+     * @param EtudiantLicence $etudiantLicence
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(EtudiantLicence $etudiantLicence)
     {
         $deleteForm = $this->createDeleteForm($etudiantLicence);
-
+        
         return $this->render('etudiantlicence/show.html.twig', array(
             'etudiantLicence' => $etudiantLicence,
             'delete_form' => $deleteForm->createView(),
@@ -69,7 +106,9 @@ class EtudiantLicenceController extends Controller
 
     /**
      * Displays a form to edit an existing EtudiantLicence entity.
-     *
+     * @param Request $request
+     * @param EtudiantLicence $etudiantLicence
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, EtudiantLicence $etudiantLicence)
     {
@@ -94,7 +133,9 @@ class EtudiantLicenceController extends Controller
 
     /**
      * Deletes a EtudiantLicence entity.
-     *
+     * @param Request $request
+     * @param EtudiantLicence $etudiantLicence
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, EtudiantLicence $etudiantLicence)
     {
@@ -125,4 +166,5 @@ class EtudiantLicenceController extends Controller
             ->getForm()
         ;
     }
+
 }

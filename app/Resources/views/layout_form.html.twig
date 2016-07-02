@@ -32,6 +32,9 @@
         <link href="{{ asset('bundles/reregistration/assets/css/modern.min.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('bundles/reregistration/assets/css/themes/white.css') }}" class="theme-color" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('bundles/reregistration/assets/css/custom.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('bundles/reregistration/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('bundles/reregistration/assets/plugins/dropzone/basic.min.css') }}" rel="stylesheet" type="text/css"/>
+
         <script src="{{ asset('bundles/reregistration/assets/plugins/3d-bold-navigation/js/modernizr.js') }}"></script>
         <script src="{{ asset('bundles/reregistration/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js') }}"></script>
         {# END Theme Styles SECTION #}
@@ -59,6 +62,11 @@
         </div>
         <div id="main-wrapper">
             <div class="row">
+                {% for message in app.session.flashBag.get('errors') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
                 {% block body %}
                 {% endblock body %}
             </div><!-- Row -->
@@ -85,9 +93,12 @@
     <script src="{{ asset('bundles/reregistration/assets/plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/reregistration/assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('bundles/reregistration/assets/plugins/dropzone/dropzone.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/modern.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/pages/form-wizard.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('bundles/reregistration/assets/js/pages/form-select2.js') }}"></script>
     {# Javascripts #}
 {% endblock javascripts %}
 </body>

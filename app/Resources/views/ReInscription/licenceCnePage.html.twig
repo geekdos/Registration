@@ -10,7 +10,7 @@
                 <form method="post" action="{{ path('reregistration_re_registration_checking_licence') }}">
                     <div class="form-group">
                         <label for="cne">CNE</label>
-                        <input type="text" class="form-control" name="cne" id="cne" placeholder="10XXXXXXXX">
+                        <input type="text" class="form-control" name="cne" id="cne" value="{{ app.user.username }}" placeholder="10XXXXXXXX">
                         <div class="help-block">
                             <span>Teppez votre CNE par exemple 10XXXXXXXX</span>
                             <span class="pull-right">أكتب الرقم الوطني للأطالب على شكل 10 أرقام</span>

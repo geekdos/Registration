@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ "now"|date("Y") }}-Re-Inscription{% block title %}{% endblock %}</title>
+    {# META SECTION #}
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Platforme d'incription pour les étudiants de la faculté des lettres saiss de Fés"/>
+    <meta name="keywords" content="inscription, re-inscription, fl saiss fes"/>
+    <meta name="author" content="khachiai oussama"/>
+</head>
+<body class="page-header-fixed page-horizontal-bar">
+<div class="overlay"></div>
+{% include ':Template:header.html.twig' %}
+<main class="page-content content-wrap">
+    {% include ':Template:menu.html.twig' %}
+    <div class="page-inner">
+        <div class="page-title">
+            <h3><span>Service se scolarité</span><span class="pull-right">مصلحة شؤن الطلبة</span></h3>
+            <div class="page-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('reregistration_homepage') }}">FL-SAISS</a></li>
+                    <li class="active"><span>Service se scolarité</span> | <span class="pull-right"> مصلحة شؤن الطلبة </span></li>
+                </ol>
+            </div>
+        </div>
+        <div id="main-wrapper">
+            <div class="row">
+                {% block body %}{% endblock body %}
+            </div><!-- Row -->
+        </div><!-- Main Wrapper -->
+        {% include ':Template:footer.html.twig' %}
+    </div><!-- Page Inner -->
+</main><!-- Page Content -->
+
+</body>
+</html>

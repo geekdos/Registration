@@ -45,19 +45,34 @@
                         <li>
                             <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                         </li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                    <span class="user-name">{{ app.user.username }}<i class="fa fa-angle-down"></i></span>
+                                    <img class="img-circle avatar" src="{{ asset('bundles/assets/images/users/no-image.jpg') }}" width="40" height="40" alt="">
+                                </a>
+                                <ul class="dropdown-menu dropdown-list" role="menu">
+                                    <li role="presentation"><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i>Profile</a></li>
+                                    <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-cogs"></i>Edite Profile</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a href="#"><i class="fa fa-lock"></i>Lock screen</a></li>
+                                    <li role="presentation"><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                         <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                                 <a href="{{ path('fos_user_security_logout') }}">
-                                    <span><i class="fa fa-sign-out m-r-xs"></i>
-                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                    </span>
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                <span><i class="fa fa-sign-out m-r-xs"></i>
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </span>
                                 </a>
                             {% else %}
                                 <a href="{{ path('fos_user_security_login') }}">
-                                    <span><i class="fa fa-sign-in m-r-xs"></i>
-                                        {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
-                                    </span>
+                                <span><i class="fa fa-sign-in m-r-xs"></i>
+                                    {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                                </span>
                                 </a>
                             {% endif %}
                         </li>

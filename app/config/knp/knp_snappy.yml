@@ -1,0 +1,12 @@
+knp_snappy:
+    temporary_folder: "%kernel.cache_dir%/snappy"
+    pdf:
+        enabled:    true
+        #binary:     /usr/local/bin/wkhtmltopdf #"/usr/local/bin/wkhtmltopdf for linux users
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" #for Windows users
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" # for Windows users
+        #binary:     /usr/local/bin/wkhtmltoimage #for linux users
+        options:    []

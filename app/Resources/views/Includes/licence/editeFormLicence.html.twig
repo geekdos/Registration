@@ -14,7 +14,7 @@
                     <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                     </div>
                 </div>
-                {{ form_start(edit_form , {'attr':{'id': 'wizardForm'}}) }}
+                {{ form_start(edit_form , {'attr':{'id': 'wizardForm', 'class': 'dropzone'}}) }}
                 {% if form_errors(edit_form)  %}
                     <div class="alert alert-danger">
                         {{ form_errors(edit_form) }}
@@ -30,7 +30,7 @@
                                         <h4 class="panel-title">Le Choix de la Filière <span class="text-right"> الشعبة</span> </h4>
                                     </div>
                                     <div class="panel-body">
-                                        {{ form_row(edit_form.filiere, {'attr':{'class': 'form-control', 'desibled': 'desibled'}}) }}
+                                        {{ form_row(edit_form.filiere, {'attr':{'class': 'form-control'}}) }}
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +105,14 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group  col-md-12">
-                                    {{ form_row(edit_form.media, {'attr':{'class': 'form-control'}}) }}
+                                <div class="col-md-12">
+                                    <div class="panel panel-white">
+                                        <div class="panel-body">
+                                            <div class="fallback">
+                                                {{ form_row(edit_form.media, {'attr':{'multiple': 'multiple'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="col-md-12">

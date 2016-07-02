@@ -50,10 +50,6 @@ reregistration_re_registration_edite:
     path:     /re-inscription/edite
     defaults: { _controller: ReregistrationBundle:ReInscription:edit}
 
-reregistration_re_registration_checking:
-    path:     /re-inscription/checking
-    defaults: { _controller: ReregistrationBundle:ReInscription:checking }
-
 reregistration_re_registration_checking_deug:
     path:     /re-inscription/checking/deug
     defaults: { _controller: ReregistrationBundle:ReInscription:checkingDeug }
@@ -86,6 +82,6 @@ reregistration_re_registration_doctorat:
     path:     /re-inscription/doctorat
     defaults: { _controller: ReregistrationBundle:ReInscription:doctoratCnePage }
 
-index:
-    path:     wizard
-    defaults: { _controller: ReregistrationBundle:TestTemplate:index }
+reregistration_re_create_pdf:
+    path:     /createPdf/{cne}
+    defaults: { _controller: ReregistrationBundle:GeneratePDF:createPdf }

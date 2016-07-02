@@ -25,13 +25,23 @@ class EtudiantLicenceType extends AbstractType
             ->add('media', 'sonata_media_type', array(
                 'required' => false,
                 'provider' => 'sonata.media.provider.image',
-                'context'  => 'photo',
-                'label' => 'Photo (*) | الصورة'
+                'context'  => 'default',
+                'label' => 'Photo (*) | الصورة',
+                'attr' => array(
+                    'class' => 'fallback',
+                ),
+
             ))
+            //class="js-states form-control" tabindex="-1" style="
             ->add('nationalite', ChoiceType::class, array(
                 'choices'  => array(
                     'Marocaine' => 'Marocaine',
                     'Etranger' => 'Etranger'
+                ),
+                'attr' => array(
+                    'class' => 'js-example-data-array js-states form-control select2-hidden-accessible',
+                    'aria-hidden' => true,
+                    'tabindex' => '-1',
                 ),
                 'label' => 'Nationalité (*) | الجنسية'
             ))
