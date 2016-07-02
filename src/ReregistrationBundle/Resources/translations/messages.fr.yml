@@ -1,0 +1,45 @@
+scolrite_services: Service de scolarité
+inscription: Inscription
+re_inscription: Ré inscription
+diplome:
+    deug:
+    licence:
+    master:
+    doctorat:
+    bac:
+etudiant:
+    nom:
+    prenom:
+    age:
+    filiere:
+    date_naiss:
+    id:
+    cne:
+    nationalite:
+    nomfr:
+    prenomfr:
+    nomAr:
+    prenomAr:
+    sexe:
+    etatCivil:
+    handicap:
+    bourse:
+    lieuNaissFr:
+    lieuNaissAr:
+    dateNaiss:
+    cin:
+    adresseEtd:
+    gsm:
+    email:
+    nomPrenomPereFr:
+    nomPrenomMereFr:
+    anneeBac:
+    ville:
+    province:
+    serieBac:
+    typeBac:
+    diplome:
+    nbr_etudiant_deug:
+    nbr_etudiant_licence:
+    nbr_etudiant_master:
+    nbr_etudiant_doctorat:

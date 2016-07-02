@@ -1,0 +1,46 @@
+scolrite_services: مصلحة شؤن الطلبة
+inscription: التسجل
+re_inscription: إعادة التسجيل
+new_inscription: تسجيل جديد
+diplome:
+    deug: دبلوم الدراسات الجامعية العامة
+    licence: الإجازة
+    master: الماستر
+    doctorat: الدكتوراه
+    bac: البكالوريا
+etudiant:
+    nom:
+    prenom:
+    age:
+    filiere:
+    date_naiss:
+    id:
+    cne:
+    nationalite:
+    nomfr:
+    prenomfr:
+    nomAr:
+    prenomAr:
+    sexe:
+    etatCivil:
+    handicap:
+    bourse:
+    lieuNaissFr:
+    lieuNaissAr:
+    dateNaiss:
+    cin:
+    adresseEtd:
+    gsm:
+    email:
+    nomPrenomPereFr:
+    nomPrenomMereFr:
+    anneeBac:
+    ville:
+    province:
+    serieBac:
+    typeBac:
+    diplome: دبلوم
+    nbr_etudiant_deug: عدد طلبة دبلوم الدراسات الجامعية العامة
+    nbr_etudiant_licence: عدد طلبة الإجازة
+    nbr_etudiant_master: عدد طلبة الماستر
+    nbr_etudiant_doctorat: عدد طلبة الدكتوراه
