@@ -1189,4 +1189,8 @@ class EtudiantLicence
     {
         return $this->inscriptionStatus;
     }
+
+    public function getBirthDateFormatter(){
+        return ($this->dateNaiss instanceof \DateTime) ? $this->dateNaiss->format("Y-m-d") : "";
+    }
 }

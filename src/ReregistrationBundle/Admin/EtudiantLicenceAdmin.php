@@ -129,4 +129,34 @@ class EtudiantLicenceAdmin extends AbstractAdmin
             ->add('spesialite')
         ;
     }
+
+    /**
+     * @return array
+     */
+    public function getExportFields()
+    {
+        return array(
+            'ID' => 'id',
+            'Filière' => 'filiere',
+            'CNE' => 'cne',
+            'Nationalité' => 'nationalite',
+            'Nom' => 'nomfr',
+            'Prénom' => 'prenomfr',
+            'الإسم' => 'nomAr',
+            'النسب' => 'prenomAr',
+            'Genre' => 'sexe',
+            'État civil' => 'etatCivil',
+            'Handicapé' => 'handicap',
+            'Boursier' => 'bourse',
+            'Lieu de naissance' => 'lieuNaissFr',
+            'مكان الإزدياد' => 'lieuNaissAr',
+            'Date de Naissance' => 'birthDateFormatter',
+            'CIN' => 'cin',
+            'Adresse' => 'adresseEtd',
+            'GSM' => 'gsm',
+            'Email' => 'email',
+            'Nom complet du père' => 'nomPrenomPereFr',
+            'Nom complet du Mère' => 'nomPrenomMereFr',
+        );
+    }
 }
