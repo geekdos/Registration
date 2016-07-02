@@ -15,7 +15,7 @@ imports:
 #    - { resource: "liip/liip_imagine.yml" }
 
 parameters:
-    locale: fr
+    locale: ar
     upload: "%kernel.root_dir%/../web/uploads/media"
 framework:
     #esi:             ~
