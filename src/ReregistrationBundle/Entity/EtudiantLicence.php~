@@ -254,6 +254,13 @@ class EtudiantLicence
     private $filiere;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="inscriptionStatus", type="boolean", nullable=true)
+     */
+    private $inscriptionStatus;
+
+    /**
      * @return string
      */
     public function __toString()
@@ -1133,5 +1140,29 @@ class EtudiantLicence
     public function getFiliere()
     {
         return $this->filiere;
+    }
+
+    /**
+     * Set media
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $media
+     *
+     * @return EtudiantLicence
+     */
+    public function setMedia(\Application\Sonata\MediaBundle\Entity\Media $media = null)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 }

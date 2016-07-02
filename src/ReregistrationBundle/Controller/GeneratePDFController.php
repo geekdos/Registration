@@ -23,8 +23,12 @@ class GeneratePDFController extends Controller
                 'etudiant'  => $etudiant
             ));
 
-            $filename = $etudiant->getCin().'_'.$etudiant->getCne();
-
+            $filename = $etudiant->getCin().'_'.$etudiant->getCne().'.pdf';
+            /*
+            return $this->render('@Reregistration/GeneratePDF/create_pdf.html.twig',[
+                'etudiant'  => $etudiant
+            ]);
+            */
             return new Response(
                 $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
                 200,

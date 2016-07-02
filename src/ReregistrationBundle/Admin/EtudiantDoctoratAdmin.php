@@ -50,27 +50,12 @@ class EtudiantDoctoratAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('cne')
-            ->add('nationalite')
             ->add('nomfr')
             ->add('prenomfr')
-            ->add('nomAr')
-            ->add('prenomAr')
-            ->add('sexe')
-            ->add('etatCivil')
-            ->add('handicap')
-            ->add('bourse')
-            ->add('lieuNaissFr')
-            ->add('lieuNaissAr')
-            ->add('dateNaiss')
+            ->add('inscriptionStatus')
             ->add('cin')
-            ->add('adresseEtd')
             ->add('gsm')
             ->add('email')
-            ->add('nomPrenomPereFr')
-            ->add('nomPrenomMereFr')
-            ->add('anneeBac')
-            ->add('anneeDiplome')
-            ->add('spesialite')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),

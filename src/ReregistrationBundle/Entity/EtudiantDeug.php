@@ -223,7 +223,13 @@ class EtudiantDeug
      */
     private $filiere;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="inscriptionStatus", type="boolean")
+     */
+    private $inscriptionStatus;
+    
     /**
      * @return string
      */
@@ -1009,5 +1015,29 @@ class EtudiantDeug
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set inscriptionStatus
+     *
+     * @param boolean $inscriptionStatus
+     *
+     * @return EtudiantDeug
+     */
+    public function setInscriptionStatus($inscriptionStatus)
+    {
+        $this->inscriptionStatus = $inscriptionStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get inscriptionStatus
+     *
+     * @return boolean
+     */
+    public function getInscriptionStatus()
+    {
+        return $this->inscriptionStatus;
     }
 }

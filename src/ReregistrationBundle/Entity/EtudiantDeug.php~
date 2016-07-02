@@ -223,7 +223,13 @@ class EtudiantDeug
      */
     private $filiere;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="inscriptionStatus", type="boolean")
+     */
+    private $inscriptionStatus;
+    
     /**
      * @return string
      */
@@ -985,5 +991,29 @@ class EtudiantDeug
     public function getFiliere()
     {
         return $this->filiere;
+    }
+
+    /**
+     * Set media
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $media
+     *
+     * @return EtudiantDeug
+     */
+    public function setMedia(\Application\Sonata\MediaBundle\Entity\Media $media = null)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 }

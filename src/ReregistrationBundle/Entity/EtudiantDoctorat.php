@@ -253,6 +253,13 @@ class EtudiantDoctorat
     private $mentionMaster;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="inscriptionStatus", type="boolean")
+     */
+    private $inscriptionStatus;
+    
+    /**
      * @return string
      */
     public function __toString()
@@ -1157,5 +1164,29 @@ class EtudiantDoctorat
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set inscriptionStatus
+     *
+     * @param boolean $inscriptionStatus
+     *
+     * @return EtudiantDoctorat
+     */
+    public function setInscriptionStatus($inscriptionStatus)
+    {
+        $this->inscriptionStatus = $inscriptionStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get inscriptionStatus
+     *
+     * @return boolean
+     */
+    public function getInscriptionStatus()
+    {
+        return $this->inscriptionStatus;
     }
 }

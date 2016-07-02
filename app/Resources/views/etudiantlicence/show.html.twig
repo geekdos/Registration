@@ -3,18 +3,18 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12 text-center">
-            <h1>Vous ete bien inscrit dans la Filiére <code>{{ etudiantLicence.filiere.nom }}</code></h1>
+            <h1>Votre Filiére est: <code>{{ etudiantLicence.filiere.nom }}</code></h1>
         </div>
         <div class="col-md-12">
             {% if  etudiantLicence.media != null %}
-                {% media etudiantLicence.media, 'preview' with {'class': 'img-thumbnail img-responsive'} %}
+                <img src="http://registration.com/{% path etudiantLicence.media, 'reference' %}" alt="No image">
             {% else %}
-                <img src="{{ asset('bundles/reregistration/assets/images/no-image.jpg') }}" alt="No image">
+                <img src="http://registration.com/bundles/reregistration/assets/images/no-image.jpg" alt="No image">
             {% endif %}
         </div>
         <div class="col-md-6">
             <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                <h2> générer le PDF | إنشاء بدف</h2>
+                <h2> Générer le PDF | إنشاء بدف</h2>
             </a>
         </div>
         <div class="col-md-6">
@@ -107,7 +107,7 @@
         <div class="panel-footer">
             <div class="col-md-6">
                 <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                    <h2> générer le PDF | إنشاء بدف</h2>
+                    <h2> Générer le PDF | إنشاء بدف</h2>
                 </a>
             </div>
             <div class="col-md-6">

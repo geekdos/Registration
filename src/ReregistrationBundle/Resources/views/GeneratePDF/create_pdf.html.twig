@@ -1,2 +1,180 @@
 {% extends 'layout_pdf.html.twig' %}
-{% block body %}{% endblock %}
+{% block body %}
+    <hr>
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    <img width="100" class="pull-left" height="120" src="http://registration.com/bundles/reregistration/assets/images/usmba_logo.jpg" alt="usmba logo">
+                </th>
+                <th>
+                    <p class="text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Assumenda at beatae dolore doloribus, esse eveniet fuga fugit
+                        illo iure iusto libero maxime mollitia nam non odit perferendis
+                        rerum ullam voluptates.
+                    </p>
+                </th>
+                <th>
+                    <img width="100" class="pull-right" height="120" src="http://registration.com/bundles/reregistration/assets/images/saiss.jpg" alt="FSLH logo">
+                </th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        {% if  etudiant.media != null %}
+                            <img width="100" height="120" src="http://registration.com/{% path etudiant.media, 'reference' %}" alt="No image">
+                        {% else %}
+                            <img width="100" height="120" src="http://registration.com/bundles/reregistration/assets/images/no-image.jpg" alt="No image">
+                        {% endif %}
+                        <h1>Votre Filiére est : <code>{{ etudiant.filiere.nom }}</code></h1>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="table" style="width:400px;">
+                            <tbody>
+                            <tr>
+                                <th>الرقم الوطني</th>
+                                <td>{{ etudiant.cne | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>الجنسية</th>
+                                <td>{{ etudiant.nationalite | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>الإسم</th>
+                                <td>{{ etudiant.prenomAr }}</td>
+                            </tr>
+                            <tr>
+                                <th>النسب</th>
+                                <td>{{ etudiant.nomAr }}</td>
+                            </tr>
+                            <tr>
+                                <th>العمالة</th>
+                                <td>{{ etudiant.province.nom | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>المدينة</th>
+                                <td>{{ etudiant.ville.nom | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>الجنس</th>
+                                <td>{{ etudiant.sexe | upper}}</td>
+                            </tr>
+                            <tr>
+                                <th>الحالة المدنية</th>
+                                <td>{{ etudiant.etatCivil | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>هل أنت معاق</th>
+                                <td>{% if etudiant.handicap %}نعم{% else %}لا{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>هل لديك المنحة</th>
+                                <td>{% if etudiant.bourse %}نعم{% else %}لا{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>مكان الإزدياد</th>
+                                <td>{{ etudiant.lieuNaissAr }}</td>
+                            </tr>
+                            <tr>
+                                <th>تاريخ الإزدياد</th>
+                                <td>{% if etudiant.dateNaiss %}{{ etudiant.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>رقم البطاقة الوطنية</th>
+                                <td>{{ etudiant.cin | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>الهاتف</th>
+                                <td>{{ etudiant.gsm | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>البريد الإلكتروني</th>
+                                <td>{{ etudiant.email }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table" style="width:100%;" >
+                            <tbody>
+                            <tr>
+                                <th>CNE</th>
+                                <td>{{ etudiant.cne | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nationalité</th>
+                                <td>{{ etudiant.nationalite | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ etudiant.nomfr | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prénom</th>
+                                <td>{{ etudiant.prenomfr | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Province</th>
+                                <td>{{ etudiant.province.nom | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ville</th>
+                                <td>{{ etudiant.ville.nom | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Genre</th>
+                                <td>{{ etudiant.sexe | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>L'état civil</th>
+                                <td>{{ etudiant.etatCivil | upper }}</td>
+                            </tr>
+                            <tr>
+                                <th>Handicap</th>
+                                <td>{% if etudiant.handicap %}OUI{% else %}NON{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Bourse</th>
+                                <td>{% if etudiant.bourse %}Oui{% else %}Non{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Lieu de naissance</th>
+                                <td>{{ etudiant.lieuNaissFr | upper}}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de naissance</th>
+                                <td>{% if etudiant.dateNaiss %}{{ etudiant.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>CIN</th>
+                                <td>{{ etudiant.cin | upper}}</td>
+                            </tr>
+                            <tr>
+                                <th>GSM</th>
+                                <td>{{ etudiant.gsm | upper}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ etudiant.email }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

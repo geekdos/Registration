@@ -77,6 +77,7 @@ class EtudiantLicenceController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $this->registerNewUser($request, $etudiantLicence);
+            $etudiantLicence->setInscriptionStatus(1);
             $em->persist($etudiantLicence);
             $em->flush();
 
@@ -118,6 +119,7 @@ class EtudiantLicenceController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $etudiantLicence->setInscriptionStatus(1);
             $em->persist($etudiantLicence);
             $em->flush();
 
