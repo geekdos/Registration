@@ -132,7 +132,7 @@ class EtudiantLicenceController extends Controller
     public function editAction(Request $request, EtudiantLicence $etudiantLicence)
     {       
         $session = new Session();
-        if ($session->get('id') == $etudiantLicence->getId()) {
+        if ($session->get('id') == $etudiantLicence->getId() || $this->isGranted('ROLE_ADMIN')) {
             $deleteForm = $this->createDeleteForm($etudiantLicence);
             $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
             $editForm->handleRequest($request);
@@ -165,16 +165,18 @@ class EtudiantLicenceController extends Controller
      */
     public function deleteAction(Request $request, EtudiantLicence $etudiantLicence)
     {
-        $form = $this->createDeleteForm($etudiantLicence);
-        $form->handleRequest($request);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $form = $this->createDeleteForm($etudiantLicence);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($etudiantLicence);
-            $em->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($etudiantLicence);
+                $em->flush();
+            }
+
+            return $this->redirectToRoute('etudiantlicence_index');
         }
-
-        return $this->redirectToRoute('etudiantlicence_index');
     }
 
     /**
