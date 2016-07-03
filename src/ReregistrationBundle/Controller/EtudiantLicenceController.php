@@ -107,7 +107,7 @@ class EtudiantLicenceController extends Controller
     {
         try {
             $session = new Session();
-            if ($session->get('id') == $etudiantLicence->getId()) {
+            if ($session->get('id') == $etudiantLicence->getId() || $this->isGranted('ROLE_ADMIN')) {
                 $deleteForm = $this->createDeleteForm($etudiantLicence);
 
                 return $this->render('etudiantlicence/show.html.twig', array(

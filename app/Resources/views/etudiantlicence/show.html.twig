@@ -1,130 +1,151 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1>Votre Filiére est: <code>{{ etudiantLicence.filiere.nom }}</code></h1>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="panel panel-purple">
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title">
+                        Attention
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p class="text-right">
+                                                عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف
+                    </p>
+                    <p>
+                        Vérifier Bien Vos informations avant de générer le PDF
+                    </p>
+                </div>
+             </div>
+            <div class="col-md-12">
+                <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
+                    <i class="fa fa-file-pdf-o"></i> Générer le PDF | إنشاء بدف
+                </a>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
+                    <i class="fa fa-edit"></i> Modifier | تغيير
+                </a>
+            </div>
+            <hr>
+            {% if is_granted("ROLE_ADMIN") %}
+                <hr>
+                <div class="col-md-12">
+                    {{ form_start(delete_form) }}
+                    <button type="submit" class="btn btn-danger btn-block">
+                        <i class="fa fa-trash"></i> Effacer | حذف
+                    </button>
+                    {{ form_end(delete_form) }}
+                </div>
+            {% endif %}
         </div>
-        <div class="col-md-12">
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-3">
             {% if  etudiantLicence.media != null %}
                 <img width="120px" src="http://registration.com/{% path etudiantLicence.media, 'reference' %}" alt="No image">
             {% else %}
                 <img src="http://registration.com/bundles/reregistration/assets/images/no-image.jpg" alt="No image">
             {% endif %}
         </div>
-        <div class="col-md-6">
-            <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                <h2> Générer le PDF | إنشاء بدف</h2>
-            </a>
+        <div class="col-md-9">
+            <h3><code>Votre Filiére est: {{ etudiantLicence.filiere.nom }}</code></h3>
         </div>
-        <div class="col-md-6">
-            <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
-                <h2> Modifier | تغيير </h2>
-            </a>
-        </div>
-        {% if is_granted("ROLE_ADMIN") %}
-            <div class="col-md-6">
-                {{ form_start(delete_form) }}
-                    <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
-                {{ form_end(delete_form) }}
+        <div class="panel panel-purple">
+            <div class="panel-heading">
             </div>
-        {% endif %}
-    </div>
-    <div class="panel panel-purple">
-        <div class="panel-heading clearfix">
-            <h4 class="panel-title">Vérifier Bien Vos informations avant de générer le PDF | عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف</h4>
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <th>CNE</th>
-                    <td>{{ etudiantLicence.cne }}</td>
-                </tr>
-                <tr>
-                    <th>Nationalité</th>
-                    <td>{{ etudiantLicence.nationalite }}</td>
-                </tr>
-                <tr>
-                    <th>Nom en Français</th>
-                    <td>{{ etudiantLicence.nomfr }}</td>
-                </tr>
-                <tr>
-                    <th>Prenom en Français</th>
-                    <td>{{ etudiantLicence.prenomfr }}</td>
-                </tr>
-                <tr>
-                    <th>Nom en Arabe</th>
-                    <td>{{ etudiantLicence.nomAr }}</td>
-                </tr>
-                <tr>
-                    <th>Prenom en Arabe</th>
-                    <td>{{ etudiantLicence.prenomAr }}</td>
-                </tr>
-                <tr>
-                    <th>Genre</th>
-                    <td>{{ etudiantLicence.sexe }}</td>
-                </tr>
-                <tr>
-                    <th>L'état civil</th>
-                    <td>{{ etudiantLicence.etatCivil }}</td>
-                </tr>
-                <tr>
-                    <th>Handicap</th>
-                    <td>{% if etudiantLicence.handicap %}Oui{% else %}Non{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Bourse</th>
-                    <td>{% if etudiantLicence.bourse %}Oui{% else %}Non{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Lieu de naissance en Français</th>
-                    <td>{{ etudiantLicence.lieuNaissFr }}</td>
-                </tr>
-                <tr>
-                    <th>Lieu de naissance en Arabe</th>
-                    <td>{{ etudiantLicence.lieuNaissAr }}</td>
-                </tr>
-                <tr>
-                    <th>Date de naissance</th>
-                    <td>{% if etudiantLicence.dateNaiss %}{{ etudiantLicence.dateNaiss|date('Y-m-d') }}{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>CIN</th>
-                    <td>{{ etudiantLicence.cin }}</td>
-                </tr>
-                <tr>
-                    <th>GSM</th>
-                    <td>{{ etudiantLicence.gsm }}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{ etudiantLicence.email }}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="panel-footer">
-            <div class="col-md-6">
-                <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                    <h2> Générer le PDF | إنشاء بدف</h2>
-                </a>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>CNE</th>
+                        <td>{{ etudiantLicence.cne }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nationalité</th>
+                        <td>{{ etudiantLicence.nationalite }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom en Français</th>
+                        <td>{{ etudiantLicence.nomfr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom en Français</th>
+                        <td>{{ etudiantLicence.prenomfr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom en Arabe</th>
+                        <td>{{ etudiantLicence.nomAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom en Arabe</th>
+                        <td>{{ etudiantLicence.prenomAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Genre</th>
+                        <td>{{ etudiantLicence.sexe }}</td>
+                    </tr>
+                    <tr>
+                        <th>L'état civil</th>
+                        <td>{{ etudiantLicence.etatCivil }}</td>
+                    </tr>
+                    <tr>
+                        <th>Handicap</th>
+                        <td>{% if etudiantLicence.handicap %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Bourse</th>
+                        <td>{% if etudiantLicence.bourse %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Lieu de naissance en Français</th>
+                        <td>{{ etudiantLicence.lieuNaissFr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lieu de naissance en Arabe</th>
+                        <td>{{ etudiantLicence.lieuNaissAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de naissance</th>
+                        <td>{% if etudiantLicence.dateNaiss %}{{ etudiantLicence.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>CIN</th>
+                        <td>{{ etudiantLicence.cin }}</td>
+                    </tr>
+                    <tr>
+                        <th>GSM</th>
+                        <td>{{ etudiantLicence.gsm }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ etudiantLicence.email }}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-6">
-                <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
-                    <h2> Modifier | تغيير </h2>
-                </a>
-            </div>
-            {% if is_granted("ROLE_ADMIN") %}
-                <div class="col-md-12">
-                    {{ form_start(delete_form) }}
-                    <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
-                    {{ form_end(delete_form) }}
+            <div class="panel-footer">
+                <div class="col-md-4">
+                    <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
+                        Générer le PDF | إنشاء بدف
+                    </a>
                 </div>
-            {% endif %}
-            <hr>
-            <hr>
-        </div>
+                <div class="col-md-4">
+                    <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
+                        Modifier | تغيير
+                    </a>
+                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="col-md-4">
+                        {{ form_start(delete_form) }}
+                        <input type="submit" class="btn btn-danger pull-right btn-block" value="Effacer | حذف">
+                        {{ form_end(delete_form) }}
+                    </div>
+                {% endif %}
+            </div>
 
+        </div>
     </div>
 {% endblock %}
