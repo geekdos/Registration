@@ -9,9 +9,9 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use ReregistrationBundle\Entity\EtudiantLicence;
-use ReregistrationBundle\Form\EtudiantLicenceType;
 
 /**
  * EtudiantLicence controller.
@@ -33,6 +33,12 @@ class EtudiantLicenceController extends Controller
             'etudiantLicences' => $etudiantLicences,
         ));
     }
+
+    /**
+     * @param Request $request
+     * @param EtudiantLicence $etudiantLicence
+     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function registerNewUser(Request $request, EtudiantLicence $etudiantLicence)
     {
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
@@ -73,6 +79,7 @@ class EtudiantLicenceController extends Controller
         $etudiantLicence = new EtudiantLicence();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
         $form->handleRequest($request);
+        $session = new Session();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -81,6 +88,7 @@ class EtudiantLicenceController extends Controller
             $em->persist($etudiantLicence);
             $em->flush();
 
+            $session->set('id', $etudiantLicence->getId());
             return $this->redirectToRoute('etudiantlicence_show', array('id' => $etudiantLicence->getId()));
         }
 
@@ -97,12 +105,22 @@ class EtudiantLicenceController extends Controller
      */
     public function showAction(EtudiantLicence $etudiantLicence)
     {
-        $deleteForm = $this->createDeleteForm($etudiantLicence);
-        
-        return $this->render('etudiantlicence/show.html.twig', array(
-            'etudiantLicence' => $etudiantLicence,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        try {
+            $session = new Session();
+            if ($session->get('id') == $etudiantLicence->getId()) {
+                $deleteForm = $this->createDeleteForm($etudiantLicence);
+
+                return $this->render('etudiantlicence/show.html.twig', array(
+                    'etudiantLicence' => $etudiantLicence,
+                    'delete_form' => $deleteForm->createView(),
+                ));
+            } else {
+                $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+                return $this->render(':errors:404.html.twig');
+            }
+        }catch (NotFoundHttpException $e){
+            return $this->render(':errors:404.html.twig');
+        }
     }
 
     /**
@@ -112,25 +130,31 @@ class EtudiantLicenceController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, EtudiantLicence $etudiantLicence)
-    {
-        $deleteForm = $this->createDeleteForm($etudiantLicence);
-        $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $etudiantLicence->setInscriptionStatus(1);
-            $em->persist($etudiantLicence);
-            $em->flush();
-
-            return $this->redirectToRoute('etudiantlicence_show', array('id' => $etudiantLicence->getId()));
+    {       
+        $session = new Session();
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantLicence);
+            $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
+            $editForm->handleRequest($request);
+    
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $etudiantLicence->setInscriptionStatus(1);
+                $em->persist($etudiantLicence);
+                $em->flush();
+    
+                return $this->redirectToRoute('etudiantlicence_show', array('id' => $etudiantLicence->getId()));
+            }
+    
+            return $this->render('etudiantlicence/edit.html.twig', array(
+                'etudiantLicence' => $etudiantLicence,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
         }
-
-        return $this->render('etudiantlicence/edit.html.twig', array(
-            'etudiantLicence' => $etudiantLicence,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     /**

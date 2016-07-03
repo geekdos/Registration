@@ -4,6 +4,7 @@ namespace ReregistrationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use ReregistrationBundle\Entity\EtudiantDoctorat;
 use ReregistrationBundle\Form\EtudiantDoctoratType;
@@ -38,12 +39,13 @@ class EtudiantDoctoratController extends Controller
         $etudiantDoctorat = new EtudiantDoctorat();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantDoctoratType', $etudiantDoctorat);
         $form->handleRequest($request);
+        $session = new Session();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantDoctorat);
             $em->flush();
-
+            $session->set('id', $etudiantDoctorat->getId());
             return $this->redirectToRoute('etudiantdoctorat_show', array('id' => $etudiantDoctorat->getId()));
         }
 
@@ -59,12 +61,19 @@ class EtudiantDoctoratController extends Controller
      */
     public function showAction(EtudiantDoctorat $etudiantDoctorat)
     {
-        $deleteForm = $this->createDeleteForm($etudiantDoctorat);
 
-        return $this->render('etudiantdoctorat/show.html.twig', array(
-            'etudiantDoctorat' => $etudiantDoctorat,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        $session = new Session();
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantDoctorat);
+    
+            return $this->render('etudiantdoctorat/show.html.twig', array(
+                'etudiantDoctorat' => $etudiantDoctorat,
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
+        }
     }
 
     /**
@@ -73,23 +82,29 @@ class EtudiantDoctoratController extends Controller
      */
     public function editAction(Request $request, EtudiantDoctorat $etudiantDoctorat)
     {
-        $deleteForm = $this->createDeleteForm($etudiantDoctorat);
-        $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantDoctoratType', $etudiantDoctorat);
-        $editForm->handleRequest($request);
+        $session = new Session();
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantDoctorat);
+            $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantDoctoratType', $etudiantDoctorat);
+            $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($etudiantDoctorat);
-            $em->flush();
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($etudiantDoctorat);
+                $em->flush();
 
-            return $this->redirectToRoute('etudiantdoctorat_edit', array('id' => $etudiantDoctorat->getId()));
+                return $this->redirectToRoute('etudiantdoctorat_edit', array('id' => $etudiantDoctorat->getId()));
+            }
+
+            return $this->render('etudiantdoctorat/edit.html.twig', array(
+                'etudiantDoctorat' => $etudiantDoctorat,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
         }
-
-        return $this->render('etudiantdoctorat/edit.html.twig', array(
-            'etudiantDoctorat' => $etudiantDoctorat,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     /**

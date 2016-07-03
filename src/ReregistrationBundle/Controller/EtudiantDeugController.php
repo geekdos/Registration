@@ -4,9 +4,9 @@ namespace ReregistrationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use ReregistrationBundle\Entity\EtudiantDeug;
-use ReregistrationBundle\Form\EtudiantDeugType;
 
 /**
  * EtudiantDeug controller.
@@ -38,12 +38,13 @@ class EtudiantDeugController extends Controller
         $etudiantDeug = new EtudiantDeug();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantDeugType', $etudiantDeug);
         $form->handleRequest($request);
+        $session = new Session();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantDeug);
             $em->flush();
-
+            $session->set('id', $etudiantDeug->getId());
             return $this->redirectToRoute('etudiantdeug_show', array('id' => $etudiantDeug->getId()));
         }
 
@@ -59,12 +60,18 @@ class EtudiantDeugController extends Controller
      */
     public function showAction(EtudiantDeug $etudiantDeug)
     {
-        $deleteForm = $this->createDeleteForm($etudiantDeug);
-
-        return $this->render('etudiantdeug/show.html.twig', array(
-            'etudiantDeug' => $etudiantDeug,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        $session = new Session();
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantDeug);
+    
+            return $this->render('etudiantdeug/show.html.twig', array(
+                'etudiantDeug' => $etudiantDeug,
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
+        }
     }
 
     /**
@@ -73,23 +80,31 @@ class EtudiantDeugController extends Controller
      */
     public function editAction(Request $request, EtudiantDeug $etudiantDeug)
     {
-        $deleteForm = $this->createDeleteForm($etudiantDeug);
-        $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantDeugType', $etudiantDeug);
-        $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($etudiantDeug);
-            $em->flush();
+        $session = new Session();
 
-            return $this->redirectToRoute('etudiantdeug_edit', array('id' => $etudiantDeug->getId()));
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantDeug);
+            $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantDeugType', $etudiantDeug);
+            $editForm->handleRequest($request);
+
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($etudiantDeug);
+                $em->flush();
+
+                return $this->redirectToRoute('etudiantdeug_edit', array('id' => $etudiantDeug->getId()));
+            }
+
+            return $this->render('etudiantdeug/edit.html.twig', array(
+                'etudiantDeug' => $etudiantDeug,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
         }
-
-        return $this->render('etudiantdeug/edit.html.twig', array(
-            'etudiantDeug' => $etudiantDeug,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     /**

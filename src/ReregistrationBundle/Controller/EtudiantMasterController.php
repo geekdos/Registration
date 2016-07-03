@@ -2,11 +2,12 @@
 
 namespace ReregistrationBundle\Controller;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ReregistrationBundle\Entity\EtudiantMaster;
-use ReregistrationBundle\Form\EtudiantMasterType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * EtudiantMaster controller.
@@ -38,12 +39,13 @@ class EtudiantMasterController extends Controller
         $etudiantMaster = new EtudiantMaster();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantMasterType', $etudiantMaster);
         $form->handleRequest($request);
+        $session = new Session();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantMaster);
             $em->flush();
-
+            $session->set('id', $etudiantMaster->getId());
             return $this->redirectToRoute('etudiantmaster_show', array('id' => $etudiantMaster->getId()));
         }
 
@@ -59,12 +61,22 @@ class EtudiantMasterController extends Controller
      */
     public function showAction(EtudiantMaster $etudiantMaster)
     {
-        $deleteForm = $this->createDeleteForm($etudiantMaster);
+        try {
+            $session = new Session();
+            if ($session->get('id') == $etudiantLicence->getId()) {
+                $deleteForm = $this->createDeleteForm($etudiantMaster);
 
-        return $this->render('etudiantmaster/show.html.twig', array(
-            'etudiantMaster' => $etudiantMaster,
-            'delete_form' => $deleteForm->createView(),
-        ));
+                return $this->render('etudiantmaster/show.html.twig', array(
+                    'etudiantMaster' => $etudiantMaster,
+                    'delete_form' => $deleteForm->createView(),
+                ));
+            } else {
+                $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+                return $this->render(':errors:404.html.twig');
+            }
+        }catch (Exception $e){
+            return $this->render(':errors:404.html.twig');
+        }
     }
 
     /**
@@ -73,23 +85,29 @@ class EtudiantMasterController extends Controller
      */
     public function editAction(Request $request, EtudiantMaster $etudiantMaster)
     {
-        $deleteForm = $this->createDeleteForm($etudiantMaster);
-        $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantMasterType', $etudiantMaster);
-        $editForm->handleRequest($request);
+        $session = new Session();
+        if ($session->get('id') == $etudiantLicence->getId()) {
+            $deleteForm = $this->createDeleteForm($etudiantMaster);
+            $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantMasterType', $etudiantMaster);
+            $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($etudiantMaster);
-            $em->flush();
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($etudiantMaster);
+                $em->flush();
 
-            return $this->redirectToRoute('etudiantmaster_edit', array('id' => $etudiantMaster->getId()));
+                return $this->redirectToRoute('etudiantmaster_edit', array('id' => $etudiantMaster->getId()));
+            }
+
+            return $this->render('etudiantmaster/edit.html.twig', array(
+                'etudiantMaster' => $etudiantMaster,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else{
+            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            return $this->render(':errors:404.html.twig');
         }
-
-        return $this->render('etudiantmaster/edit.html.twig', array(
-            'etudiantMaster' => $etudiantMaster,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     /**
@@ -98,6 +116,7 @@ class EtudiantMasterController extends Controller
      */
     public function deleteAction(Request $request, EtudiantMaster $etudiantMaster)
     {
+
         $form = $this->createDeleteForm($etudiantMaster);
         $form->handleRequest($request);
 
