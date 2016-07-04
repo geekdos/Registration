@@ -19,7 +19,7 @@ class GeneratePDFController extends Controller
                 'cne' => $cne
             ]);
 
-            $html = $this->renderView('ReregistrationBundle:GeneratePDF:create_pdf.html.twig', array(
+            $html = $this->renderView(':GeneratePDF:create_pdf.html.twig', array(
                 'etudiant'  => $etudiant
             ));
 
@@ -39,7 +39,7 @@ class GeneratePDFController extends Controller
             );
         }else{
             $session = new Session();
-            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            $session->getFlashBag()->add('errors', 'errors.cne');
             
             return $this->render(':errors:404.html.twig');
         }

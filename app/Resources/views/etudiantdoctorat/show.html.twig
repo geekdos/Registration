@@ -1,96 +1,151 @@
 {% extends 'layout.html.twig' %}
-
+{% block title %}{{ etudiantDoctorat.cne }}{% endblock %}
 {% block body %}
-    <h1>Vous ete bien inscrit dans la Filiére <code>{{ etudiantDoctorat.filiere.nom }}</code></h1>
-    <a href="{{ path('etudiantDoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left">Modifier | تغيير</a>
-    {{ form_start(delete_form) }}
-    <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
-    {{ form_end(delete_form) }}
-    <div class="panel panel-purple">
-        <div class="panel-heading clearfix">
-            <h4 class="panel-title">Vérifier Bien Vos informations avant de générer le PDF | عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف</h4>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="panel panel-purple">
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title">
+                        Attention
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p class="text-right">
+                        عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف
+                    </p>
+                    <p>
+                        Vérifier Bien Vos informations avant de générer le PDF
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantDoctorat.cne }) }}" class="btn btn-success btn-block" target="_blank">
+                    <i class="fa fa-file-pdf-o"></i> Générer le PDF | إنشاء بدف
+                </a>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left  btn-block">
+                    <i class="fa fa-edit"></i> Modifier | تغيير
+                </a>
+            </div>
+            <hr>
+            {% if is_granted("ROLE_ADMIN") %}
+                <hr>
+                <div class="col-md-12">
+                    {{ form_start(delete_form) }}
+                    <button type="submit" class="btn btn-danger btn-block">
+                        <i class="fa fa-trash"></i> Effacer | حذف
+                    </button>
+                    {{ form_end(delete_form) }}
+                </div>
+            {% endif %}
         </div>
-        <div class="panel-body">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <th>CNE</th>
-                    <td>{{ etudiantDoctorat.cne }}</td>
-                </tr>
-                <tr>
-                    <th>Nationalité</th>
-                    <td>{{ etudiantDoctorat.nationalite }}</td>
-                </tr>
-                <tr>
-                    <th>Nom en Français</th>
-                    <td>{{ etudiantDoctorat.nomfr }}</td>
-                </tr>
-                <tr>
-                    <th>Prenom en Français</th>
-                    <td>{{ etudiantDoctorat.prenomfr }}</td>
-                </tr>
-                <tr>
-                    <th>Nom en Arabe</th>
-                    <td>{{ etudiantDoctorat.nomAr }}</td>
-                </tr>
-                <tr>
-                    <th>Prenom en Arabe</th>
-                    <td>{{ etudiantDoctorat.prenomAr }}</td>
-                </tr>
-                <tr>
-                    <th>Genre</th>
-                    <td>{{ etudiantDoctorat.sexe }}</td>
-                </tr>
-                <tr>
-                    <th>L'état civil</th>
-                    <td>{{ etudiantDoctorat.etatCivil }}</td>
-                </tr>
-                <tr>
-                    <th>Handicap</th>
-                    <td>{% if etudiantDoctorat.handicap %}Oui{% else %}Non{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Bourse</th>
-                    <td>{% if etudiantDoctorat.bourse %}Oui{% else %}Non{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Lieu de naissance en Français</th>
-                    <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
-                </tr>
-                <tr>
-                    <th>Lieu de naissance en Arabe</th>
-                    <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
-                </tr>
-                <tr>
-                    <th>Date de naissance</th>
-                    <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d') }}{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>CIN</th>
-                    <td>{{ etudiantDoctorat.cin }}</td>
-                </tr>
-                <tr>
-                    <th>GSM</th>
-                    <td>{{ etudiantDoctorat.gsm }}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{ etudiantDoctorat.email }}</td>
-                </tr>
-                </tbody>
-            </table>
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-3">
+            {% if  etudiantDoctorat.media != null %}
+                <img width="120px" src="http://registration.com/{% path etudiantDoctorat.media, 'reference' %}" alt="No image">
+            {% else %}
+                <img src="http://registration.com/bundles/reregistration/assets/images/no-image.jpg" alt="No image">
+            {% endif %}
         </div>
-        <div class="panel-footer">
-            <hr>
-            <a href="#" class="btn btn-success btn-large">générer le PDF | إنشاء بدف</a>
-            <hr>
-            <a href="{{ path('etudiantDoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left">Modifier | تغيير</a>
-            {{ form_start(delete_form) }}
-            <input type="submit" class="btn btn-danger pull-right" value="Effacer | حذف">
-            {{ form_end(delete_form) }}
-            <hr>
-            <hr>
+        <div class="col-md-9">
+            <h3><code>Votre Filiére est: {{ etudiantDoctorat.filiere.nom }}</code></h3>
         </div>
+        <div class="panel panel-purple">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>CNE</th>
+                        <td>{{ etudiantDoctorat.cne }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nationalité</th>
+                        <td>{{ etudiantDoctorat.nationalite }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom en Français</th>
+                        <td>{{ etudiantDoctorat.nomfr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom en Français</th>
+                        <td>{{ etudiantDoctorat.prenomfr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom en Arabe</th>
+                        <td>{{ etudiantDoctorat.nomAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom en Arabe</th>
+                        <td>{{ etudiantDoctorat.prenomAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Genre</th>
+                        <td>{{ etudiantDoctorat.sexe }}</td>
+                    </tr>
+                    <tr>
+                        <th>L'état civil</th>
+                        <td>{{ etudiantDoctorat.etatCivil }}</td>
+                    </tr>
+                    <tr>
+                        <th>Handicap</th>
+                        <td>{% if etudiantDoctorat.handicap %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Bourse</th>
+                        <td>{% if etudiantDoctorat.bourse %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Lieu de naissance en Français</th>
+                        <td>{{ etudiantDoctorat.lieuNaissFr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lieu de naissance en Arabe</th>
+                        <td>{{ etudiantDoctorat.lieuNaissAr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de naissance</th>
+                        <td>{% if etudiantDoctorat.dateNaiss %}{{ etudiantDoctorat.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>CIN</th>
+                        <td>{{ etudiantDoctorat.cin }}</td>
+                    </tr>
+                    <tr>
+                        <th>GSM</th>
+                        <td>{{ etudiantDoctorat.gsm }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ etudiantDoctorat.email }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="col-md-4">
+                    <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantDoctorat.cne }) }}" class="btn btn-success btn-block" target="_blank">
+                        Générer le PDF | إنشاء بدف
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left  btn-block">
+                        Modifier | تغيير
+                    </a>
+                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="col-md-4">
+                        {{ form_start(delete_form) }}
+                        <input type="submit" class="btn btn-danger pull-right btn-block" value="Effacer | حذف">
+                        {{ form_end(delete_form) }}
+                    </div>
+                {% endif %}
+            </div>
 
+        </div>
     </div>
 {% endblock %}

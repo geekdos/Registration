@@ -70,6 +70,3 @@ reregistration_re_create_pdf:
     path:     /createPdf/{cne}
     defaults: { _controller: ReregistrationBundle:GeneratePDF:createPdf }
 
-reregistration_re_coming_soon:
-    path:     /
-    defaults: { _controller: ReregistrationBundle:ComingSoon:index }
