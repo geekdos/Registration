@@ -26,22 +26,6 @@ reregistration_registration:
     path:     /inscription
     defaults: { _controller: ReregistrationBundle:Inscription:index }
 
-reregistration_registration_deug:
-    path:     /inscription/deug
-    defaults: { _controller: ReregistrationBundle:Inscription:deug }
-
-reregistration_registration_licence:
-    path:     /inscription/licence/{parcours_id}
-    defaults: { _controller: ReregistrationBundle:Inscription:licence }
-
-reregistration_registration_master:
-    path:     /inscription/master
-    defaults: { _controller: ReregistrationBundle:Inscription:master }
-
-reregistration_registration_doctorat:
-    path:     /inscription/doctorat
-    defaults: { _controller: ReregistrationBundle:Inscription:doctorat }
-
 reregistration_re_registration:
     path:     /re-inscription
     defaults: { _controller: ReregistrationBundle:ReInscription:index }
@@ -85,3 +69,7 @@ reregistration_re_registration_doctorat:
 reregistration_re_create_pdf:
     path:     /createPdf/{cne}
     defaults: { _controller: ReregistrationBundle:GeneratePDF:createPdf }
+
+reregistration_re_coming_soon:
+    path:     /
+    defaults: { _controller: ReregistrationBundle:ComingSoon:index }

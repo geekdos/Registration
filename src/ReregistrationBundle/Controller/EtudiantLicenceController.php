@@ -76,6 +76,13 @@ class EtudiantLicenceController extends Controller
      */
     public function newAction(Request $request)
     {
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+        $inscriptionLicence     = $this->getTheRepo('Configuration')->isTheInscriptionLicenceOnline();
+
+        if ($inscription == null OR $inscriptionLicence == null)
+            return $this->render(':errors:404.html.twig');
+
+
         $etudiantLicence = new EtudiantLicence();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
         $form->handleRequest($request);
@@ -87,7 +94,7 @@ class EtudiantLicenceController extends Controller
             $etudiantLicence->setInscriptionStatus(1);
             $em->persist($etudiantLicence);
             $em->flush();
-
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
             $session->set('id', $etudiantLicence->getId());
             return $this->redirectToRoute('etudiantlicence_show', array('id' => $etudiantLicence->getId()));
         }
@@ -115,7 +122,7 @@ class EtudiantLicenceController extends Controller
                     'delete_form' => $deleteForm->createView(),
                 ));
             } else {
-                $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+                $session->getFlashBag()->add('errors', 'error_cne');
                 return $this->render(':errors:404.html.twig');
             }
         }catch (NotFoundHttpException $e){
@@ -132,6 +139,7 @@ class EtudiantLicenceController extends Controller
     public function editAction(Request $request, EtudiantLicence $etudiantLicence)
     {       
         $session = new Session();
+
         if ($session->get('id') == $etudiantLicence->getId() || $this->isGranted('ROLE_ADMIN')) {
             $deleteForm = $this->createDeleteForm($etudiantLicence);
             $editForm = $this->createForm('ReregistrationBundle\Form\EtudiantLicenceType', $etudiantLicence);
@@ -152,7 +160,7 @@ class EtudiantLicenceController extends Controller
                 'delete_form' => $deleteForm->createView(),
             ));
         }else{
-            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            $session->getFlashBag()->add('errors', 'error_cne');
             return $this->render(':errors:404.html.twig');
         }
     }
@@ -195,4 +203,12 @@ class EtudiantLicenceController extends Controller
         ;
     }
 
+    /**
+     * @param $entity
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getTheRepo($entity)
+    {
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
+    }
 }

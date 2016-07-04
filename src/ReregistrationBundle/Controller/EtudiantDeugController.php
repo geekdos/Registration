@@ -35,6 +35,12 @@ class EtudiantDeugController extends Controller
      */
     public function newAction(Request $request)
     {
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+        $inscriptionDeug        = $this->getTheRepo('Configuration')->isTheInscriptionDeugOnline();
+
+        if ($inscription == null OR $inscriptionDeug == null)
+            return $this->render(':errors:404.html.twig');
+
         $etudiantDeug = new EtudiantDeug();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantDeugType', $etudiantDeug);
         $form->handleRequest($request);
@@ -43,7 +49,9 @@ class EtudiantDeugController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantDeug);
+            $etudiantDeug->setInscriptionStatus(1);
             $em->flush();
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
             $session->set('id', $etudiantDeug->getId());
             return $this->redirectToRoute('etudiantdeug_show', array('id' => $etudiantDeug->getId()));
         }
@@ -61,7 +69,7 @@ class EtudiantDeugController extends Controller
     public function showAction(EtudiantDeug $etudiantDeug)
     {
         $session = new Session();
-        if ($session->get('id') == $etudiantLicence->getId()) {
+        if ($session->get('id') == $etudiantDeug->getId() || $this->isGranted('ROLE_ADMIN')) {
             $deleteForm = $this->createDeleteForm($etudiantDeug);
     
             return $this->render('etudiantdeug/show.html.twig', array(
@@ -90,10 +98,11 @@ class EtudiantDeugController extends Controller
 
             if ($editForm->isSubmitted() && $editForm->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+                $etudiantDeug->setInscriptionStatus(1);
                 $em->persist($etudiantDeug);
                 $em->flush();
 
-                return $this->redirectToRoute('etudiantdeug_edit', array('id' => $etudiantDeug->getId()));
+                return $this->redirectToRoute('etudiantdeug_show', array('id' => $etudiantDeug->getId()));
             }
 
             return $this->render('etudiantdeug/edit.html.twig', array(
@@ -139,5 +148,15 @@ class EtudiantDeugController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    /**
+     * @param $entity
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getTheRepo($entity)
+    {
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
     }
 }

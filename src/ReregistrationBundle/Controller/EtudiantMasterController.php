@@ -36,6 +36,12 @@ class EtudiantMasterController extends Controller
      */
     public function newAction(Request $request)
     {
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+        $inscriptionMaster      = $this->getTheRepo('Configuration')->isTheInscriptionMasterOnline();
+
+        if ($inscription == null OR $inscriptionMaster == null)
+            return $this->render(':errors:404.html.twig');
+
         $etudiantMaster = new EtudiantMaster();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantMasterType', $etudiantMaster);
         $form->handleRequest($request);
@@ -45,6 +51,7 @@ class EtudiantMasterController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantMaster);
             $em->flush();
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
             $session->set('id', $etudiantMaster->getId());
             return $this->redirectToRoute('etudiantmaster_show', array('id' => $etudiantMaster->getId()));
         }
@@ -143,5 +150,15 @@ class EtudiantMasterController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    /**
+     * @param $entity
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getTheRepo($entity)
+    {
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
     }
 }

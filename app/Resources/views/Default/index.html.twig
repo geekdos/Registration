@@ -1,85 +1,89 @@
 {% extends '::layout.html.twig' %}
 {% block body %}
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel info-box panel-white">
-                <div class="panel-body">
-                    <div class="info-box-stats">
-                        <p class="counter">{{ nbrDEUG }}</p>
-                        <span class="info-box-title">{{ 'etudiant.nbr_etudiant_deug' | trans }}</span>
-                    </div>
-                    <div class="info-box-icon">
-                        <i class="icon-users"></i>
-                    </div>
-                    <div class="info-box-progress">
-                        <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ nbrDEUG }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDEUG }}%">
+    {% if inscription or re_inscription  %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel info-box panel-white">
+                    <div class="panel-body">
+                        <div class="info-box-stats">
+                            <p class="counter">{{ nbrDEUG }}</p>
+                            <span class="info-box-title">{{ 'etudiant.nbr_etudiant_deug' | trans }}</span>
+                        </div>
+                        <div class="info-box-icon">
+                            <i class="icon-users"></i>
+                        </div>
+                        <div class="info-box-progress">
+                            <div class="progress progress-xs progress-squared bs-n">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ nbrDEUG }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDEUG }}%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel info-box panel-white">
-                <div class="panel-body">
-                    <div class="info-box-stats">
-                        <p class="counter">{{ nbrLicence }}</p>
-                        <span class="info-box-title">{{ 'etudiant.nbr_etudiant_licence' | trans }}</span>
-                    </div>
-                    <div class="info-box-icon">
-                        <i class="icon-users"></i>
-                    </div>
-                    <div class="info-box-progress">
-                        <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ nbrLicence }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrLicence }}%">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel info-box panel-white">
+                    <div class="panel-body">
+                        <div class="info-box-stats">
+                            <p class="counter">{{ nbrLicence }}</p>
+                            <span class="info-box-title">{{ 'etudiant.nbr_etudiant_licence' | trans }}</span>
+                        </div>
+                        <div class="info-box-icon">
+                            <i class="icon-users"></i>
+                        </div>
+                        <div class="info-box-progress">
+                            <div class="progress progress-xs progress-squared bs-n">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ nbrLicence }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrLicence }}%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel info-box panel-white">
-                <div class="panel-body">
-                    <div class="info-box-stats">
-                        <p><span class="counter">{{ nbrMaster }}</span></p>
-                        <span class="info-box-title">{{ 'etudiant.nbr_etudiant_master' | trans }}</span>
-                    </div>
-                    <div class="info-box-icon">
-                        <i class="icon-users"></i>
-                    </div>
-                    <div class="info-box-progress">
-                        <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ nbrMaster }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrMaster }}%">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel info-box panel-white">
+                    <div class="panel-body">
+                        <div class="info-box-stats">
+                            <p><span class="counter">{{ nbrMaster }}</span></p>
+                            <span class="info-box-title">{{ 'etudiant.nbr_etudiant_master' | trans }}</span>
+                        </div>
+                        <div class="info-box-icon">
+                            <i class="icon-users"></i>
+                        </div>
+                        <div class="info-box-progress">
+                            <div class="progress progress-xs progress-squared bs-n">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ nbrMaster }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrMaster }}%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel info-box panel-white">
-                <div class="panel-body">
-                    <div class="info-box-stats">
-                        <p class="counter">{{ nbrDoctorat }}</p>
-                        <span class="info-box-title">{{ 'etudiant.nbr_etudiant_doctorat' | trans }}</span>
-                    </div>
-                    <div class="info-box-icon">
-                        <i class="icon-users"></i>
-                    </div>
-                    <div class="info-box-progress">
-                        <div class="progress progress-xs progress-squared bs-n">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ nbrDoctorat }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDoctorat }}%">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel info-box panel-white">
+                    <div class="panel-body">
+                        <div class="info-box-stats">
+                            <p class="counter">{{ nbrDoctorat }}</p>
+                            <span class="info-box-title">{{ 'etudiant.nbr_etudiant_doctorat' | trans }}</span>
+                        </div>
+                        <div class="info-box-icon">
+                            <i class="icon-users"></i>
+                        </div>
+                        <div class="info-box-progress">
+                            <div class="progress progress-xs progress-squared bs-n">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ nbrDoctorat }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrDoctorat }}%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div><!-- Row -->
+        </div><!-- Row -->
+    {% endif %}
     <div class="sortable">
         <div class="row">
+            {%  if inscription %}
             <div class="col-md-6">
                 <div class="panel panel-purple">
                     <div class="panel-heading">
@@ -91,11 +95,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here.
-                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
-                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ inscription.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -105,6 +105,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {%  if re_inscription %}
             <div class="col-md-6">
                 <div class="panel panel-green">
                     <div class="panel-heading">
@@ -116,11 +118,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here. Nulla vitae elit libero, a pharetra augue.
-                            Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                            Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ re_inscription.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -130,6 +128,30 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div><!-- Row -->
     </div><!-- Sortable -->
+    {% else %}
+        <div class="col-md-6 center">
+            <div class="panel panel-white" id="js-alerts">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title">Administration <small>Service se scolarité FLSH Saiss</small></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4>Page d'inscription</h4>
+                        <p>
+                            Le service de linscription et de la reinscription n'est pa disponible pour le mement
+                            .....
+                        </p>
+                        <p>
+                            <button type="button" class="btn btn-info">Contacter l'administration</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
 {% endblock %}

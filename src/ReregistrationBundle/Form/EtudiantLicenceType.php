@@ -163,7 +163,7 @@ class EtudiantLicenceType extends AbstractType
                 'label' => 'Mention du Diplôme (*) | ميزة الشهادة'
             ))
             ->add('filiere', null, array(
-                'label' => ' '
+                'label' => ' ',
             ))
         ;
     }

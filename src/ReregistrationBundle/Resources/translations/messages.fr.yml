@@ -1,45 +1,55 @@
 scolrite_services: Service de scolarité
 inscription: Inscription
 re_inscription: Ré inscription
+new_inscription: Nouvelle inscrition
+messages:
+    infos:
+      inscription_deug: Filicitation votre pré-inscription à la DUEG à bien été prise en compte, Merci de genréré votre PDF
+      inscription_licence: Filicitation votre pré-inscription à la Licence à bien été prise en compte, Merci de genréré votre PDF
+      inscription_master: Filicitation votre pré-inscription au Master à bien été prise en compte, Merci de genréré votre PDF
+      inscription_doctorat: Filicitation votre pré-inscription au Doctorat à bien été prise en compte, Merci de genréré votre PDF
+    errors:
+      cne: Vous n'avez pas le droit de chercher par ce CNE, Merci de chercher par le votre
+
 diplome:
     deug:
-    licence:
-    master:
-    doctorat:
-    bac:
+    licence: Licence
+    master: Master
+    doctorat: Doctorat
+    bac: Baccalauréat
 etudiant:
-    nom:
-    prenom:
-    age:
-    filiere:
-    date_naiss:
-    id:
-    cne:
-    nationalite:
-    nomfr:
-    prenomfr:
-    nomAr:
-    prenomAr:
-    sexe:
-    etatCivil:
-    handicap:
-    bourse:
-    lieuNaissFr:
-    lieuNaissAr:
-    dateNaiss:
-    cin:
-    adresseEtd:
-    gsm:
-    email:
-    nomPrenomPereFr:
-    nomPrenomMereFr:
-    anneeBac:
-    ville:
-    province:
-    serieBac:
-    typeBac:
-    diplome:
-    nbr_etudiant_deug:
-    nbr_etudiant_licence:
-    nbr_etudiant_master:
-    nbr_etudiant_doctorat:
+    nom: Nom
+    prenom: Pénom
+    age: Age
+    filiere: Filière
+    date_naiss: Date de Naissance
+    id: ID
+    cne: CNE
+    nationalite: Nationalité
+    nomfr: Nom en Français
+    prenomfr: Prénom en Français
+    nomAr: Nom en Arabe
+    prenomAr: Prénom en Arabe
+    sexe: Genre
+    etatCivil: État civil
+    handicap: Handicap
+    bourse: Boursier
+    lieuNaissFr: Lieu de naissance en Français
+    lieuNaissAr: Lieu de naissance en Arabe
+    dateNaiss: Date de Naissance
+    cin: CIN
+    adresseEtd: Adresse
+    gsm: GSM
+    email: Email
+    nomPrenomPereFr: Nom Complet du père
+    nomPrenomMereFr: Nom Complet dd la Mère
+    anneeBac: Année d'obtention du Baccalauréat
+    ville: Ville
+    province: Province
+    serieBac: La série du Baccalauréat
+    typeBac: Le type du Baccalauréat
+    diplome: Diplôme
+    nbr_etudiant_deug: Nombre des etudiants du DUEG
+    nbr_etudiant_licence: Nombre des etudiants de la licence
+    nbr_etudiant_master: Nombre des etudiants du Master
+    nbr_etudiant_doctorat: Nombre des etudiants doctorant

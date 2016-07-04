@@ -13,11 +13,16 @@ class DefaultController extends Controller
         $master     = $this->getTheRepo('EtudiantMaster')->getNbrMasterStudent();
         $doctorat   = $this->getTheRepo('EtudiantDoctorat')->getNbrDoctoratStudent();
 
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+        $re_inscription = $this->getTheRepo('Configuration')->isTheReInscriptionOnline();
+
         return $this->render('Default/index.html.twig',[
             'nbrDEUG' => $DEUG,
             'nbrLicence' => $licence,
             'nbrMaster' => $master,
             'nbrDoctorat' => $doctorat,
+            'inscription' => $inscription,
+            're_inscription' => $re_inscription,
         ]);
     }
     

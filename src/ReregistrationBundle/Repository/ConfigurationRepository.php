@@ -10,4 +10,83 @@ namespace ReregistrationBundle\Repository;
  */
 class ConfigurationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function isTheInscriptionOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'inscription',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheReInscriptionOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Re_inscription',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheInscriptionDeugOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Inscription_Deug',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheReInscriptionDeugOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Re_Inscription_Deug',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheInscriptionLicenceOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Inscription_Licence',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheReInscriptionLicenceOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Re_Inscription_Licence',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheInscriptionMasterOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Inscription_Master',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheReInscriptionMasterOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Re_Inscription_Master',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheInscriptionDoctotatOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Inscription_Doctorat',
+                'online' => 1
+            )
+        );
+    }
+
+    public function isTheReInscriptionDoctoratOnline(){
+        return $this->findOneBy(array(
+                'nom' => 'Re_Inscription_Doctorat',
+                'online' => 1
+            )
+        );
+    }
 }

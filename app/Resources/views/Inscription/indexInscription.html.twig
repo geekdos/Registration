@@ -2,10 +2,11 @@
 {% block body %}
     <div class="sortable">
         <div class="row">
+            {% if inscriptionDeug %}
             <div class="col-md-6">
                 <div class="panel panel-red">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Bac + 2 || تسجيل</h3>
+                        <h3 class="panel-title">DEUG || تسجيل</h3>
                         <div class="panel-control">
                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
@@ -13,11 +14,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here.
-                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
-                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ inscriptionDeug.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -26,6 +23,8 @@
                         </p>
                     </div>
                 </div>
+                {% endif %}
+                {% if inscriptionMaster %}
                 <div class="panel panel-blue">
                     <div class="panel-heading">
                         <h3 class="panel-title">Master || الماستر</h3>
@@ -36,11 +35,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here. Nulla vitae elit libero, a pharetra augue.
-                            Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                            Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ inscriptionMaster.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -49,8 +44,10 @@
                         </p>
                     </div>
                 </div>
+                {% endif %}
             </div>
             <div class="col-md-6">
+                {% if inscriptionLicence %}
                 <div class="panel panel-purple">
                     <div class="panel-heading">
                         <h3 class="panel-title">Licence || الإجازة</h3>
@@ -61,11 +58,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here.
-                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
-                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ inscriptionLicence.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -74,6 +67,8 @@
                         </p>
                     </div>
                 </div>
+                {% endif %}
+                {% if inscriptionDoctorat %}
                 <div class="panel panel-green">
                     <div class="panel-heading">
                         <h3 class="panel-title">Doctrorat || الدكتورة</h3>
@@ -84,11 +79,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <p>
-                            Some default panel content here.
-                            Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
-                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
+                        {{ inscriptionDoctorat.value | raw }}
                     </div>
                     <div class="panel-footer">
                         <p>
@@ -97,6 +88,7 @@
                         </p>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div><!-- Row -->
     </div><!-- Sortable -->

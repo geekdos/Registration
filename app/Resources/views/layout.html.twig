@@ -63,8 +63,35 @@
             <div class="row">
                 <div class="col-md-12">
                     {% for message in app.session.flashBag.get('errors') %}
-                        <div class="alert alert-danger">
-                            {{ message }}
+                        <div class="panel panel-white" id="js-alerts">
+                            <div class="panel-heading clearfix">
+                                <h3 class="panel-title">Attention<small>Erreur</small></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4>Désolé</h4>
+                                    <p>
+                                        {{ message | trans }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for message in app.session.flashBag.get('infos') %}
+                        <div class="panel panel-white" id="js-alerts">
+                            <div class="panel-heading clearfix">
+                                <h3 class="panel-title">Merci <small> Bravo!</small></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4>Filicitation</h4>
+                                    <p>
+                                        {{ message | trans }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     {% endfor %}
                     {% block body %}{% endblock body %}

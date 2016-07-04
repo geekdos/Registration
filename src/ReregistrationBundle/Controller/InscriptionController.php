@@ -8,36 +8,30 @@ class InscriptionController extends Controller
 {
     public function indexAction()
     {
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+
+        $inscriptionDeug        = $this->getTheRepo('Configuration')->isTheInscriptionDeugOnline();
+        $inscriptionLicence     = $this->getTheRepo('Configuration')->isTheInscriptionLicenceOnline();
+        $inscriptionMaster      = $this->getTheRepo('Configuration')->isTheInscriptionMasterOnline();
+        $inscriptionDoctorat    = $this->getTheRepo('Configuration')->isTheInscriptionDoctotatOnline();
+
+        if ($inscription == null)
+            return $this->render(':errors:404.html.twig');
+
         return $this->render('Inscription/indexInscription.html.twig', [
-            
+            'inscriptionDeug'       => $inscriptionDeug,
+            'inscriptionLicence'    => $inscriptionLicence,
+            'inscriptionMaster'     => $inscriptionMaster,
+            'inscriptionDoctorat'   => $inscriptionDoctorat,
         ]);
     }
 
-    public function deugAction()
+    /**
+     * @param $entity
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getTheRepo($entity)
     {
-        return $this->render('Inscription/deugInscription.html.twig', [
-
-        ]);
-    }
-
-    public function licenceAction()
-    {
-        return $this->render('Inscription/licenceInscription.html.twig', [
-
-        ]);
-    }
-
-    public function masterAction()
-    {
-        return $this->render('ReregistrationBundle:Inscription:masterInscription.html.twig', [
-
-        ]);
-    }
-
-    public function doctoratAction()
-    {
-        return $this->render('ReregistrationBundle:Inscription:doctoratInscription.html.twig', [
-
-        ]);
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
     }
 }

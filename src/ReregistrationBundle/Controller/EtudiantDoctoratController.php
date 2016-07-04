@@ -36,6 +36,12 @@ class EtudiantDoctoratController extends Controller
      */
     public function newAction(Request $request)
     {
+        $inscription = $this->getTheRepo('Configuration')->isTheInscriptionOnline();
+        $inscriptionDoctorat    = $this->getTheRepo('Configuration')->isTheInscriptionDoctotatOnline();
+
+        if ($inscription == null OR $inscriptionDoctorat == null)
+            return $this->render(':errors:404.html.twig');
+
         $etudiantDoctorat = new EtudiantDoctorat();
         $form = $this->createForm('ReregistrationBundle\Form\EtudiantDoctoratType', $etudiantDoctorat);
         $form->handleRequest($request);
@@ -45,6 +51,7 @@ class EtudiantDoctoratController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiantDoctorat);
             $em->flush();
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
             $session->set('id', $etudiantDoctorat->getId());
             return $this->redirectToRoute('etudiantdoctorat_show', array('id' => $etudiantDoctorat->getId()));
         }
@@ -139,5 +146,15 @@ class EtudiantDoctoratController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    /**
+     * @param $entity
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getTheRepo($entity)
+    {
+        return $em = $this->getDoctrine()->getManager()->getRepository('ReregistrationBundle:'.$entity);
     }
 }
