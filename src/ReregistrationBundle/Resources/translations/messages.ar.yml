@@ -9,6 +9,7 @@ diplome:
     doctorat: الدكتوراه
     bac: البكالوريا
 accueil: الرئيسية
+indisponible:  خدمة التسجيل وإعادة التسجيل ليست متاحة حاليا
 etudiant:
     nom:
     prenom:

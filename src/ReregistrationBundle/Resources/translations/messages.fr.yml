@@ -11,6 +11,7 @@ messages:
     errors:
       cne: Vous n'avez pas le droit de chercher par ce CNE, Merci de chercher par le votre
 accueil: Accueill
+indisponible: Le service d'inscription et de réinscription n'est pas disponible pour le moment
 diplome:
     deug:
     licence: Licence
