@@ -2,12 +2,16 @@
 
 namespace ReregistrationBundle\Controller;
 
-use Symfony\Component\Config\Definition\Exception\Exception;
+use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use ReregistrationBundle\Entity\EtudiantMaster;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * EtudiantMaster controller.
@@ -31,8 +35,44 @@ class EtudiantMasterController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param EtudiantMaster $etudiantMaster
+     * @return RedirectResponse
+     */
+    public function registerNewUser(Request $request, EtudiantMaster $etudiantMaster)
+    {
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+        $user->setEmail($etudiantMaster->getEmail());
+        $user->setUsername($etudiantMaster->getCne());
+        $user->setPlainPassword($etudiantMaster->getCin());
+
+        $event = new GetResponseUserEvent($user, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+        $userManager->updateUser($user);
+
+        if (null === $response = $event->getResponse()) {
+            $url = $this->generateUrl('fos_user_registration_confirmed');
+            $response = new RedirectResponse($url);
+        }
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+        return $response;
+    }
+
+    /**
      * Creates a new EtudiantMaster entity.
-     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -49,6 +89,7 @@ class EtudiantMasterController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $this->registerNewUser($request, $etudiantMaster);
             $em->persist($etudiantMaster);
             $em->flush();
             $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
@@ -64,7 +105,8 @@ class EtudiantMasterController extends Controller
 
     /**
      * Finds and displays a EtudiantMaster entity.
-     *
+     * @param EtudiantMaster $etudiantMaster
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(EtudiantMaster $etudiantMaster)
     {
@@ -88,7 +130,9 @@ class EtudiantMasterController extends Controller
 
     /**
      * Displays a form to edit an existing EtudiantMaster entity.
-     *
+     * @param Request $request
+     * @param EtudiantMaster $etudiantMaster
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, EtudiantMaster $etudiantMaster)
     {
@@ -119,7 +163,9 @@ class EtudiantMasterController extends Controller
 
     /**
      * Deletes a EtudiantMaster entity.
-     *
+     * @param Request $request
+     * @param EtudiantMaster $etudiantMaster
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, EtudiantMaster $etudiantMaster)
     {

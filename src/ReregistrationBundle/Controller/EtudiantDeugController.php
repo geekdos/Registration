@@ -2,8 +2,13 @@
 
 namespace ReregistrationBundle\Controller;
 
+use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 use ReregistrationBundle\Entity\EtudiantDeug;
@@ -28,7 +33,36 @@ class EtudiantDeugController extends Controller
             'etudiantDeugs' => $etudiantDeugs,
         ));
     }
+    
+    public function registerNewUser(Request $request, EtudiantDeug $etudiantDeug)
+    {
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
 
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+        $user->setEmail($etudiantDeug->getEmail());
+        $user->setUsername($etudiantDeug->getCne());
+        $user->setPlainPassword($etudiantDeug->getCin());
+
+        $event = new GetResponseUserEvent($user, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+        $userManager->updateUser($user);
+
+        if (null === $response = $event->getResponse()) {
+            $url = $this->generateUrl('fos_user_registration_confirmed');
+            $response = new RedirectResponse($url);
+        }
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+        return $response;
+    }
     /**
      * Creates a new EtudiantDeug entity.
      *
@@ -48,6 +82,7 @@ class EtudiantDeugController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $this->registerNewUser($request, $etudiantDeug);
             $em->persist($etudiantDeug);
             $etudiantDeug->setInscriptionStatus(1);
             $em->flush();
