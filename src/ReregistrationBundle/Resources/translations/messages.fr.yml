@@ -10,7 +10,7 @@ messages:
       inscription_doctorat: Filicitation votre pré-inscription au Doctorat à bien été prise en compte, Merci de genréré votre PDF
     errors:
       cne: Vous n'avez pas le droit de chercher par ce CNE, Merci de chercher par le votre
-
+accueil: Accueill
 diplome:
     deug:
     licence: Licence
