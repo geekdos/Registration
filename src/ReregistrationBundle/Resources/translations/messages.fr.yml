@@ -10,11 +10,26 @@ messages:
       inscription_doctorat: Filicitation votre pré-inscription au Doctorat à bien été prise en compte, Merci de genréré votre PDF
     errors:
       cne: Vous n'avez pas le droit de chercher par ce CNE, Merci de chercher par le votre
-accueil: Accueill
+      error: Signature Oops! Quelque chose a mal tourné
+      error1: Nous ne pouvons pas trouver la page que vous cherchez. Retour
+
+accueilfr: Accueil
+rechercherfr: ou rechercher.
 indisponible: Le service d'inscription et de réinscription n'est pas disponible pour le moment
+contact: Contacter l'administration
+plateforme: Plateforme d'inscription pour les étudiants de la Faculté des lettres et sciences humaines de Fès
+inscr: Inscription, Reinscription, FLSH Fès
+auteurs: KHACHIAI Oussama,LAHKIM Ayoub
+attention : Attention
+pdfveriffr: Bien vérifier vos informations avant de générer le PDF
+pdf_gen: Générer le PDF
+modifier: Modifier
+effacer: Effacer
+votre_filiere: Votre Filiére est:
+
 diplome:
     deug:
-    licence: Licence
+    licence: License
     master: Master
     doctorat: Doctorat
     bac: Baccalauréat
@@ -43,14 +58,14 @@ etudiant:
     gsm: GSM
     email: Email
     nomPrenomPereFr: Nom Complet du père
-    nomPrenomMereFr: Nom Complet dd la Mère
+    nomPrenomMereFr: Nom Complet de la Mère
     anneeBac: Année d'obtention du Baccalauréat
     ville: Ville
     province: Province
     serieBac: La série du Baccalauréat
     typeBac: Le type du Baccalauréat
     diplome: Diplôme
-    nbr_etudiant_deug: Nombre des etudiants du DUEG
-    nbr_etudiant_licence: Nombre des etudiants de la licence
-    nbr_etudiant_master: Nombre des etudiants du Master
-    nbr_etudiant_doctorat: Nombre des etudiants doctorant
+    nbr_etudiant_deug: Nombre des étudiants du DUEG
+    nbr_etudiant_licence: Nombre des étudiants de la license
+    nbr_etudiant_master: Nombre des étudiants du Master
+    nbr_etudiant_doctorat: Nombre des étudiants doctorants

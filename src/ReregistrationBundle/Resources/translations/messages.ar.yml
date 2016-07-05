@@ -8,39 +8,54 @@ diplome:
     master: الماستر
     doctorat: الدكتوراه
     bac: البكالوريا
-accueil: الرئيسية
+accueilar: الرئيسية
+rechercherar: أو البحث.
 indisponible:  خدمة التسجيل وإعادة التسجيل ليست متاحة حاليا
+contact: الاتصال بالإدارة
+plateforme: منصة التسجيل لطلاب كلية الآداب و العلوم الإنسانية بفاس
+inscr: تسجيل ، إعادة التسجيل, FLSH فاس
+auteurs: أسامة خشيع ، أيوب لحكيم
+pdfverifar: عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء ملف بدف
+pdf_gen: إنشاء بدف
+modifier: تغيير
+effacer: حذف
+votre_filiere: : شعبتكم هي
+
+errors:
+      error: عفوا! حدث خطأ ما
+      error1: ونحن لا يمكن العثور على الصفحة التي تبحث عنها. عودة
+
 etudiant:
-    nom:
-    prenom:
-    age:
-    filiere:
-    date_naiss:
-    id:
-    cne:
-    nationalite:
-    nomfr:
-    prenomfr:
-    nomAr:
-    prenomAr:
-    sexe:
-    etatCivil:
-    handicap:
-    bourse:
-    lieuNaissFr:
-    lieuNaissAr:
-    dateNaiss:
-    cin:
-    adresseEtd:
-    gsm:
-    email:
-    nomPrenomPereFr:
-    nomPrenomMereFr:
-    anneeBac:
-    ville:
-    province:
-    serieBac:
-    typeBac:
+    nom: النسب
+    prenom: الاسم
+    age: العمر
+    filiere: الشعبة
+    date_naiss: تاريخ الازدياد
+    id: رقم الهوية
+    cne: الرقم الوطني للطالب
+    nationalite: الجنسية
+    nomfr: النسب بالفرنسية
+    prenomfr: الاسم بالفرنسية
+    nomAr: النسب بالعربية
+    prenomAr: الاسم بالعربية
+    sexe: الجنس
+    etatCivil: الحالة المدنية
+    handicap: إعاقة
+    bourse: مستفيد(ة) من المنحة
+    lieuNaissFr: مكان الازدياد بالفرنسية
+    lieuNaissAr: مكان الازدياد بالعربية
+    dateNaiss: تاريخ الازدياد
+    cin: رقم البطاقة الوطنية
+    adresseEtd: العنوان
+    gsm: رقم الهاتف
+    email: البريد الإلكتروني
+    nomPrenomPereFr: الاسم الكامل للأب بالفرنسية
+    nomPrenomMereFr: الاسم الكامل للأم بالفرنسية
+    anneeBac: سنة الحصول على الباكالوريا
+    ville: المدينة
+    province: المقاطعة
+    serieBac: البكالوريا
+    typeBac: نوعية البكالوريا
     diplome: دبلوم
     nbr_etudiant_deug: عدد طلبة دبلوم الدراسات الجامعية العامة
     nbr_etudiant_licence: عدد طلبة الإجازة
