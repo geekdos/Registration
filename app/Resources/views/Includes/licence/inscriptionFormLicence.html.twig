@@ -3,20 +3,20 @@
         <div class="panel-body">
             <div id="rootwizard">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab0" data-toggle="tab"><i class="fa fa-graduation-cap m-r-xs"></i>Filiére | الشعبة</a></li>
-                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Informations générales | معلومات عامة</a></li>
-                    <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>Coordonnés | الاحداثيات</a></li>
-                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Baccalauréat | معلومات البكالوريوس</a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>Dernier diplôme | معلومات دبلوم الأخير</a></li>
-                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Terminer | نهاية</a></li>
+                    <li role="presentation" class="active"><a href="#tab0" data-toggle="tab"><i class="fa fa-graduation-cap m-r-xs"></i>{{ 'etudiant.filiere'|trans }}</a></li>
+                    <li role="presentation"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>{{ 'menu.infos_gen'|trans }}</a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-map-marker m-r-xs"></i>{{ 'menu.coord'|trans }}</a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>{{ 'menu.bac'|trans }}</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-certificate m-r-xs"></i>{{ 'menu.diplome'|trans }}</a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>{{ 'menu.terminer'|trans }}</a></li>
                 </ul>
                 <div class="progress progress-sm m-t-sm">
                     <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                     </div>
                 </div>
                 <ul class="pager wizard">
-                    <li class="previous"><a href="#" class="btn btn-warning">Precedent | الرجوع</a></li>
-                    <li class="next"><a href="#" class="btn btn-succes">Suivant | التالي</a></li>
+                    <li class="previous"><a href="#" class="btn btn-warning">{{'precedent' |trans }}</a></li>
+                    <li class="next"><a href="#" class="btn btn-succes">{{'suivant' |trans }}</a></li>
                 </ul>
                 {{ form_start(form , {'attr':{'id': 'wizardForm'}}) }}
                 <div class="alert alert-danger">
@@ -249,16 +249,16 @@
                         </div>
                         {{ form_rest(form) }}
                         {% if etudiantLicence != null %}
-                            <button type="submit" class="btn btn-success">Enregistrer | تأكيد</button>
+                            <button type="submit" class="btn btn-success">{{ 'enregistrer'|trans }}</button>
                         {% else %}
-                            <button type="submit" class="btn btn-success">S'inscrire | تسجيل</button>
+                            <button type="submit" class="btn btn-success">{{ 'inscrire'|trans }}/button>
                         {% endif %}
 
                     </div>
                 </div>
                 <ul class="pager wizard">
-                    <li class="previous"><a href="#" class="btn btn-warning">Precedent | الرجوع</a></li>
-                    <li class="next"><a href="#" class="btn btn-succes">Suivant | التالي</a></li>
+                    <li class="previous"><a href="#" class="btn btn-warning">{{'precedent' |trans }}</a></li>
+                    <li class="next"><a href="#" class="btn btn-succes">{{'suivant' |trans }}</a></li>
                 </ul>
                 </form>
             </div>

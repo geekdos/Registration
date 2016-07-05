@@ -26,6 +26,21 @@ pdf_gen: Générer le PDF
 modifier: Modifier
 effacer: Effacer
 votre_filiere: Votre Filiére est:
+choix_filiere: Le Choix de la Filière
+select: Selectionner
+precedent: Précédent
+suivant: Suivant
+enregistrer: Enregistrer
+inscrire: S'inscrire
+
+menu:
+  infos_gen: Informations générales
+  coord: Coordonnées
+  bac: Baccalauréat
+  diplome: Dernier diplôme
+  terminer: Terminer
+  infos_parents: Informations parents
+
 
 diplome:
     deug:

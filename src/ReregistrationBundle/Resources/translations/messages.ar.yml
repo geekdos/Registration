@@ -1,13 +1,15 @@
 scolrite_services: مصلحة شؤون الطلبة
-inscription: التسجل
+inscription: التسجيل
 re_inscription: إعادة التسجيل
 new_inscription: تسجيل جديد
+
 diplome:
     deug: دبلوم الدراسات الجامعية العامة
     licence: الإجازة
     master: الماستر
     doctorat: الدكتوراه
     bac: البكالوريا
+
 accueilar: الرئيسية
 rechercherar: أو البحث.
 indisponible:  خدمة التسجيل وإعادة التسجيل ليست متاحة حاليا
@@ -20,6 +22,22 @@ pdf_gen: إنشاء بدف
 modifier: تغيير
 effacer: حذف
 votre_filiere: : شعبتكم هي
+choix_filiere: الشعبة
+select: إختر
+precedent: الرجوع
+suivant: التالي
+enregistrer: تأكيد
+inscrire: تسجيل
+
+
+
+menu:
+  infos_gen:  معلومات عامة
+  coord: الاحداثيات
+  bac: معلومات البكالوريوس
+  diplome: معلومات دبلوم الأخير
+  terminer: نهاية
+  infos_parents: معلومات الأباء
 
 errors:
       error: عفوا! حدث خطأ ما

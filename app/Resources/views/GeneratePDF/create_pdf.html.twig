@@ -10,10 +10,7 @@
                 </th>
                 <th>
                     <p class="text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Assumenda at beatae dolore doloribus, esse eveniet fuga fugit
-                        illo iure iusto libero maxime mollitia nam non odit perferendis
-                        rerum ullam voluptates.
+                        biziga antlektifé
                     </p>
                 </th>
                 <th>
@@ -35,7 +32,7 @@
                         {% else %}
                             <img width="100" height="120" src="http://registration.com/bundles/reregistration/assets/images/no-image.jpg" alt="No image">
                         {% endif %}
-                        <h1>Votre Filiére est : <code>{{ etudiant.filiere.nom }}</code></h1>
+                        <h1>{{ 'votre_filiere'|trans }} <code>{{ etudiant.filiere.nom }}</code></h1>
                     </td>
                 </tr>
             </thead>
