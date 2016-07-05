@@ -11,10 +11,10 @@
                 </div>
                 <div class="panel-body">
                     <p class="text-right">
-                        عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف
+{{ 'pdfverifar'|trans }}
                     </p>
                     <p>
-                        Vérifier Bien Vos informations avant de générer le PDF
+                        {{ 'pdfveriffr'|trans }}
                     </p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             {% endif %}
         </div>
         <div class="col-md-9">
-            <h3><code>Votre Filiére est: {{ etudiantDoctorat.filiere.nom }}</code></h3>
+            <h3><code>{{ 'votre_filiere'|trans }} {{ etudiantDoctorat.filiere.nom }}</code></h3>
         </div>
         <div class="panel panel-purple">
             <div class="panel-heading">
@@ -129,18 +129,18 @@
             <div class="panel-footer">
                 <div class="col-md-4">
                     <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantDoctorat.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                        Générer le PDF | إنشاء بدف
+                        {{ 'pdf_gen'|trans }}
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="{{ path('etudiantdoctorat_edit', { 'id': etudiantDoctorat.id }) }}" class="btn btn-info pull-left  btn-block">
-                        Modifier | تغيير
+                        {{ 'modifier'|trans }}
                     </a>
                 </div>
                 {% if is_granted("ROLE_ADMIN") %}
                     <div class="col-md-4">
                         {{ form_start(delete_form) }}
-                        <input type="submit" class="btn btn-danger pull-right btn-block" value="Effacer | حذف">
+                        <input type="submit" class="btn btn-danger pull-right btn-block" value={{ 'effacer'|trans }}>
                         {{ form_end(delete_form) }}
                     </div>
                 {% endif %}
