@@ -63,9 +63,11 @@ class EtudiantDeugController extends Controller
 
         return $response;
     }
+
     /**
      * Creates a new EtudiantDeug entity.
-     *
+     * @param Request $request
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -82,12 +84,18 @@ class EtudiantDeugController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $this->registerNewUser($request, $etudiantDeug);
-            $em->persist($etudiantDeug);
+            $etudiantDeug->setStatus(1);
             $etudiantDeug->setInscriptionStatus(1);
+            $etudiantDeug->setAdmit(0);
+
+            $em->persist($etudiantDeug);
             $em->flush();
-            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
+            
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_deug');
             $session->set('id', $etudiantDeug->getId());
+            
             return $this->redirectToRoute('etudiantdeug_show', array('id' => $etudiantDeug->getId()));
         }
 
@@ -99,7 +107,8 @@ class EtudiantDeugController extends Controller
 
     /**
      * Finds and displays a EtudiantDeug entity.
-     *
+     * @param EtudiantDeug $etudiantDeug
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(EtudiantDeug $etudiantDeug)
     {
@@ -112,14 +121,16 @@ class EtudiantDeugController extends Controller
                 'delete_form' => $deleteForm->createView(),
             ));
         }else{
-            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            $session->getFlashBag()->add('errors', 'errors.cne');
             return $this->render(':errors:404.html.twig');
         }
     }
 
     /**
      * Displays a form to edit an existing EtudiantDeug entity.
-     *
+     * @param Request $request
+     * @param EtudiantDeug $etudiantDeug
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, EtudiantDeug $etudiantDeug)
     {
@@ -153,7 +164,9 @@ class EtudiantDeugController extends Controller
 
     /**
      * Deletes a EtudiantDeug entity.
-     *
+     * @param Request $request
+     * @param EtudiantDeug $etudiantDeug
+     * @return RedirectResponse
      */
     public function deleteAction(Request $request, EtudiantDeug $etudiantDeug)
     {

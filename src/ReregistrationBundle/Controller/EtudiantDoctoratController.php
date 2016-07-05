@@ -33,7 +33,12 @@ class EtudiantDoctoratController extends Controller
             'etudiantDoctorats' => $etudiantDoctorats,
         ));
     }
-    
+
+    /**
+     * @param Request $request
+     * @param EtudiantDoctorat $etudiantDoctorat
+     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function registerNewUser(Request $request, EtudiantDoctorat $etudiantDoctorat)
     {
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
@@ -63,9 +68,11 @@ class EtudiantDoctoratController extends Controller
 
         return $response;
     }
+
     /**
      * Creates a new EtudiantDoctorat entity.
-     *
+     * @param Request $request
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -82,10 +89,15 @@ class EtudiantDoctoratController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $this->registerNewUser($request, $etudiantDoctorat);
+            $etudiantDeug->setStatus(1);
+            $etudiantDeug->setInscriptionStatus(1);
+            $etudiantDeug->setAdmit(0);
+            
             $em->persist($etudiantDoctorat);
             $em->flush();
-            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_doctorat');
             $session->set('id', $etudiantDoctorat->getId());
             return $this->redirectToRoute('etudiantdoctorat_show', array('id' => $etudiantDoctorat->getId()));
         }
@@ -112,7 +124,7 @@ class EtudiantDoctoratController extends Controller
                 'delete_form' => $deleteForm->createView(),
             ));
         }else{
-            $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+            $session->getFlashBag()->add('errors', 'errors.cne');
             return $this->render(':errors:404.html.twig');
         }
     }

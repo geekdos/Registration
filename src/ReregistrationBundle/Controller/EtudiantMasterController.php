@@ -89,10 +89,15 @@ class EtudiantMasterController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $this->registerNewUser($request, $etudiantMaster);
+            $etudiantDeug->setStatus(1);
+            $etudiantDeug->setInscriptionStatus(1);
+            $etudiantDeug->setAdmit(0);
+
             $em->persist($etudiantMaster);
             $em->flush();
-            $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
+            $session->getFlashBag()->add('infos', 'messages.infos.inscription_master');
             $session->set('id', $etudiantMaster->getId());
             return $this->redirectToRoute('etudiantmaster_show', array('id' => $etudiantMaster->getId()));
         }
@@ -120,7 +125,7 @@ class EtudiantMasterController extends Controller
                     'delete_form' => $deleteForm->createView(),
                 ));
             } else {
-                $session->getFlashBag()->add('errors', 'Vous navez pas le droit de rechercher par ce CNE');
+                $session->getFlashBag()->add('errors', 'errors.cne');
                 return $this->render(':errors:404.html.twig');
             }
         }catch (Exception $e){

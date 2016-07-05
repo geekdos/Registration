@@ -90,8 +90,12 @@ class EtudiantLicenceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $this->registerNewUser($request, $etudiantLicence);
-            $etudiantLicence->setInscriptionStatus(1);
+            $etudiantDeug->setStatus(1);
+            $etudiantDeug->setInscriptionStatus(1);
+            $etudiantDeug->setAdmit(0);
+            
             $em->persist($etudiantLicence);
             $em->flush();
             $session->getFlashBag()->add('infos', 'messages.infos.inscription_licence');
@@ -122,7 +126,7 @@ class EtudiantLicenceController extends Controller
                     'delete_form' => $deleteForm->createView(),
                 ));
             } else {
-                $session->getFlashBag()->add('errors', 'error_cne');
+                $session->getFlashBag()->add('errors', 'errors.cne');
                 return $this->render(':errors:404.html.twig');
             }
         }catch (NotFoundHttpException $e){

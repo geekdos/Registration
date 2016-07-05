@@ -16,29 +16,42 @@ class EtudiantDoctoratAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
-            ->add('cne')
-            ->add('nationalite')
-            ->add('nomfr')
-            ->add('prenomfr')
-            ->add('nomAr')
-            ->add('prenomAr')
-            ->add('sexe')
-            ->add('etatCivil')
-            ->add('handicap')
-            ->add('bourse')
-            ->add('lieuNaissFr')
-            ->add('lieuNaissAr')
-            ->add('dateNaiss')
-            ->add('cin')
-            ->add('adresseEtd')
-            ->add('gsm')
-            ->add('email')
-            ->add('nomPrenomPereFr')
-            ->add('nomPrenomMereFr')
-            ->add('anneeBac')
-            ->add('anneeDiplome')
-            ->add('spesialite')
+            ->add('id', null, array(
+                'label' => 'ID',
+            ))
+            ->add('cne', null, array(
+                'label' => 'CNE',
+            ))
+            ->add('cin', null, array(
+                'label' => 'CIN',
+            ))
+            ->add('filiere', null, array(
+                'label' => 'Filiere',
+            ))
+            ->add('nomfr', null, array(
+                'label' => 'Nom',
+            ))
+            ->add('prenomfr', null, array(
+                'label' => 'Prénom',
+            ))
+            ->add('nationalite', null, array(
+                'label' => 'Nationalité',
+            ))
+            ->add('sexe', null, array(
+                'label' => 'Genre',
+            ))
+            ->add('handicap', null, array(
+                'label' => 'Handicapé',
+            ))
+            ->add('bourse', null, array(
+                'label' => 'Boursier',
+            ))
+            ->add('lieuNaissFr', null, array(
+                'label' => 'Lieu de Naissance',
+            ))
+            ->add('anneeBac', null, array(
+                'label' => 'Année d\'obtention du bac',
+            ))
         ;
     }
 
@@ -48,14 +61,45 @@ class EtudiantDoctoratAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('cne')
-            ->add('nomfr')
-            ->add('prenomfr')
-            ->add('inscriptionStatus')
-            ->add('cin')
-            ->add('gsm')
-            ->add('email')
+            ->addIdentifier('id', null, array(
+                'label' => 'ID',
+            ))
+            ->addIdentifier('cne', null, array(
+                'label' => 'CNE',
+            ))
+            ->add('cin', null, array(
+                'label' => 'CIN',
+            ))
+            ->add('filiere', null, array(
+                'label' => 'Filiere',
+            ))
+            ->add('nomfr', null, array(
+                'label' => 'Nom',
+            ))
+            ->add('prenomfr', null, array(
+                'label' => 'Prénom',
+            ))
+            ->add('gsm', null, array(
+                'label' => 'GSM',
+            ))
+            ->add('email', null, array(
+                'label' => 'Email',
+            ))
+            ->add('inscriptionStatus', null, array(
+                'label' => 'Inscrit ?',
+                'editable' => true,
+                'ajax_hidden' => true
+            ))
+            ->add('status', null, array(
+                'label' => 'Nouveau ?',
+                'editable' => true,
+                'ajax_hidden' => true
+            ))
+            ->add('admit', null, array(
+                'label' => 'Admit ?',
+                'editable' => true,
+                'ajax_hidden' => true
+            ))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),

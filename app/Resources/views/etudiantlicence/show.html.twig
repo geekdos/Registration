@@ -19,9 +19,15 @@
                 </div>
              </div>
             <div class="col-md-12">
+                {% if etudiantLicence.inscriptionStatus == 1 %}
                 <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
                     <i class="fa fa-file-pdf-o"></i> Générer le PDF | إنشاء بدف
                 </a>
+                {% else %}
+                    <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
+                        <i class="fa fa-file-pdf-o"></i> Générer le PDF Reçu | إنشاء بدف وصل الإيداع
+                    </a>
+                {% endif %}
             </div>
             <hr>
             <div class="col-md-12">

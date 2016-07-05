@@ -258,7 +258,21 @@ class EtudiantMaster
      * @ORM\Column(name="inscriptionStatus", type="boolean")
      */
     private $inscriptionStatus;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="admit", type="boolean", nullable=true)
+     */
+    private $admit;
+
     /**
      * @return string
      */
@@ -1163,5 +1177,53 @@ class EtudiantMaster
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set inscriptionStatus
+     *
+     * @param boolean $inscriptionStatus
+     *
+     * @return EtudiantMaster
+     */
+    public function setInscriptionStatus($inscriptionStatus)
+    {
+        $this->inscriptionStatus = $inscriptionStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get inscriptionStatus
+     *
+     * @return boolean
+     */
+    public function getInscriptionStatus()
+    {
+        return $this->inscriptionStatus;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return EtudiantMaster
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

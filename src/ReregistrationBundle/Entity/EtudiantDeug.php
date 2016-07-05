@@ -229,7 +229,21 @@ class EtudiantDeug
      * @ORM\Column(name="inscriptionStatus", type="boolean")
      */
     private $inscriptionStatus;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="admit", type="boolean", nullable=true)
+     */
+    private $admit;
+
     /**
      * @return string
      */
@@ -1039,5 +1053,53 @@ class EtudiantDeug
     public function getInscriptionStatus()
     {
         return $this->inscriptionStatus;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return EtudiantDeug
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set admit
+     *
+     * @param boolean $admit
+     *
+     * @return EtudiantDeug
+     */
+    public function setAdmit($admit)
+    {
+        $this->admit = $admit;
+
+        return $this;
+    }
+
+    /**
+     * Get admit
+     *
+     * @return boolean
+     */
+    public function getAdmit()
+    {
+        return $this->admit;
     }
 }

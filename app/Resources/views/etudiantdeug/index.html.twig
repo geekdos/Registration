@@ -26,6 +26,7 @@
                         <th class="text-center">Genre</th>
                         <th class="text-center">Gsm</th>
                         <th class="text-center">Email</th>
+                        <th class="text-center">Validé</th>
                         <th class="text-center">Aficher</th>
                         <th class="text-center">Modifier</th>
                     </tr>
@@ -41,34 +42,50 @@
                         <th class="text-center">Genre</th>
                         <th class="text-center">Gsm</th>
                         <th class="text-center">Email</th>
+                        <th class="text-center">Validé</th>
                         <th class="text-center">Aficher</th>
                         <th class="text-center">Modifier</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    {% for etudiantLicence in etudiantLicences %}
+                    {% for etudiantDeug in etudiantDeugs %}
                         <tr>
                             <td>
-                                <a href="{{ path('etudiantlicence_show', { 'id': etudiantLicence.id }) }}">
-                                    {{ etudiantLicence.id }}
+                                <a href="{{ path('etudiantdeug_show', { 'id': etudiantDeug.id }) }}">
+                                    {{ etudiantDeug.id }}
                                 </a>
                             </td>
-                            <td>{{ etudiantLicence.cne }}</td>
-                            <td>{{ etudiantLicence.filiere.nom }}</td>
-                            <td>{{ etudiantLicence.cin }}</td>
-                            <td>{{ etudiantLicence.nomfr }}</td>
-                            <td>{{ etudiantLicence.prenomfr }}</td>
-                            <td>{{ etudiantLicence.sexe }}</td>
-                            <td>{{ etudiantLicence.gsm }}</td>
-                            <td>{{ etudiantLicence.email }}</td>
+                            <td>{{ etudiantDeug.cne }}</td>
+                            <td>{{ etudiantDeug.filiere.nom }}</td>
+                            <td>{{ etudiantDeug.cin }}</td>
+                            <td>{{ etudiantDeug.nomfr }}</td>
+                            <td>{{ etudiantDeug.prenomfr }}</td>
+                            <td>{{ etudiantDeug.sexe }}</td>
+                            <td>{{ etudiantDeug.gsm }}</td>
+                            <td>{{ etudiantDeug.email }}</td>
+                            {% if etudiantDeug.admit == 0 %}
+                                <td>
+                                    <a href="{{ path('reregistration_re_validate', { 'cne': etudiantDeug.cne, 'parcours': 'Deug' }) }}"
+                                       class="btn btn-danger js-attend-toggle">
+                                        <i class="fa fa-remove"></i> Non validé
+                                    </a>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <a href="{{ path('reregistration_re_validate', { 'cne': etudiantDeug.cne, 'parcours': 'Deug', 'format': 'html' }) }}"
+                                       class="btn btn-success js-attend-toggle">
+                                        <i class="fa fa-check"></i> Validé
+                                    </a>
+                                </td>
+                            {% endif %}
                             <td>
-                                <a href="{{ path('etudiantdeug_show', { 'id': etudiantLicence.id }) }}"
+                                <a href="{{ path('etudiantdeug_show', { 'id': etudiantDeug.id }) }}"
                                    class="btn btn-info">
                                     <i class="fa fa-eye"></i> Afficher
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ path('etudiantdeug_edit', { 'id': etudiantLicence.id }) }}"
+                                <a href="{{ path('etudiantdeug_edit', { 'id': etudiantDeug.id }) }}"
                                    class="btn btn-warning">
                                     <i class="fa fa-edit"></i> Modifier
                                 </a>
@@ -114,4 +131,5 @@
     <script src="{{ asset('bundles/reregistration/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/modern.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/pages/table-data.js') }}"></script>
+    <script src="{{ asset('bundles/reregistration/assets/js/validate-student.js') }}"></script>
 {% endblock %}

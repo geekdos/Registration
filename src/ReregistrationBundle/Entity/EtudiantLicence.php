@@ -261,6 +261,20 @@ class EtudiantLicence
     private $inscriptionStatus;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="admit", type="boolean", nullable=true)
+     */
+    private $admit;
+    
+    /**
      * @return string
      */
     public function __toString()
@@ -1192,5 +1206,53 @@ class EtudiantLicence
 
     public function getBirthDateFormatter(){
         return ($this->dateNaiss instanceof \DateTime) ? $this->dateNaiss->format("Y-m-d") : "";
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return EtudiantLicence
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set admit
+     *
+     * @param boolean $admit
+     *
+     * @return EtudiantLicence
+     */
+    public function setAdmit($admit)
+    {
+        $this->admit = $admit;
+
+        return $this;
+    }
+
+    /**
+     * Get admit
+     *
+     * @return boolean
+     */
+    public function getAdmit()
+    {
+        return $this->admit;
     }
 }

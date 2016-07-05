@@ -26,6 +26,7 @@
                         <th class="text-center">Genre</th>
                         <th class="text-center">Gsm</th>
                         <th class="text-center">Email</th>
+                        <th class="text-center">Validé</th>
                         <th class="text-center">Aficher</th>
                         <th class="text-center">Modifier</th>
                     </tr>
@@ -41,6 +42,7 @@
                         <th class="text-center">Genre</th>
                         <th class="text-center">Gsm</th>
                         <th class="text-center">Email</th>
+                        <th class="text-center">Validé</th>
                         <th class="text-center">Aficher</th>
                         <th class="text-center">Modifier</th>
                     </tr>
@@ -61,6 +63,21 @@
                         <td>{{ etudiantLicence.sexe }}</td>
                         <td>{{ etudiantLicence.gsm }}</td>
                         <td>{{ etudiantLicence.email }}</td>
+                        {% if etudiantLicence.admit == 0 %}
+                            <td>
+                                <a href="{{ path('reregistration_re_validate', { 'cne': etudiantLicence.cne, 'parcours': 'Licence' }) }}"
+                                   class="btn btn-danger js-attend-toggle">
+                                    <i class="fa fa-remove"></i> Non validé
+                                </a>
+                            </td>
+                        {% else %}
+                            <td>
+                                <a href="{{ path('reregistration_re_validate', { 'cne': etudiantLicence.cne, 'parcours': 'Licence', 'format': 'html' }) }}"
+                                   class="btn btn-success js-attend-toggle">
+                                    <i class="fa fa-check"></i> Validé
+                                </a>
+                            </td>
+                        {% endif %}
                         <td>
                             <a href="{{ path('etudiantlicence_show', { 'id': etudiantLicence.id }) }}"
                                class="btn btn-info">
@@ -114,4 +131,5 @@
     <script src="{{ asset('bundles/reregistration/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/modern.min.js') }}"></script>
     <script src="{{ asset('bundles/reregistration/assets/js/pages/table-data.js') }}"></script>
+    <script src="{{ asset('bundles/reregistration/assets/js/validate-student.js') }}"></script>
 {% endblock %}

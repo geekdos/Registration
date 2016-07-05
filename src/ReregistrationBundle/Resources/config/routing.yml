@@ -70,3 +70,9 @@ reregistration_re_create_pdf:
     path:     /createPdf/{cne}
     defaults: { _controller: ReregistrationBundle:GeneratePDF:createPdf }
 
+
+reregistration_re_validate:
+    path:     validate/{cne}/{parcours}.{format}
+    defaults: { _controller: ReregistrationBundle:Validation:validate, format: html }
+    requirements:
+      format: json

@@ -28,6 +28,7 @@ security:
         - { path: ^/etudiantlicence/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/etudiantlicence$, role: ROLE_ADMIN }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: ROLE_ADMIN }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/validate/, role: ROLE_ADMIN }
