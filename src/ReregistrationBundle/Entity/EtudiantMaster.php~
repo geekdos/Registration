@@ -1226,4 +1226,28 @@ class EtudiantMaster
     {
         return $this->status;
     }
+
+    /**
+     * Set admit
+     *
+     * @param boolean $admit
+     *
+     * @return EtudiantMaster
+     */
+    public function setAdmit($admit)
+    {
+        $this->admit = $admit;
+
+        return $this;
+    }
+
+    /**
+     * Get admit
+     *
+     * @return boolean
+     */
+    public function getAdmit()
+    {
+        return $this->admit;
+    }
 }

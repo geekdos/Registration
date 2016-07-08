@@ -119,7 +119,7 @@ class EtudiantLicence
     /**
      * @var string
      *
-     * @ORM\Column(name="dateNaiss", type="datetime", length=255)
+     * @ORM\Column(name="dateNaiss", type="date", length=255)
      */
     private $dateNaiss;
 
@@ -578,30 +578,6 @@ class EtudiantLicence
     public function getLieuNaissAr()
     {
         return $this->lieuNaissAr;
-    }
-
-    /**
-     * Set dateNaiss
-     *
-     * @param \DateTime $dateNaiss
-     *
-     * @return EtudiantLicence
-     */
-    public function setDateNaiss($dateNaiss)
-    {
-        $this->dateNaiss = $dateNaiss;
-
-        return $this;
-    }
-
-    /**
-     * Get dateNaiss
-     *
-     * @return \DateTime
-     */
-    public function getDateNaiss()
-    {
-        return $this->dateNaiss;
     }
 
     /**
@@ -1254,5 +1230,29 @@ class EtudiantLicence
     public function getAdmit()
     {
         return $this->admit;
+    }
+
+    /**
+     * Set dateNaiss
+     *
+     * @param \DateTime $dateNaiss
+     *
+     * @return EtudiantLicence
+     */
+    public function setDateNaiss($dateNaiss)
+    {
+        $this->dateNaiss = $dateNaiss;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaiss
+     *
+     * @return \DateTime
+     */
+    public function getDateNaiss()
+    {
+        return $this->dateNaiss;
     }
 }
