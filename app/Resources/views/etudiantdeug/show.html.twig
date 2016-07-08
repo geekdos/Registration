@@ -6,27 +6,27 @@
             <div class="panel panel-purple">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title">
-                        Attention
+                        {{ 'attention'|trans }}
                     </h4>
                 </div>
                 <div class="panel-body">
                     <p class="text-right">
-                        عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف
+                        {{ 'pdfverifar'|trans }}
                     </p>
                     <p>
-                        Vérifier Bien Vos informations avant de générer le PDF
+                        {{ 'pdfveriffr'|trans }}
                     </p>
                 </div>
             </div>
             <div class="col-md-12">
                 <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantDeug.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                    <i class="fa fa-file-pdf-o"></i> Générer le PDF | إنشاء بدف
+                    <i class="fa fa-file-pdf-o"></i> {{ 'pdf_gen'|trans }}
                 </a>
             </div>
             <hr>
             <div class="col-md-12">
                 <a href="{{ path('etudiantdeug_edit', { 'id': etudiantDeug.id }) }}" class="btn btn-info pull-left  btn-block">
-                    <i class="fa fa-edit"></i> Modifier | تغيير
+                    <i class="fa fa-edit"></i> {{ 'modifier'|trans }}
                 </a>
             </div>
             <hr>
@@ -35,7 +35,7 @@
                 <div class="col-md-12">
                     {{ form_start(delete_form) }}
                     <button type="submit" class="btn btn-danger btn-block">
-                        <i class="fa fa-trash"></i> Effacer | حذف
+                        <i class="fa fa-trash"></i> {{ 'effacer'|trans }}
                     </button>
                     {{ form_end(delete_form) }}
                 </div>
@@ -51,7 +51,7 @@
             {% endif %}
         </div>
         <div class="col-md-9">
-            <h3><code>Votre Filiére est: {{ etudiantDeug.filiere.nom }}</code></h3>
+            <h3><code>{{ 'votre_filiere'|trans }} {{ etudiantDeug.filiere.nom }}</code></h3>
         </div>
         <div class="panel panel-purple">
             <div class="panel-heading">
@@ -60,15 +60,15 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>CNE</th>
+                        <th>{{ 'etudiant.cne'|trans }}</th>
                         <td>{{ etudiantDeug.cne }}</td>
                     </tr>
                     <tr>
-                        <th>Nationalité</th>
+                        <th>{{ 'etudiant.nationalite'|trans }}</th>
                         <td>{{ etudiantDeug.nationalite }}</td>
                     </tr>
                     <tr>
-                        <th>Nom en Français</th>
+                        <th>{{ 'etudiant.nationalite'|trans }}</th>
                         <td>{{ etudiantDeug.nomfr }}</td>
                     </tr>
                     <tr>
@@ -84,19 +84,19 @@
                         <td>{{ etudiantDeug.prenomAr }}</td>
                     </tr>
                     <tr>
-                        <th>Genre</th>
+                        <th>{{ 'etudiant.sexe'|trans }}</th>
                         <td>{{ etudiantDeug.sexe }}</td>
                     </tr>
                     <tr>
-                        <th>L'état civil</th>
+                        <th>{{ 'etudiant.etatCivil'|trans }}</th>
                         <td>{{ etudiantDeug.etatCivil }}</td>
                     </tr>
                     <tr>
-                        <th>Handicap</th>
+                        <th>{{ 'etudiant.handicap'|trans }}</th>
                         <td>{% if etudiantDeug.handicap %}Oui{% else %}Non{% endif %}</td>
                     </tr>
                     <tr>
-                        <th>Bourse</th>
+                        <th>{{ 'etudiant.bourse'|trans }}</th>
                         <td>{% if etudiantDeug.bourse %}Oui{% else %}Non{% endif %}</td>
                     </tr>
                     <tr>
@@ -108,19 +108,19 @@
                         <td>{{ etudiantDeug.lieuNaissAr }}</td>
                     </tr>
                     <tr>
-                        <th>Date de naissance</th>
+                        <th>{{ 'etudiant.dateNaiss'|trans }}</th>
                         <td>{% if etudiantDeug.dateNaiss %}{{ etudiantDeug.dateNaiss|date('Y-m-d') }}{% endif %}</td>
                     </tr>
                     <tr>
-                        <th>CIN</th>
+                        <th>{{ 'etudiant.cin'|trans }}</th>
                         <td>{{ etudiantDeug.cin }}</td>
                     </tr>
                     <tr>
-                        <th>GSM</th>
+                        <th>{{ 'etudiant.gsm'|trans }}</th>
                         <td>{{ etudiantDeug.gsm }}</td>
                     </tr>
                     <tr>
-                        <th>Email</th>
+                        <th>{{ 'etudiant.email'|trans }}</th>
                         <td>{{ etudiantDeug.email }}</td>
                     </tr>
                     </tbody>
@@ -129,12 +129,12 @@
             <div class="panel-footer">
                 <div class="col-md-4">
                     <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantDeug.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                        Générer le PDF | إنشاء بدف
+                        {{ 'pdf_gen'|trans }}
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="{{ path('etudiantdeug_edit', { 'id': etudiantDeug.id }) }}" class="btn btn-info pull-left  btn-block">
-                        Modifier | تغيير
+                        {{ 'modifier'|trans }}
                     </a>
                 </div>
                 {% if is_granted("ROLE_ADMIN") %}

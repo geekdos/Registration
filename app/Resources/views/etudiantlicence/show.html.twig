@@ -11,17 +11,16 @@
                 </div>
                 <div class="panel-body">
                     <p class="text-right">
-                                                عليك أن التحقق من المعلومات الخاصة بك قبل إنشاء بدف
-                    </p>
+{{ 'pdfverifar'|trans }}                    </p>
                     <p>
-                        Vérifier Bien Vos informations avant de générer le PDF
+{{ 'pdfveriffr'|trans }}
                     </p>
                 </div>
              </div>
             <div class="col-md-12">
                 {% if etudiantLicence.inscriptionStatus == 1 %}
                 <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                    <i class="fa fa-file-pdf-o"></i> Générer le PDF | إنشاء بدف
+                    <i class="fa fa-file-pdf-o"></i> {{ 'pdf_gen'|trans }}
                 </a>
                 {% else %}
                     <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
@@ -32,7 +31,7 @@
             <hr>
             <div class="col-md-12">
                 <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
-                    <i class="fa fa-edit"></i> Modifier | تغيير
+                    <i class="fa fa-edit"></i> {{ 'modifier'|trans }}
                 </a>
             </div>
             <hr>
@@ -41,7 +40,7 @@
                 <div class="col-md-12">
                     {{ form_start(delete_form) }}
                     <button type="submit" class="btn btn-danger btn-block">
-                        <i class="fa fa-trash"></i> Effacer | حذف
+                        <i class="fa fa-trash"></i> {{ 'effacer'|trans }}
                     </button>
                     {{ form_end(delete_form) }}
                 </div>
@@ -135,12 +134,12 @@
             <div class="panel-footer">
                 <div class="col-md-4">
                     <a href="{{ path('reregistration_re_create_pdf', {'cne': etudiantLicence.cne }) }}" class="btn btn-success btn-block" target="_blank">
-                        Générer le PDF | إنشاء بدف
+                        {{ 'pdf_gen'|trans }}
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="{{ path('etudiantlicence_edit', { 'id': etudiantLicence.id }) }}" class="btn btn-info pull-left  btn-block">
-                        Modifier | تغيير
+                        {{ 'modifier'|trans }}
                     </a>
                 </div>
                 {% if is_granted("ROLE_ADMIN") %}
